@@ -15,7 +15,9 @@
     "@mui/icons-material": "^7.0.2",
     "@mui/material": "^7.0.2",
     "@tailwindcss/vite": "^4.1.4",
+    "framer-motion": "^12.9.2",
     "react": "^19.0.0",
+    "react-countup": "^6.5.3",
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
