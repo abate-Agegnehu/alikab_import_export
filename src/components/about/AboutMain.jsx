@@ -6,11 +6,10 @@ import {
   Box,
   Card,
   CardContent,
-  CardHeader,
 } from '@mui/material';
 import { ImportExport, ShoppingCart, LocalShipping, Agriculture, Factory, Business, School } from '@mui/icons-material';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import about1 from '../assets/images/about1.jpg';
+import about1 from '../../assets/images/about1.jpg';
 
 const AboutMain = () => {
   return (
