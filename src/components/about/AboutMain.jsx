@@ -5,8 +5,7 @@ import {
   Grid,
   Box,
   Card,
-  CardContent,
-  CardHeader,
+  CardContent
 } from '@mui/material';
 import { ImportExport, ShoppingCart, LocalShipping, Agriculture, Factory, Business, School } from '@mui/icons-material';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
