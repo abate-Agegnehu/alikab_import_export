@@ -1,11 +1,12 @@
 import React from "react";
-// import About from "./pages/About";
-import Header from "./pages/Header";
+import About from "./pages/About";
+import Header from "./components/header/Header";
 const App = () => {
   return (
     <div>
+      <div>From home page</div>
       <Header />
-      {/* <About /> */}
+      <About />
     </div>
   );
 };
