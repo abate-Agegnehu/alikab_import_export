@@ -1,10 +1,11 @@
 import React from "react";
-import About from "./pages/About"
+// import About from "./pages/About";
+import Header from "./pages/Header";
 const App = () => {
   return (
     <div>
-      <div>From home page</div>
-      <About/>
+      <Header />
+      {/* <About /> */}
     </div>
   );
 };
