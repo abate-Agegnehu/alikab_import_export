@@ -7,7 +7,7 @@ import Award from '../components/about/Award'
 
 const About = () => {
   return (
-    <div className='bg-black'>
+    <div >
         <AboutMain/>
         <ExportProducts/>
         <VisionAndMission/>

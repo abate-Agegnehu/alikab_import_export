@@ -44,9 +44,7 @@ const ExportProducts = () => {
         <Box
           sx={{
             display: 'flex',
-            justifyContent: 'center',
-            flexWrap: 'wrap',
-            gap: 3,
+            gap:1
           }}
         >
           {exportItems.map((item, index) => (
