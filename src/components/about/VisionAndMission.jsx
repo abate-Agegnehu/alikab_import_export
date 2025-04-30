@@ -2,7 +2,7 @@ import React from 'react';
 import { Typography, Grid, Box, Card, CardContent } from '@mui/material';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import about1 from '../../assets/images/about1.jpg';
-
+import CountUp from 'react-countup';
 const VisionAndMission = () => {
   return (
     <Box sx={{ width: '100%', overflowX: 'hidden', mt: 2, py: 2 }}>
@@ -55,73 +55,79 @@ const VisionAndMission = () => {
           </Grid>
         ))}
       </Grid>
-        <Box
-              sx={{
-                width: '100vw',
-                position: 'relative',
-                height: 300,
-                backgroundImage: `url(${about1})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}
-            >
-              <Box
-                sx={{
-                  position: 'absolute',
-                  top: 0,
-                  left: 0,
-                  width: '100%',
-                  height: '100%',
-                  backgroundColor: 'rgba(0,0,0,0.4)',
-                  zIndex: 0,
-                }}
-              />
-             <Box
+   
+<Box
   sx={{
+    width: '100%',
     position: 'relative',
-    zIndex: 10,
-    color: 'white',
-    textAlign: 'center',
+    height: { xs: 400, sm: 350, md: 300 },
+    backgroundImage: `url(${about1})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
     display: 'flex',
-    justifyContent: 'space-between',
-    width: '80%',
-    px: 4,
+    alignItems: 'center',
+    justifyContent: 'center',
   }}
 >
-  {[ 
-    {
-      value: "400K",
-      label: "Tons of Sesame Exported",
-    },
-    {
-      value: "2000",
-      label: "Employment Opportunities",
-    },
-    {
-      value: "10+",
-      label: "Years of Trading Experience",
-    },
-    {
-      value: "20+",
-      label: "Export Destinations",
-    }
-  ].map(({ value, label, variant = "h5" }, index) => (
-    <Box key={index} sx={{ flex: 1 }}>
-      <Typography variant="h2" sx={{ fontWeight: 'bold' }}>
-        {value}
-      </Typography>
-      <Typography variant={variant} sx={{ fontWeight: 'bold' }}>
-        {label}
-      </Typography>
-    </Box>
-  ))}
+  <Box
+    sx={{
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      width: '100%',
+      height: '100%',
+      backgroundColor: 'rgba(0,0,0,0.4)',
+      zIndex: 0,
+    }}
+  />
+
+  <Box
+    sx={{
+      position: 'relative',
+      zIndex: 10,
+      color: 'white',
+      textAlign: 'center',
+      display: 'flex',
+      flexDirection: { xs: 'column', sm: 'row' },
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      width: '80%',
+      px: { xs: 2, sm: 4 },
+      gap: { xs: 3, sm: 0 },
+      maxWidth: 1200,
+      mx: 'auto',
+    }}
+  >
+    {[
+      { value: 400, suffix: "K", label: "Tons of Sesame Exported" },
+      { value: 200, suffix: "", label: "Employment Opportunities" },
+      { value: 10, suffix: "+", label: "Years of Trading Experience" },
+      { value: 20, suffix: "+", label: "Export Destinations" },
+    ].map(({ value, suffix, label }, index) => (
+      <Box key={index} sx={{ flex: 1 }}>
+        <Typography
+          variant="h3"
+          sx={{
+            fontWeight: 'bold',
+            fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' },
+          }}
+        >
+          <CountUp end={value} duration={2} separator="," suffix={suffix} />
+        </Typography>
+        <Typography
+          variant="subtitle1"
+          sx={{
+            fontWeight: 'bold',
+            fontSize: { xs: '1rem', sm: '1.1rem', md: '1.25rem' },
+          }}
+        >
+          {label}
+        </Typography>
+      </Box>
+    ))}
+  </Box>
 </Box>
 
-             
-            </Box>
     </Box>
   );
 };

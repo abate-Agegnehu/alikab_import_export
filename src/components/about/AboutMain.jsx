@@ -68,17 +68,37 @@ const AboutMain = () => {
       {/* Our Company Section */}
       <Container sx={{ py: 8 }}>
         <Grid container spacing={4}>
-          <Grid item xs={12} md={4}>
-            <Typography
-              variant="h4"
-              sx={{
-                fontWeight: 'bold',
-                color: '#212A5E',
-                fontSize: { xs: '1.8rem', md: '2.2rem' },
-              }}
-            >
-              Our Company
-            </Typography>
+          <Grid item xs={12} md={4} sx={{
+            width:"100%",
+            display:"flex",
+            justifyContent:"center"
+          }}>
+<Box sx={{ display: 'inline-block', mb: 2 }}>
+  <Typography
+    variant="h4"
+    sx={{
+      fontWeight: 'bold',
+      color: '#212A5E',
+      fontSize: { xs: '1.8rem', md: '2.2rem' },
+      textAlign: 'center',
+    }}
+  >
+    Our Company
+  </Typography>
+  <Box
+    sx={{
+      height: '5px',
+      backgroundColor: '#FA812F',
+      mt: '6px',
+      width: '80%',
+      mx: 'auto', // This centers the underline
+    }}
+  />
+</Box>
+
+
+
+
           </Grid>
 
           <Grid item xs={12} md={8}>
@@ -147,6 +167,7 @@ const AboutMain = () => {
                 width: '100%',
                 maxWidth: 280,
                 transition: "0.3s",
+                backgroundColor: "#F9F9F9",
                 "&:hover": {
                   backgroundColor: "#212A5E",
                   opacity: 1,
