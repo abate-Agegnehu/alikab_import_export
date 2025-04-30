@@ -1,9 +1,9 @@
 import React from 'react'
-import AboutMain from '../components/AboutMain'
-import ExportProducts from '../components/ExportProducts'
-import VisionAndMission from '../components/VisionAndMission'
-import Team from '../components/Team'
-import Award from '../components/Award'
+import AboutMain from '../components/about/AboutMain'
+import ExportProducts from '../components/about/ExportProducts'
+import VisionAndMission from '../components/about/VisionAndMission'
+import Team from '../components/about/Team'
+import Award from '../components/about/Award'
 
 const About = () => {
   return (
