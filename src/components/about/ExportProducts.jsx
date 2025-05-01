@@ -3,30 +3,48 @@ import { Box, Typography, Paper } from '@mui/material';
 import coffee from "../../assets/images/coffee.jpg";
 import oilseeds from "../../assets/images/oilseeds.jpg";
 import pulses from "../../assets/images/pulses.jpg";
+import soybean from "../../assets/images/soybean.jpg";
+import beans from "../../assets/images/beans.jpg";
+import bean from "../../assets/images/bean.jpg";
+
 
 const exportItems = [
-  { src: coffee, label: "Coffee" },
   { src: oilseeds, label: "Oilseeds" },
+  { src: coffee, label: "Coffee" },
   { src: pulses, label: "Pulses" },
+  { src: soybean, label: "Soybean" },
+  { src: beans, label: "Bean Pack" },
+  { src: bean, label: "Bean" },
 ];
 
 const ExportProducts = () => {
   return (
-    <Box sx={{ py: 6, px: 3, backgroundColor: "#F9F9F9" }}>
-      <Paper elevation={0} sx={{ p: 4, maxWidth: 1000, mx: 'auto' }}>
-        <Typography
-          variant="h4"
-          component="h1"
-          gutterBottom
-          sx={{
-            fontWeight: 'bold',
-            textAlign: 'center',
-            color: '#212A5E',
-            mb: 3,
-          }}
-        >
-          Export Products
-        </Typography>
+    <Box sx={{my:2, py: 6, px: 2, backgroundColor: "#F9F9F9" }}>
+      <Paper elevation={0} sx={{ p: 4, maxWidth: 1200, mx: 'auto' }}>
+      <Box sx={{ mb: 3 }}>
+  <Typography
+    variant="h4"
+    component="h1"
+    gutterBottom
+    sx={{
+      fontWeight: 'bold',
+      textAlign: 'center',
+      color: '#212A5E',
+    }}
+  >
+    Export Products
+  </Typography>
+  <Box
+    sx={{
+      height: '5px',
+      backgroundColor: '#FA812F',
+      mt: '6px',
+      width: { xs: "40%", sm: "30%", md: "20%"},
+      mx: 'auto', 
+    }}
+  />
+</Box>
+
 
         <Typography
           variant="body1"
@@ -44,7 +62,9 @@ const ExportProducts = () => {
         <Box
           sx={{
             display: 'flex',
-            gap:1
+            flexWrap: 'wrap',
+            gap: 2,
+            justifyContent: { xs: 'center', sm: 'space-between' },
           }}
         >
           {exportItems.map((item, index) => (
@@ -52,7 +72,7 @@ const ExportProducts = () => {
               key={index}
               sx={{
                 position: 'relative',
-                width: 300,
+                width: { xs: '100%', sm: '48%', md: 360 },
                 height: 200,
                 borderRadius: 2,
                 overflow: 'hidden',
