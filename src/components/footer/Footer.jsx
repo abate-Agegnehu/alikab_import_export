@@ -46,7 +46,7 @@ const Footer = () => {
     >
       <Grid
         container
-        spacing={12}
+        spacing={4}
         sx={{
           lineHeight: 1.8,
           fontFamily: "Arial",
