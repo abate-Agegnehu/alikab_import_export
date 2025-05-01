@@ -1,23 +1,23 @@
-import React, { useState, useRef } from 'react';
-import { 
-  Box, 
-  Typography, 
-  Card, 
-  CardMedia, 
-  useTheme, 
+import React, { useState, useRef } from "react";
+import {
+  Box,
+  Typography,
+  Card,
+  CardMedia,
+  useTheme,
   useMediaQuery,
   Modal,
   IconButton,
-  Stack
-} from '@mui/material';
-import { motion } from 'framer-motion';
-import CloseIcon from '@mui/icons-material/Close';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import logo1 from '../../assets/images/logo1.jpg'; 
-import logo2 from '../../assets/images/logo2.jpg'; 
-import logo3 from '../../assets/images/logo3.jpg'; 
-import logo4 from '../../assets/images/logo4.jpg'; 
+  Stack,
+} from "@mui/material";
+import { motion } from "framer-motion";
+import CloseIcon from "@mui/icons-material/Close";
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import logo1 from "../../assets/images/logo1.jpg";
+import logo2 from "../../assets/images/logo2.jpg";
+import logo3 from "../../assets/images/logo3.jpg";
+import logo4 from "../../assets/images/logo4.jpg";
 
 const awards = [
   { id: 1, image: logo1 },
@@ -32,7 +32,7 @@ const awards = [
 
 const Award = () => {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const [open, setOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const scrollContainerRef = useRef(null);
@@ -47,13 +47,13 @@ const Award = () => {
   };
 
   const handlePrev = () => {
-    setCurrentImageIndex((prevIndex) => 
+    setCurrentImageIndex((prevIndex) =>
       prevIndex === 0 ? awards.length - 1 : prevIndex - 1
     );
   };
 
   const handleNext = () => {
-    setCurrentImageIndex((prevIndex) => 
+    setCurrentImageIndex((prevIndex) =>
       prevIndex === awards.length - 1 ? 0 : prevIndex + 1
     );
   };
@@ -62,7 +62,7 @@ const Award = () => {
     if (scrollContainerRef.current) {
       scrollContainerRef.current.scrollBy({
         left: -200,
-        behavior: 'smooth'
+        behavior: "smooth",
       });
     }
   };
@@ -71,17 +71,18 @@ const Award = () => {
     if (scrollContainerRef.current) {
       scrollContainerRef.current.scrollBy({
         left: 200,
-        behavior: 'smooth'
+        behavior: "smooth",
       });
     }
   };
 
   return (
-    <Box 
-      sx={{ 
+    <Box
+      sx={{
         py: 8,
         backgroundColor: theme.palette.background.default,
-        position: 'relative',
+        position: "relative",
+        marginBottom: { md: "400px" },
       }}
       id="awards"
     >
@@ -90,31 +91,32 @@ const Award = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <Typography 
-          variant="h3" 
-          component="h3" 
-          sx={{ 
-            textAlign: 'center',
+        <Typography
+          variant="h3"
+          component="h3"
+          sx={{
+            textAlign: "center",
             mb: 1,
             fontWeight: 700,
             color: "#212A5E",
-            fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' }
+            fontSize: { xs: "2rem", sm: "2.5rem", md: "3rem" },
           }}
         >
           Awards of Merit and Appreciation
         </Typography>
-        
-        <Typography 
-          variant="h5" 
-          component="p" 
-          sx={{ 
-            textAlign: 'center',
+
+        <Typography
+          variant="h5"
+          component="p"
+          sx={{
+            textAlign: "center",
             mb: 3,
             color: "#4E4E4EB3",
-            fontSize: { xs: '1rem', sm: '1.25rem', md: '1.5rem' }
+            fontSize: { xs: "1rem", sm: "1.25rem", md: "1.5rem" },
           }}
         >
-          We have been honored with recognition from various prestigious organizations
+          We have been honored with recognition from various prestigious
+          organizations
         </Typography>
       </motion.div>
 
@@ -122,16 +124,16 @@ const Award = () => {
       <IconButton
         onClick={scrollLeft}
         sx={{
-          position: 'absolute',
+          position: "absolute",
           left: 20,
-          top: '50%',
-          transform: 'translateY(-50%)',
+          top: "50%",
+          transform: "translateY(-50%)",
           zIndex: 2,
-          backgroundColor: 'rgba(255,255,255,0.7)',
-          '&:hover': {
-            backgroundColor: 'rgba(255,255,255,0.9)',
+          backgroundColor: "rgba(255,255,255,0.7)",
+          "&:hover": {
+            backgroundColor: "rgba(255,255,255,0.9)",
           },
-          display: { xs: 'none', sm: 'flex' },
+          display: { xs: "none", sm: "flex" },
         }}
       >
         <ChevronLeftIcon fontSize="large" />
@@ -142,15 +144,15 @@ const Award = () => {
         direction="row"
         spacing={{ xs: 2, sm: 4 }}
         sx={{
-          overflowX: 'auto',
-          scrollbarWidth: 'none', 
-          '&::-webkit-scrollbar': {
-            display: 'none',
+          overflowX: "auto",
+          scrollbarWidth: "none",
+          "&::-webkit-scrollbar": {
+            display: "none",
           },
-          mx: 'auto',
-          maxWidth: '90%',
+          mx: "auto",
+          maxWidth: "90%",
           py: 2,
-          alignItems: 'center',
+          alignItems: "center",
         }}
         ref={scrollContainerRef}
       >
@@ -163,33 +165,30 @@ const Award = () => {
             whileHover={{ scale: 1.05 }}
             style={{
               flexShrink: 0,
-              margin: '0 8px',
-
+              margin: "0 8px",
             }}
           >
             <Box
               sx={{
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                cursor: 'pointer',
-
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                cursor: "pointer",
               }}
               onClick={() => handleOpen(index)}
             >
               <Card
                 sx={{
-              
-                  borderRadius: '50%',
+                  borderRadius: "50%",
                   boxShadow: 3,
-                  transition: 'all 0.3s ease',
-                  '&:hover': {
+                  transition: "all 0.3s ease",
+                  "&:hover": {
                     boxShadow: 6,
                   },
-                  backgroundColor: 'transparent',
-                  display: 'flex',
-                  justifyContent: 'center',
-                  alignItems: 'center',
+                  backgroundColor: "transparent",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
                   p: 1,
                 }}
               >
@@ -198,10 +197,10 @@ const Award = () => {
                   image={award.image}
                   alt={`Award ${award.id}`}
                   sx={{
-                    width: { xs: 60, sm: 100, md: 150},
-                    height: { xs: 60, sm: 100, md: 150},
-                    objectFit: 'contain',
-                    borderRadius: '50%',
+                    width: { xs: 60, sm: 100, md: 150 },
+                    height: { xs: 60, sm: 100, md: 150 },
+                    objectFit: "contain",
+                    borderRadius: "50%",
                   }}
                 />
               </Card>
@@ -214,16 +213,16 @@ const Award = () => {
       <IconButton
         onClick={scrollRight}
         sx={{
-          position: 'absolute',
+          position: "absolute",
           right: 20,
-          top: '50%',
-          transform: 'translateY(-50%)',
+          top: "50%",
+          transform: "translateY(-50%)",
           zIndex: 2,
-          backgroundColor: 'rgba(255,255,255,0.7)',
-          '&:hover': {
-            backgroundColor: 'rgba(255,255,255,0.9)',
+          backgroundColor: "rgba(255,255,255,0.7)",
+          "&:hover": {
+            backgroundColor: "rgba(255,255,255,0.9)",
           },
-          display: { xs: 'none', sm: 'flex' },
+          display: { xs: "none", sm: "flex" },
         }}
       >
         <ChevronRightIcon fontSize="large" />
@@ -234,32 +233,32 @@ const Award = () => {
         open={open}
         onClose={handleClose}
         sx={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          backdropFilter: 'blur(5px)',
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          backdropFilter: "blur(5px)",
         }}
       >
         <Box
           sx={{
-            position: 'relative',
-            width: isMobile ? '90%' : '70%',
-            maxWidth: '800px',
-            outline: 'none',
+            position: "relative",
+            width: isMobile ? "90%" : "70%",
+            maxWidth: "800px",
+            outline: "none",
           }}
         >
           {/* Close Button */}
           <IconButton
             onClick={handleClose}
             sx={{
-              position: 'absolute',
+              position: "absolute",
               right: 10,
               top: 10,
               zIndex: 2,
-              color: 'white',
-              backgroundColor: 'rgba(0,0,0,0.5)',
-              '&:hover': {
-                backgroundColor: 'rgba(0,0,0,0.7)',
+              color: "white",
+              backgroundColor: "rgba(0,0,0,0.5)",
+              "&:hover": {
+                backgroundColor: "rgba(0,0,0,0.7)",
               },
             }}
           >
@@ -270,15 +269,15 @@ const Award = () => {
           <IconButton
             onClick={handlePrev}
             sx={{
-              position: 'absolute',
+              position: "absolute",
               left: 10,
-              top: '50%',
-              transform: 'translateY(-50%)',
+              top: "50%",
+              transform: "translateY(-50%)",
               zIndex: 2,
-              color: 'white',
-              backgroundColor: 'rgba(0,0,0,0.5)',
-              '&:hover': {
-                backgroundColor: 'rgba(0,0,0,0.7)',
+              color: "white",
+              backgroundColor: "rgba(0,0,0,0.5)",
+              "&:hover": {
+                backgroundColor: "rgba(0,0,0,0.7)",
               },
             }}
           >
@@ -297,10 +296,10 @@ const Award = () => {
               image={awards[currentImageIndex].image}
               alt={`Award ${awards[currentImageIndex].id}`}
               sx={{
-                width: '100%',
-                height: 'auto',
-                maxHeight: '80vh',
-                objectFit: 'contain',
+                width: "100%",
+                height: "auto",
+                maxHeight: "80vh",
+                objectFit: "contain",
                 borderRadius: 2,
               }}
             />
@@ -310,15 +309,15 @@ const Award = () => {
           <IconButton
             onClick={handleNext}
             sx={{
-              position: 'absolute',
+              position: "absolute",
               right: 10,
-              top: '50%',
-              transform: 'translateY(-50%)',
+              top: "50%",
+              transform: "translateY(-50%)",
               zIndex: 2,
-              color: 'white',
-              backgroundColor: 'rgba(0,0,0,0.5)',
-              '&:hover': {
-                backgroundColor: 'rgba(0,0,0,0.7)',
+              color: "white",
+              backgroundColor: "rgba(0,0,0,0.5)",
+              "&:hover": {
+                backgroundColor: "rgba(0,0,0,0.7)",
               },
             }}
           >
