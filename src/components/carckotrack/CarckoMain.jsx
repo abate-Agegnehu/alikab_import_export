@@ -1,6 +1,9 @@
-import React from "react";
-import { Box, Typography } from "@mui/material";
+import React, { useEffect, useState } from "react";
+import { Box, Typography, IconButton } from "@mui/material";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+
 import cargo from "../../assets/images/cargo.jpg";
 import suv from "../../assets/images/suv.jpg";
 import suv2 from "../../assets/images/suv2.jpg";
@@ -9,6 +12,9 @@ import track1 from "../../assets/images/track1.jpg";
 import track2 from "../../assets/images/track2.jpg";
 import vehicle from "../../assets/images/vehicle.jpg";
 import suvinterior from "../../assets/images/suvinterior.jpg";
+
+const backgroundImages = [cargo, suv, suv2, track, track1, track2];
+
 const teams = [
   { src: suv },
   { src: suv2 },
@@ -19,22 +25,41 @@ const teams = [
 ];
 
 const CarckoMain = () => {
+  const [current, setCurrent] = useState(0);
+
+  // Auto slide every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % backgroundImages.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const handleNext = () => {
+    setCurrent((prev) => (prev + 1) % backgroundImages.length);
+  };
+
+  const handlePrev = () => {
+    setCurrent((prev) => (prev === 0 ? backgroundImages.length - 1 : prev - 1));
+  };
+
   return (
     <Box sx={{ marginBottom: { md: "400px" } }}>
+      {/* Hero Section */}
       <Box
         sx={{
+          position: "relative",
           width: "100%",
           minHeight: { xs: "40vh", sm: "70vh", md: "100vh" },
-          position: "relative",
-          backgroundImage: `url(${cargo})`,
+          backgroundImage: `url(${backgroundImages[current]})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
-          backgroundColor: "#000", // fallback color
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          px: 2, // horizontal padding for small screens
+          px: 2,
+          transition: "background-image 1s ease-in-out",
         }}
       >
         {/* Overlay */}
@@ -93,8 +118,46 @@ const CarckoMain = () => {
             }}
           />
         </Box>
+
+        {/* Navigation Icons */}
+        <IconButton
+          onClick={handlePrev}
+          sx={{
+            position: "absolute",
+            top: "50%",
+            left: 16,
+            transform: "translateY(-50%)",
+            zIndex: 2,
+            color: "white",
+            backgroundColor: "rgba(0,0,0,0.4)",
+            "&:hover": {
+              backgroundColor: "rgba(0,0,0,0.6)",
+            },
+          }}
+        >
+          <ArrowBackIosNewIcon />
+        </IconButton>
+
+        <IconButton
+          onClick={handleNext}
+          sx={{
+            position: "absolute",
+            top: "50%",
+            right: 16,
+            transform: "translateY(-50%)",
+            zIndex: 2,
+            color: "white",
+            backgroundColor: "rgba(0,0,0,0.4)",
+            "&:hover": {
+              backgroundColor: "rgba(0,0,0,0.6)",
+            },
+          }}
+        >
+          <ArrowForwardIosIcon />
+        </IconButton>
       </Box>
 
+      {/* Section 2 - Vehicle Description */}
       <Box
         sx={{
           display: "flex",
@@ -127,12 +190,7 @@ const CarckoMain = () => {
             automobile and commercial vehicle manufacturer based in Hefei, Anhui
             Province—brings a diverse lineup of vehicles to the market,
             including sedans, SUVs, MPVs, light- and heavy-duty trucks, vans,
-            and pickups. Carcko Car began its collaboration with JAC Motors
-            after acquiring the former Holland Cars Assembly, initially focusing
-            on the assembly and distribution of the JAC J3 and JAC J4 models.
-            Currently, Carcko Car is assembling the JAC T8 pickup, continuing
-            its commitment to delivering reliable and robust vehicles to the
-            market.
+            and pickups...
           </Typography>
         </Box>
         <Box
@@ -148,6 +206,7 @@ const CarckoMain = () => {
         />
       </Box>
 
+      {/* Section 3 - Team Vehicles */}
       <Box
         sx={{
           display: "flex",
@@ -181,7 +240,7 @@ const CarckoMain = () => {
             >
               <img
                 src={item.src}
-                alt={item.label}
+                alt={`Vehicle ${index}`}
                 style={{
                   width: "100%",
                   height: "100%",
@@ -193,6 +252,8 @@ const CarckoMain = () => {
           ))}
         </Box>
       </Box>
+
+      {/* Section 4 - Proven Track Record */}
       <Box
         sx={{
           display: "flex",
@@ -223,11 +284,7 @@ const CarckoMain = () => {
           <Typography sx={{ color: "#666", lineHeight: 1.8 }}>
             With years of industry experience, Alikab has consistently delivered
             reliable vehicles and unmatched service across electric, hybrid, and
-            commercial segments. Our success is built on trust, quality, and a
-            commitment to innovation — earning the confidence of customers and
-            partners alike. From efficient electric cars to rugged trucks, we
-            stand behind every vehicle with a legacy of performance and
-            excellence.
+            commercial segments...
           </Typography>
         </Box>
         <Box
