@@ -3,6 +3,7 @@ import About from "./pages/About";
 import Header from "./components/header/Header";
 import Carcko from "./pages/Carcko";
 import Contact from "./pages/Contact";
+import Export from "./pages/Export";
 const App = () => {
   return (
     <div>
@@ -10,7 +11,8 @@ const App = () => {
       <Header />
       {/* <About /> */}
       {/* <Carcko /> */}
-      <Contact />
+      {/* <Contact /> */}
+      <Export />
     </div>
   );
 };
