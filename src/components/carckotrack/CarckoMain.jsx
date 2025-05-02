@@ -231,7 +231,7 @@ const CarckoMain = () => {
               key={index}
               sx={{
                 position: "relative",
-                width: { xs: "100%", sm: "48%", md: 400 },
+                width: { xs: "100%", sm: "48%", md: "30%" },
                 height: 350,
                 borderRadius: 2,
                 overflow: "hidden",
