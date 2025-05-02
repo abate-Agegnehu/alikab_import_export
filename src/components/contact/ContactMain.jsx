@@ -12,7 +12,7 @@ import SmartphoneIcon from "@mui/icons-material/Smartphone";
 import EmailIcon from "@mui/icons-material/Email";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import contact from "../../assets/images/about1.jpg";
+import contact from "../../assets/images/contact.jpg";
 
 const ContactMain = () => {
   const [captcha, setCaptcha] = useState("");
@@ -99,7 +99,7 @@ const ContactMain = () => {
           <Grid item xs={12} sm={6} md={3} textAlign="center">
             <Box
               sx={{
-                backgroundColor: "#d74a29",
+                backgroundColor: "#212A5E",
                 borderRadius: "50%",
                 width: { xs: "50px", sm: "60px", md: "80px" },
                 height: { xs: "50px", sm: "60px", md: "80px" },
@@ -113,7 +113,7 @@ const ContactMain = () => {
             </Box>
             <Typography
               variant="h6"
-              sx={{ mt: 2, color: "#212A5E", fontWeight: "bold" }}
+              sx={{ mt: 2, color: "#d74a29", fontWeight: "bold" }}
             >
               Location
             </Typography>
@@ -125,7 +125,7 @@ const ContactMain = () => {
           <Grid item xs={12} sm={6} md={3} textAlign="center">
             <Box
               sx={{
-                backgroundColor: "#d74a29",
+                backgroundColor: "#212A5E",
                 borderRadius: "50%",
                 width: { xs: "50px", sm: "60px", md: "80px" },
                 height: { xs: "50px", sm: "60px", md: "80px" },
@@ -139,7 +139,7 @@ const ContactMain = () => {
             </Box>
             <Typography
               variant="h6"
-              sx={{ mt: 2, color: "#212A5E", fontWeight: "bold" }}
+              sx={{ mt: 2, color: "#d74a29", fontWeight: "bold" }}
             >
               Call Us
             </Typography>
@@ -151,7 +151,7 @@ const ContactMain = () => {
           <Grid item xs={12} sm={6} md={3} textAlign="center">
             <Box
               sx={{
-                backgroundColor: "#d74a29",
+                backgroundColor: "#212A5E",
                 borderRadius: "50%",
                 width: { xs: "50px", sm: "60px", md: "80px" },
                 height: { xs: "50px", sm: "60px", md: "80px" },
@@ -165,7 +165,7 @@ const ContactMain = () => {
             </Box>
             <Typography
               variant="h6"
-              sx={{ mt: 2, color: "#212A5E", fontWeight: "bold" }}
+              sx={{ mt: 2, color: "#d74a29", fontWeight: "bold" }}
             >
               Send Email
             </Typography>
@@ -176,7 +176,7 @@ const ContactMain = () => {
           <Grid item xs={12} sm={6} md={3} textAlign="center">
             <Box
               sx={{
-                backgroundColor: "#d74a29",
+                backgroundColor: "#212A5E",
                 borderRadius: "50%",
                 width: { xs: "50px", sm: "60px", md: "80px" },
                 height: { xs: "50px", sm: "60px", md: "80px" },
@@ -190,7 +190,7 @@ const ContactMain = () => {
             </Box>
             <Typography
               variant="h6"
-              sx={{ mt: 2, color: "#212A5E", fontWeight: "bold" }}
+              sx={{ mt: 2, color: "#d74a29", fontWeight: "bold" }}
             >
               Working Hours
             </Typography>
@@ -248,16 +248,30 @@ const ContactMain = () => {
               <TextField
                 fullWidth
                 placeholder="Name"
+                variant="outlined"
                 sx={{
                   backgroundColor: "#eee",
-                  borderRadius: 2,
-                  outline: "none",
+                  borderRadius: 4,
+                  "& .MuiOutlinedInput-root": {
+                    "& fieldset": {
+                      border: "none",
+                    },
+                  },
                 }}
               />
               <TextField
                 fullWidth
                 placeholder="Email Address"
-                sx={{ backgroundColor: "#eee", borderRadius: 2 }}
+                variant="outlined"
+                sx={{
+                  backgroundColor: "#eee",
+                  borderRadius: 4,
+                  "& .MuiOutlinedInput-root": {
+                    "& fieldset": {
+                      border: "none",
+                    },
+                  },
+                }}
               />
             </Grid>
 
@@ -272,14 +286,31 @@ const ContactMain = () => {
               <TextField
                 fullWidth
                 placeholder="Phone Number"
-                sx={{ backgroundColor: "#eee", borderRadius: 2 }}
+                variant="outlined"
+                sx={{
+                  backgroundColor: "#eee",
+                  borderRadius: 4,
+                  "& .MuiOutlinedInput-root": {
+                    "& fieldset": {
+                      border: "none",
+                    },
+                  },
+                }}
               />
               <TextField
                 select
                 fullWidth
                 label="Department"
                 variant="outlined"
-                sx={{ backgroundColor: "#eee", borderRadius: 2 }}
+                sx={{
+                  backgroundColor: "#eee",
+                  borderRadius: 4,
+                  "& .MuiOutlinedInput-root": {
+                    "& fieldset": {
+                      border: "none",
+                    },
+                  },
+                }}
                 defaultValue=""
               >
                 {departments.map((option) => (
@@ -298,7 +329,15 @@ const ContactMain = () => {
                 multiline
                 rows={5}
                 variant="outlined"
-                sx={{ backgroundColor: "#eee", borderRadius: 2 }}
+                sx={{
+                  backgroundColor: "#eee",
+                  borderRadius: 4,
+                  "& .MuiOutlinedInput-root": {
+                    "& fieldset": {
+                      border: "none",
+                    },
+                  },
+                }}
               />
             </Grid>
 
@@ -314,8 +353,19 @@ const ContactMain = () => {
                   fontWeight: "bold",
                   fontSize: "1rem",
                   borderRadius: 3,
+                  outline: "none",
+                  boxShadow: "none",
+                  "&:focus": {
+                    outline: "none",
+                    boxShadow: "none",
+                  },
+                  "&:focus-visible": {
+                    outline: "none",
+                    boxShadow: "none",
+                  },
                   "&:hover": {
                     backgroundColor: "#1a1a45",
+                    boxShadow: "none",
                   },
                 }}
               >
@@ -340,12 +390,6 @@ const ContactMain = () => {
             height: "500px",
           }}
         >
-          <Typography
-            variant="h5"
-            sx={{ mb: 2, fontWeight: "bold", color: "#212A5E" }}
-          >
-            Our Location - Agona, Addis Ababa
-          </Typography>
           <iframe
             title="Agona Location Map"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.013066544377!2d38.76741861477833!3d8.99060529208445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b85b9825b812f%3A0xe03fcf4052953622!2sGotera%20Condominium!5e0!3m2!1sen!2set!4v1683039011921!5m2!1sen!2set"
