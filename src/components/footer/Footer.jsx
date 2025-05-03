@@ -7,7 +7,7 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import TelegramIcon from "@mui/icons-material/Telegram";
 import YouTubeIcon from "@mui/icons-material/YouTube";
-import logo4 from "../../../public/logo4.png";
+import logo4 from "../../assets/images/logo4.png";
 
 const Footer = () => {
   const [zIndex, setZIndex] = useState(1);
@@ -46,7 +46,7 @@ const Footer = () => {
     >
       <Grid
         container
-        spacing={12}
+        spacing={8}
         sx={{
           lineHeight: 1.8,
           fontFamily: "Arial",

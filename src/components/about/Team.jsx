@@ -4,7 +4,7 @@ import ceo1 from "../../assets/images/ceo1.jpg";
 import ceo2 from "../../assets/images/ceo2.jpg";
 import ceo3 from "../../assets/images/ceo3.jpg";
 
-const exportItems = [
+const teams = [
   { src: ceo1, label: "Ethan Harper", job: "CEO" },
   { src: ceo2, label: "Sophia Collins", job: "Co-Founder" },
   { src: ceo3, label: "James Anderson", job: "HR" },
@@ -46,7 +46,7 @@ const Team = () => {
             justifyContent: { xs: "center", sm: "space-between" },
           }}
         >
-          {exportItems.map((item, index) => (
+          {teams.map((item, index) => (
             <Box
               key={index}
               sx={{
