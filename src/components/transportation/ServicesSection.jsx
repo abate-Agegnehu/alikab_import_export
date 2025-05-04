@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   FiArrowRight,
   FiCheckCircle,
@@ -14,77 +14,80 @@ import {
 } from "react-icons/fi";
 
 const ServicesSection = () => {
-  const [hoveredService, setHoveredService] = useState(null);
   const [activeFeature, setActiveFeature] = useState(0);
 
   const services = [
     {
       id: 1,
-      title: "Global Shipping",
-      description: "End-to-end ocean freight solutions with real-time tracking",
-      icon: <FiAnchor className="text-3xl" />,
-      stats: "98.7% on-time delivery",
-      color: "from-blue-500 to-blue-600",
+      title: "Land Transportation in Ethiopia",
+      description:
+        "Efficient and reliable road logistics for domestic deliveries across Ethiopia.",
+      icon: <FiTruck className="text-3xl" />,
+      stats: "99.7% on-time delivery in Ethiopia",
+      color: "from-emerald-500 to-emerald-600",
     },
     {
       id: 2,
-      title: "Air Cargo",
-      description: "Express air freight for time-sensitive shipments worldwide",
+      title: "East Africa Land Transport",
+      description:
+        "Seamless road transport connecting Ethiopia to neighboring East African countries.",
       icon: <FiGlobe className="text-3xl" />,
-      stats: "24-48 hour delivery",
+      stats: "Connecting 5+ East African countries",
       color: "from-purple-500 to-purple-600",
     },
     {
       id: 3,
-      title: "Land Transport",
+      title: "Border & Customs Logistics",
       description:
-        "Reliable road logistics with temperature-controlled options",
-      icon: <FiTruck className="text-3xl" />,
-      stats: "10,000+ vehicles",
-      color: "from-emerald-500 to-emerald-600",
+        "Expert handling of border customs for smooth cross-border transportation in East Africa.",
+      icon: <FiAnchor className="text-3xl" />,
+      stats: "Efficient cross-border clearance",
+      color: "from-blue-500 to-blue-600",
     },
     {
       id: 4,
-      title: "Warehousing",
-      description: "Secure storage solutions with inventory management",
+      title: "Warehousing & Distribution",
+      description:
+        "State-of-the-art storage facilities and inventory management in Ethiopia and East Africa.",
       icon: <FiPackage className="text-3xl" />,
-      stats: "5M+ sq. ft. space",
+      stats: "5M+ sq. ft. warehousing space across the region",
       color: "from-amber-500 to-amber-600",
     },
   ];
 
   const features = [
     {
-      title: "Real-time Analytics",
+      title: "Local Transportation Insights",
       description:
-        "Advanced dashboard with shipment analytics and predictive insights",
+        "In-depth analysis of delivery patterns and shipment efficiency within Ethiopia and East Africa.",
       icon: <FiBarChart2 className="text-2xl" />,
     },
     {
-      title: "Global Coverage",
-      description: "Seamless logistics network spanning 200+ countries",
+      title: "East Africa Network",
+      description:
+        "Comprehensive land transport network connecting Ethiopia with key East African countries.",
       icon: <FiMapPin className="text-2xl" />,
     },
     {
-      title: "Fast Delivery",
-      description: "Guanteed time windows with our premium services",
+      title: "On-Time Delivery Guarantee",
+      description:
+        "Reliable and punctual deliveries within agreed time windows in Ethiopia and East Africa.",
       icon: <FiClock className="text-2xl" />,
     },
     {
-      title: "Dedicated Support",
-      description: "24/7 customer service with dedicated account managers",
+      title: "24/7 Support",
+      description:
+        "Round-the-clock customer support with dedicated managers to assist with logistics in the region.",
       icon: <FiHeadphones className="text-2xl" />,
     },
   ];
 
   return (
     <div className="relative bg-white w-full min-h-screen overflow-hidden text-gray-900">
-      {/* Decorative grid pattern */}
+      {/* Background visuals */}
       <div className="absolute inset-0 opacity-5 [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_80%)]">
         <div className="absolute inset-0 bg-grid-gray-900/[0.04]"></div>
       </div>
-
-      {/* Floating gradient circles */}
       <div className="absolute inset-0 opacity-15 overflow-hidden">
         <div className="-top-20 -right-20 absolute bg-blue-400/20 blur-3xl rounded-full w-96 h-96"></div>
         <div className="-bottom-20 -left-20 absolute bg-purple-400/20 blur-3xl rounded-full w-96 h-96"></div>
@@ -102,7 +105,7 @@ const ServicesSection = () => {
             Enterprise Solutions
           </h2>
           <h1 className="font-bold text-gray-900 text-4xl md:text-5xl">
-            Next-Generation
+            Next-Generation{" "}
             <span className="inline-block relative ml-3">
               Logistics
               <svg
@@ -122,22 +125,21 @@ const ServicesSection = () => {
             </span>
           </h1>
           <p className="mx-auto mt-6 max-w-3xl text-gray-600 text-lg">
-            Our intelligent logistics platform combines cutting-edge technology
-            with global infrastructure to deliver unparalleled supply chain
-            performance.
+            Our intelligent logistics platform harnesses advanced technology and
+            a robust regional network to deliver reliable land transportation
+            across Ethiopia and East Africa, ensuring efficient and dependable
+            supply chain solutions for businesses throughout the continent.
           </p>
         </motion.div>
 
         <div className="gap-12 grid grid-cols-1 lg:grid-cols-2">
-          {/* Services cards */}
+          {/* Services Cards */}
           <div className="space-y-6">
             {services.map((service) => (
               <motion.div
                 key={service.id}
                 whileHover={{ y: -5 }}
-                onHoverStart={() => setHoveredService(service.id)}
-                onHoverEnd={() => setHoveredService(null)}
-                className={`relative overflow-hidden bg-white rounded-xl p-6 border border-gray-200 shadow-sm hover:shadow-md cursor-pointer transition-all duration-300 group`}
+                className="group relative bg-white shadow-sm hover:shadow-md p-6 border border-gray-200 rounded-xl overflow-hidden transition-all duration-300 cursor-pointer"
               >
                 <div className="flex items-start gap-5">
                   <div
@@ -156,21 +158,11 @@ const ServicesSection = () => {
                     </div>
                   </div>
                 </div>
-                <AnimatePresence>
-                  {hoveredService === service.id && (
-                    <motion.div
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      className="absolute inset-0 bg-gradient-to-br from-white to-gray-50/50 border border-blue-100 rounded-xl"
-                    />
-                  )}
-                </AnimatePresence>
               </motion.div>
             ))}
           </div>
 
-          {/* Features panel */}
+          {/* Features Panel */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -199,30 +191,28 @@ const ServicesSection = () => {
                 ))}
               </div>
 
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={activeFeature}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.3 }}
-                  className="mb-8"
-                >
-                  <div className="flex items-start gap-4">
-                    <div className="bg-blue-100 p-3 rounded-lg text-blue-600">
-                      {features[activeFeature].icon}
-                    </div>
-                    <div>
-                      <h4 className="font-medium text-gray-900 text-lg">
-                        {features[activeFeature].title}
-                      </h4>
-                      <p className="mt-2 text-gray-600">
-                        {features[activeFeature].description}
-                      </p>
-                    </div>
+              <motion.div
+                key={activeFeature}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.3 }}
+                className="mb-8"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="bg-blue-100 p-3 rounded-lg text-blue-600">
+                    {features[activeFeature].icon}
                   </div>
-                </motion.div>
-              </AnimatePresence>
+                  <div>
+                    <h4 className="font-medium text-gray-900 text-lg">
+                      {features[activeFeature].title}
+                    </h4>
+                    <p className="mt-2 text-gray-600">
+                      {features[activeFeature].description}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
 
               <div className="space-y-6 mt-12">
                 <div>
@@ -265,7 +255,7 @@ const ServicesSection = () => {
           </motion.div>
         </div>
 
-        {/* Stats section */}
+        {/* Stats Section */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
