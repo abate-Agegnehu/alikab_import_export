@@ -8,7 +8,6 @@ import AboutHero from "../components/home/AboutHero";
 const Home = () => {
   return (
     <div>
-      <Header />
       <LandingPageHome />
       <AboutHero />
       <CompanyHistory />
