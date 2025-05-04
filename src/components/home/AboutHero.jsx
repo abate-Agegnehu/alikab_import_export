@@ -8,7 +8,6 @@ import businessSectors from "../../assets/data/businessSectors.js";
 import importItems from "../../assets/data/importItems.js";
 import exportItems from "../../assets/data/exportItems";
 import { FaTractor, FaSeedling, FaTools } from "react-icons/fa";
-// this about here fdslfkasdfja
 const business = [
   {
     id: 1,
