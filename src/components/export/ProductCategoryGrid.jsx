@@ -23,7 +23,7 @@ const ProductCategoryGrid = ({ categories }) => {
   };
 
   return (
-    <Box sx={{ py: 8, px: 4, bgcolor: "#f5f5f5" }}>
+    <Box sx={{ py: 8, bgcolor: "#f5f5f5" }}>
       <Typography
         variant="h3"
         textAlign="center"
@@ -49,7 +49,7 @@ const ProductCategoryGrid = ({ categories }) => {
             <Card
               onClick={() => handleCardClick(category)}
               sx={{
-                width: 280,
+                width: 330,
                 height: "100%",
                 cursor: "pointer",
                 textAlign: "center",

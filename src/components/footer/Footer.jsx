@@ -20,7 +20,6 @@ const Footer = () => {
         bottom: 0,
         left: 0,
         width: "100%",
-        border: 1,
       }}
     >
       <Grid

@@ -105,7 +105,7 @@ const Hero = ({ slides, onCtaClick }) => {
               onClick={() => goToSlide(index)}
               className={`w-3 h-3 rounded-full transition-all duration-300 ${
                 index === currentSlide
-                  ? "bg-blue-400 w-8 shadow-md"
+                  ? "bg-[#212A5E] w-8 shadow-md"
                   : "bg-white bg-opacity-30 hover:bg-opacity-50"
               }`}
               aria-label={`Go to slide ${index + 1}`}

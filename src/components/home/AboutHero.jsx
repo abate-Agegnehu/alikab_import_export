@@ -7,6 +7,7 @@ import importItems from "../../assets/data/importItems.js";
 import exportItems from "../../assets/data/exportItems.js";
 
 import { FaTractor, FaSeedling, FaTools } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const business = [
   {
@@ -34,6 +35,7 @@ const business = [
 const AboutHero = () => {
   const [activeTab, setActiveTab] = useState("transportation");
   const [selectedCard, setSelectedCard] = useState(null);
+  const navigate = useNavigate();
 
   return (
     <div>
@@ -106,32 +108,6 @@ const AboutHero = () => {
 
         {/* Core Content */}
         <div className="mx-auto px-4 py-16 md:py-24 max-w-7xl">
-          {/* Stats Grid */}
-          {/* <div className="gap-6 grid grid-cols-2 md:grid-cols-4 mb-16">
-            {[
-              { number: "14+", label: "Years in Business" },
-              { number: "500+", label: "Vehicles Imported" },
-              { number: "10K+", label: "Tons Exported" },
-              { number: "25+", label: "Countries Served" },
-            ].map((stat, index) => (
-              <motion.div
-                key={index}
-                initial={{ y: 50, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white shadow-lg p-6 border border-gray-200 rounded-xl transition-all duration-300"
-              >
-                <div className="mb-2 font-bold text-blue-600 text-3xl md:text-4xl">
-                  {stat.number}
-                </div>
-                <div className="text-gray-600 text-sm md:text-base">
-                  {stat.label}
-                </div>
-              </motion.div>
-            ))}
-          </div> */}
-
-          {/* Tabbed Content */}
           <div className="mb-20">
             <div className="flex flex-wrap justify-center gap-4 mb-12">
               {[
@@ -147,7 +123,7 @@ const AboutHero = () => {
                   onClick={() => setActiveTab(tab.id)}
                   className={`px-6 py-3 font-medium rounded-full transition-all ${
                     activeTab === tab.id
-                      ? "bg-blue-500 text-white shadow-lg"
+                      ? "bg-[#212A5E] text-white shadow-lg"
                       : "text-gray-700 hover:bg-gray-100 border border-gray-200"
                   }`}
                 >
@@ -166,7 +142,7 @@ const AboutHero = () => {
                   className="space-y-8"
                 >
                   <div className="bg-[#F9F9F9] p-8 md:p-12 border border-gray-100 rounded-2xl">
-                    <h3 className="mb-6 font-extrabold text-blue-900 text-2xl md:text-4xl tracking-tight">
+                    <h3 className="mb-6 font-extrabold text-[#212A5E] text-2xl md:text-4xl tracking-tight">
                       Efficient Cargo Transport Across Africa
                     </h3>
                     <p className="mb-6 text-gray-700 text-lg leading-relaxed">
@@ -213,7 +189,10 @@ const AboutHero = () => {
                       </div>
                     </div>
                     <div className="mt-10 text-center">
-                      <button className="bg-[#212A5E] hover:bg-blue-800 shadow-md px-8 py-3 rounded-full font-semibold text-white text-lg transition duration-300">
+                      <button
+                        className="bg-[#212A5E] hover:bg-[#414c86] shadow-md px-8 py-3 rounded-full font-semibold text-white text-lg transition duration-300"
+                        onClick={() => navigate("/vichles")}
+                      >
                         Book Your Cargo Slot Now
                       </button>
                     </div>
@@ -229,7 +208,7 @@ const AboutHero = () => {
                   transition={{ duration: 0.5 }}
                   className="space-y-8"
                 >
-                  <h3 className="mb-10 font-bold text-gray-800 text-2xl md:text-3xl text-center">
+                  <h3 className="mb-10 font-bold text-[#212A5E]  text-2xl md:text-3xl text-center">
                     Our Key Import Items
                   </h3>
                   <div className="gap-8 grid grid-cols-1 md:grid-cols-3">
@@ -245,7 +224,7 @@ const AboutHero = () => {
                           className="w-full h-64 object-cover"
                         />
                         <div className="p-6">
-                          <h4 className="mb-3 font-bold text-gray-800 text-xl">
+                          <h4 className="mb-3 font-bold text-[#212A5E] text-xl">
                             {item.title}
                           </h4>
                           <p className="mb-4 text-gray-600">
@@ -303,7 +282,7 @@ const AboutHero = () => {
                   transition={{ duration: 0.5 }}
                   className="space-y-8"
                 >
-                  <h3 className="mb-10 font-bold text-gray-800 text-2xl md:text-3xl text-center">
+                  <h3 className="mb-10 font-bold text-[#212A5E] text-2xl md:text-3xl text-center">
                     Our Key Export Items
                   </h3>
                   <div className="gap-8 grid grid-cols-1 md:grid-cols-3">
@@ -319,7 +298,7 @@ const AboutHero = () => {
                           className="w-full h-64 object-cover"
                         />
                         <div className="p-6">
-                          <h4 className="mb-3 font-bold text-gray-800 text-xl">
+                          <h4 className="mb-3 font-bold text-[#212A5E] text-xl">
                             {item.title}
                           </h4>
                           <p className="mb-4 text-gray-600">
@@ -422,7 +401,8 @@ const AboutHero = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-blue-500 hover:bg-blue-600 shadow-lg px-8 py-3 rounded-full font-semibold text-white text-lg transition-all duration-300"
+                className="bg-[#212A5E] hover:bg-[#324197] shadow-lg px-8 py-3 rounded-full font-semibold text-white text-lg transition-all duration-300"
+                onClick={() => navigate("/contact")}
               >
                 Contact Our Import Team
               </motion.button>
@@ -430,8 +410,9 @@ const AboutHero = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="hover:bg-gray-100 px-8 py-3 border-2 border-yellow-500 rounded-full font-semibold text-yellow-600 text-lg transition-all duration-300"
+                onClick={() => navigate("/about")}
               >
-                Contact Our Export Team
+                View Our Profile
               </motion.button>
             </div>
           </div>
@@ -439,8 +420,8 @@ const AboutHero = () => {
 
         {/* Card Detail Modal */}
         {selectedCard && (
-          <div className="z-50 fixed inset-0 flex justify-center items-center bg-black bg-opacity-75 p-4">
-            <div className="bg-white rounded-xl w-full max-w-4xl max-h-[90vh] overflow-y-auto">
+          <div className="z-50 fixed inset-0 flex justify-center items-center  bg-opacity-75 p-4">
+            <div className="bg-[#F9F9F9] rounded-xl w-full max-w-4xl max-h-[90vh] overflow-y-auto">
               <div className="relative">
                 <img
                   src={selectedCard.expandedSrc}
@@ -456,26 +437,26 @@ const AboutHero = () => {
               </div>
 
               <div className="p-8">
-                <h2 className="mb-6 font-bold text-gray-900 text-3xl">
+                <h2 className="mb-6 font-bold text-[#212A5E] text-3xl">
                   {selectedCard.title}
                 </h2>
 
-                <div className="max-w-none text-gray-700 prose prose-lg">
+                <div className="max-w-none  prose prose-lg text-[#4E4E4EB3]">
                   <p className="mb-6">{selectedCard.expandedDescription}</p>
 
-                  <h3 className="mb-4 font-semibold text-gray-900 text-xl">
+                  <h3 className="mb-4 font-semibold text-[#212A5E] text-xl">
                     Key Features
                   </h3>
-                  <ul className="space-y-2 mb-6 pl-5 list-disc">
+                  <ul className="space-y-2 mb-6 pl-5 list-disc text-[#4E4E4EB3]">
                     {selectedCard.features.map((feature, index) => (
                       <li key={index}>{feature}</li>
                     ))}
                   </ul>
 
-                  <h3 className="mb-4 font-semibold text-gray-900 text-xl">
+                  <h3 className="mb-4 font-semibold text-[#212A5E] text-xl">
                     Why Choose This Product?
                   </h3>
-                  <p>
+                  <p className="text-[#4E4E4EB3]">
                     Our {selectedCard.title.toLowerCase()} are carefully
                     selected to meet the highest standards of quality and
                     performance. We ensure every product meets rigorous testing
@@ -487,7 +468,7 @@ const AboutHero = () => {
                 <div className="flex justify-center mt-10">
                   <button
                     onClick={() => setSelectedCard(null)}
-                    className="bg-yellow-500 hover:bg-blue-600 px-8 py-3 rounded-lg font-medium text-white transition-colors"
+                    className="bg-[#212A5E] hover:bg-blue-600 px-8 py-3 rounded-lg font-medium text-white transition-colors"
                   >
                     Close
                   </button>

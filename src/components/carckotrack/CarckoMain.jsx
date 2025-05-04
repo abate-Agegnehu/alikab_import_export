@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
-import HeroSection from "./HeroSection";
+import HeroSection from "./HeroSection"; // Import the extracted Hero section
 
 import cargo from "../../assets/images/cargo.jpg";
 import suv from "../../assets/images/suv.jpg";
@@ -29,10 +29,9 @@ const CarckoMain = () => {
           flexDirection: { xs: "column", md: "row" },
           alignItems: "center",
           justifyContent: "center",
-          px: { xs: 2, md: 6 },
-          py: { md: 8 },
+          px: 4,
+          py: 6,
           backgroundColor: "#f9f9f9",
-          gap: { xs: 4, md: 6 },
         }}
       >
         <Box sx={{ flex: 1, maxWidth: 600 }}>
@@ -44,7 +43,7 @@ const CarckoMain = () => {
           </Typography>
           <Box
             sx={{
-              width: 80,
+              width: "30%",
               height: "6px",
               backgroundColor: "#ff5722",
               mt: 1,
@@ -62,20 +61,25 @@ const CarckoMain = () => {
         <Box
           component="img"
           src={cargo}
-          alt="Cargo Vehicle"
+          alt="Car Interior"
           sx={{
-            width: { xs: "100%", sm: "80%", md: "350px" },
-            maxWidth: "100%",
+            width: { xs: "90%", md: "350px" },
             borderRadius: "50%",
+            ml: { md: 4 },
+            mt: { xs: 4, md: 0 },
           }}
         />
       </Box>
 
-      {/* Team Vehicles Section */}
+      {/* Section 3 - Team Vehicles */}
       <Box
         sx={{
-          px: { xs: 2, md: 6 },
-          py: { xs: 4, md: 8 },
+          display: "flex",
+          flexDirection: { xs: "column", md: "row" },
+          alignItems: "center",
+          justifyContent: "center",
+          px: 4,
+          py: 6,
           backgroundColor: "#f9f9f9",
         }}
       >
@@ -93,24 +97,19 @@ const CarckoMain = () => {
               sx={{
                 position: "relative",
                 width: { xs: "100%", sm: "48%", md: "30%" },
-                height: 250,
+                height: 350,
                 borderRadius: 2,
                 overflow: "hidden",
                 boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
               }}
             >
-              <Box
-                component="img"
+              <img
                 src={item.src}
                 alt={`Vehicle ${index}`}
-                sx={{
+                style={{
                   width: "100%",
                   height: "100%",
-                  objectFit: "cover",
-                  transition: "transform 0.3s ease",
-                  "&:hover": {
-                    transform: "scale(1.05)",
-                  },
+                  transition: "0.3s ease",
                 }}
               />
             </Box>
@@ -118,17 +117,16 @@ const CarckoMain = () => {
         </Box>
       </Box>
 
-      {/* Proven Track Record Section */}
+      {/* Section 4 - Proven Track Record */}
       <Box
         sx={{
           display: "flex",
           flexDirection: { xs: "column", md: "row" },
           alignItems: "center",
           justifyContent: "center",
-          px: { xs: 2, md: 6 },
-          py: { xs: 4, md: 8 },
+          px: 4,
+          py: 6,
           backgroundColor: "#f9f9f9",
-          gap: { xs: 4, md: 6 },
         }}
       >
         <Box sx={{ flex: 1, maxWidth: 600 }}>
@@ -140,7 +138,7 @@ const CarckoMain = () => {
           </Typography>
           <Box
             sx={{
-              width: 80,
+              width: "30%",
               height: "6px",
               backgroundColor: "#ff5722",
               mt: 1,
@@ -156,11 +154,12 @@ const CarckoMain = () => {
         <Box
           component="img"
           src={suvinterior}
-          alt="SUV Interior"
+          alt="Car Interior"
           sx={{
-            width: { xs: "100%", sm: "80%", md: "350px" },
-            maxWidth: "100%",
+            width: { xs: "90%", md: "350px" },
             borderRadius: "50%",
+            ml: { md: 4 },
+            mt: { xs: 4, md: 0 },
           }}
         />
       </Box>

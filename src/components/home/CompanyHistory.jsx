@@ -1,6 +1,8 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const CompanyHistory = () => {
+  const navigate = useNavigate();
   return (
     <div className="bg-gray-100 px-4 sm:px-6 lg:px-8 py-12 min-h-screen">
       <div className="mx-auto max-w-6xl">
@@ -56,7 +58,10 @@ const CompanyHistory = () => {
                   </ul>
                 </div>
 
-                <button className="bg-yellow-600 hover:bg-yellow-800 px-6 py-3 rounded-lg w-100 font-medium text-white transition duration-300">
+                <button
+                  className="bg-yellow-600 hover:bg-yellow-800 px-6 py-3 rounded-lg w-100 font-medium text-white transition duration-300"
+                  onClick={() => navigate("/export")}
+                >
                   Learn More About Our Products
                 </button>
               </div>
@@ -65,10 +70,10 @@ const CompanyHistory = () => {
             {/* Right Column - Our History */}
             <div className="flex flex-col p-8">
               <div className="mb-8 text-center">
-                <h1 className="font-bold text-gray-800 text-4xl">
+                <h1 className="font-bold text-[#212A5E] text-4xl">
                   Brief History
                 </h1>
-                <h2 className="pt-1 font-bold text-yellow-600 text-4xl leading-3">
+                <h2 className="pt-1 font-bold text-[#FA812F] text-4xl leading-3">
                   ...
                 </h2>
               </div>
