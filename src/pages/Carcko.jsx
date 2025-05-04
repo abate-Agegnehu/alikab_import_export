@@ -1,12 +1,11 @@
 import React from "react";
 import CarckoMain from "../components/carckotrack/CarckoMain";
-import Footer from "../components/footer/Footer";
-
+import LandingCarco from "../components/carckotrack/LandingCarco";
 const Carcko = () => {
   return (
     <div>
+      <LandingCarco />
       <CarckoMain />
-      <Footer />
     </div>
   );
 };

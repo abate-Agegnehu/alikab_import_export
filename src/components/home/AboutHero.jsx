@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { FaTimes } from "react-icons/fa";
-// import businessSectors from "../assets/data/businessSectors.js";
-// import importItems from "../assets/data/importItems.js";
-// import exportItems from "../assets/data/exportItems.js";
+
 import businessSectors from "../../assets/data/businessSectors.js";
 import importItems from "../../assets/data/importItems.js";
-import exportItems from "../../assets/data/exportItems";
+import exportItems from "../../assets/data/exportItems.js";
+
 import { FaTractor, FaSeedling, FaTools } from "react-icons/fa";
-// about hero added coment
+
 const business = [
   {
     id: 1,

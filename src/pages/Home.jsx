@@ -1,12 +1,15 @@
-import LandingPage from "../components/home/LandingPage";
-import AboutHero from "../components/home/AboutHero";
+import React from "react";
+import Header from "../components/header/Header";
+import LandingPageHome from "../components/home/LandingPageHome";
 import CompanyHistory from "../components/home/CompanyHistory";
 import Testimonials from "../components/home/Testimonials";
+import AboutHero from "../components/home/AboutHero";
 
 const Home = () => {
   return (
     <div>
-      <LandingPage />
+      <Header />
+      <LandingPageHome />
       <AboutHero />
       <CompanyHistory />
       <Testimonials />

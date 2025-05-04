@@ -6,6 +6,9 @@ const Hero = ({ slides, onCtaClick }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [direction, setDirection] = useState(1);
 
+  console.log("slides:", slides);
+  console.log("currentSlide:", currentSlide);
+
   useEffect(() => {
     const interval = setInterval(() => {
       setDirection(1);

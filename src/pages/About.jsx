@@ -5,16 +5,16 @@ import VisionAndMission from "../components/about/VisionAndMission";
 import Team from "../components/about/Team";
 import Award from "../components/about/Award";
 import Footer from "../components/footer/Footer";
+import LandingAbout from "../components/about/LandingAbout";
 
 const About = () => {
   return (
     <div>
-      <AboutMain />
+      <LandingAbout />
       <ExportProducts />
       <VisionAndMission />
       <Team />
       <Award />
-      <Footer />
     </div>
   );
 };

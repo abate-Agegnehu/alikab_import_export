@@ -82,7 +82,6 @@ const Award = () => {
         py: 8,
         backgroundColor: theme.palette.background.default,
         position: "relative",
-        marginBottom: { md: "400px" },
       }}
       id="awards"
     >
