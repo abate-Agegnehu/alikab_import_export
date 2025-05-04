@@ -11,89 +11,21 @@ import PlaceIcon from "@mui/icons-material/Place";
 import SmartphoneIcon from "@mui/icons-material/Smartphone";
 import EmailIcon from "@mui/icons-material/Email";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import contact from "../../assets/images/contact.jpg";
+import ContactHero from "./ContactHero";
 
 const ContactMain = () => {
   const [captcha, setCaptcha] = useState("");
   const departments = ["Sales", "Support", "Marketing", "HR"];
 
   return (
-    <Box
-      sx={{
-        marginBottom: { md: "400px" },
-      }}
-    >
-      {/* Banner Section */}
-      <Box
-        sx={{
-          width: "100vw",
-          position: "relative",
-          height: 300,
-          backgroundImage: `url(${contact})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <Box
-          sx={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-            backgroundColor: "rgba(0,0,0,0.4)",
-            zIndex: 0,
-          }}
-        />
-        <Box
-          sx={{
-            position: "relative",
-            zIndex: 10,
-            color: "white",
-            textAlign: "center",
-          }}
-        >
-          <Typography
-            variant="h2"
-            sx={{ fontWeight: "bold", fontSize: { xs: "2rem", md: "3rem" } }}
-          >
-            Contact Us
-          </Typography>
-          <KeyboardArrowDownIcon
-            fontSize="large"
-            sx={{
-              mt: 2,
-              animation: "bounce 2s infinite",
-              "@keyframes bounce": {
-                "0%, 100%": { transform: "translateY(0)" },
-                "50%": { transform: "translateY(-10px)" },
-              },
-            }}
-          />
-        </Box>
-      </Box>
-
+    <Box>
       {/* Contact Info Section */}
-      <Box
-        sx={{
-          py: 6,
-          px: { xs: 2, md: 10 },
-          backgroundColor: "#E4EFE7",
-        }}
-      >
+      <Box sx={{ py: 6, px: { xs: 2, md: 10 }, backgroundColor: "#E4EFE7" }}>
         <Grid
           container
           spacing={4}
           justifyContent="center"
-          sx={{
-            px: { xs: 2, md: 4 },
-            mt: { xs: 4, md: 8 },
-            pb: 12,
-          }}
+          sx={{ px: { xs: 2, md: 4 }, mt: { xs: 4, md: 8 }, pb: 12 }}
         >
           {/* Location */}
           <Grid item xs={12} sm={6} md={3} textAlign="center">
@@ -200,7 +132,7 @@ const ContactMain = () => {
         </Grid>
       </Box>
 
-      {/* Contact Form Section */}
+      {/* Contact Form */}
       <Box
         sx={{
           py: 6,
@@ -223,11 +155,7 @@ const ContactMain = () => {
         >
           <Typography
             variant="h4"
-            sx={{
-              fontWeight: "bold",
-              mb: 4,
-              color: "#212A5E",
-            }}
+            sx={{ fontWeight: "bold", mb: 4, color: "#212A5E" }}
           >
             Get in touch
           </Typography>
@@ -237,7 +165,7 @@ const ContactMain = () => {
             spacing={2}
             sx={{ display: "flex", flexDirection: "column" }}
           >
-            {/* Row 1: Name + Email */}
+            {/* Row 1 */}
             <Grid
               item
               xs={12}
@@ -249,33 +177,17 @@ const ContactMain = () => {
                 fullWidth
                 placeholder="Name"
                 variant="outlined"
-                sx={{
-                  backgroundColor: "#eee",
-                  borderRadius: 4,
-                  "& .MuiOutlinedInput-root": {
-                    "& fieldset": {
-                      border: "none",
-                    },
-                  },
-                }}
+                sx={textFieldStyle}
               />
               <TextField
                 fullWidth
                 placeholder="Email Address"
                 variant="outlined"
-                sx={{
-                  backgroundColor: "#eee",
-                  borderRadius: 4,
-                  "& .MuiOutlinedInput-root": {
-                    "& fieldset": {
-                      border: "none",
-                    },
-                  },
-                }}
+                sx={textFieldStyle}
               />
             </Grid>
 
-            {/* Row 2: Phone Number + Department */}
+            {/* Row 2 */}
             <Grid
               item
               xs={12}
@@ -287,31 +199,15 @@ const ContactMain = () => {
                 fullWidth
                 placeholder="Phone Number"
                 variant="outlined"
-                sx={{
-                  backgroundColor: "#eee",
-                  borderRadius: 4,
-                  "& .MuiOutlinedInput-root": {
-                    "& fieldset": {
-                      border: "none",
-                    },
-                  },
-                }}
+                sx={textFieldStyle}
               />
               <TextField
                 select
                 fullWidth
                 label="Department"
                 variant="outlined"
-                sx={{
-                  backgroundColor: "#eee",
-                  borderRadius: 4,
-                  "& .MuiOutlinedInput-root": {
-                    "& fieldset": {
-                      border: "none",
-                    },
-                  },
-                }}
                 defaultValue=""
+                sx={textFieldStyle}
               >
                 {departments.map((option) => (
                   <MenuItem key={option} value={option}>
@@ -321,7 +217,7 @@ const ContactMain = () => {
               </TextField>
             </Grid>
 
-            {/* Row 3: Message */}
+            {/* Message */}
             <Grid item xs={12}>
               <TextField
                 fullWidth
@@ -329,53 +225,21 @@ const ContactMain = () => {
                 multiline
                 rows={5}
                 variant="outlined"
-                sx={{
-                  backgroundColor: "#eee",
-                  borderRadius: 4,
-                  "& .MuiOutlinedInput-root": {
-                    "& fieldset": {
-                      border: "none",
-                    },
-                  },
-                }}
+                sx={textFieldStyle}
               />
             </Grid>
 
-            {/* Submit Button */}
+            {/* Button */}
             <Grid item xs={12} display="flex" justifyContent="flex-end">
-              <Button
-                variant="contained"
-                sx={{
-                  backgroundColor: "#212A5E",
-                  px: 4,
-                  py: 1.5,
-                  textTransform: "none",
-                  fontWeight: "bold",
-                  fontSize: "1rem",
-                  borderRadius: 3,
-                  outline: "none",
-                  boxShadow: "none",
-                  "&:focus": {
-                    outline: "none",
-                    boxShadow: "none",
-                  },
-                  "&:focus-visible": {
-                    outline: "none",
-                    boxShadow: "none",
-                  },
-                  "&:hover": {
-                    backgroundColor: "#1a1a45",
-                    boxShadow: "none",
-                  },
-                }}
-              >
+              <Button variant="contained" sx={buttonStyle}>
                 Send Message
               </Button>
             </Grid>
           </Grid>
         </Box>
       </Box>
-      {/* Map Location Section */}
+
+      {/* Google Map */}
       <Box
         sx={{
           position: "relative",
@@ -384,12 +248,7 @@ const ContactMain = () => {
           backgroundColor: "#F9F9F9",
         }}
       >
-        <Box
-          sx={{
-            width: "100%",
-            height: "500px",
-          }}
-        >
+        <Box sx={{ width: "100%", height: "500px" }}>
           <iframe
             title="Agona Location Map"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.013066544377!2d38.76741861477833!3d8.99060529208445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b85b9825b812f%3A0xe03fcf4052953622!2sGotera%20Condominium!5e0!3m2!1sen!2set!4v1683039011921!5m2!1sen!2set"
@@ -404,6 +263,40 @@ const ContactMain = () => {
       </Box>
     </Box>
   );
+};
+
+const textFieldStyle = {
+  backgroundColor: "#eee",
+  borderRadius: 4,
+  "& .MuiOutlinedInput-root": {
+    "& fieldset": {
+      border: "none",
+    },
+  },
+};
+
+const buttonStyle = {
+  backgroundColor: "#212A5E",
+  px: 4,
+  py: 1.5,
+  textTransform: "none",
+  fontWeight: "bold",
+  fontSize: "1rem",
+  borderRadius: 3,
+  outline: "none",
+  boxShadow: "none",
+  "&:focus": {
+    outline: "none",
+    boxShadow: "none",
+  },
+  "&:focus-visible": {
+    outline: "none",
+    boxShadow: "none",
+  },
+  "&:hover": {
+    backgroundColor: "#1a1a45",
+    boxShadow: "none",
+  },
 };
 
 export default ContactMain;

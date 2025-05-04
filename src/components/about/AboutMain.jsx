@@ -27,7 +27,7 @@ const AboutMain = () => {
         sx={{
           width: "100vw",
           position: "relative",
-          height: 300,
+          height: 500,
           backgroundImage: `url(${about1})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
