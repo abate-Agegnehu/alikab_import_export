@@ -35,7 +35,7 @@ const HeroCarousel = ({ categories }) => {
     <Box
       sx={{
         width: "100vw",
-        height: "90vh",
+        height: { xs: "50vh", md: "90vh" },
         position: "relative",
         backgroundImage: `url(${categories[current].image})`,
         backgroundSize: "cover",
@@ -64,7 +64,11 @@ const HeroCarousel = ({ categories }) => {
           textAlign: "center",
         }}
       >
-        <Typography variant="h2" fontWeight="bold">
+        <Typography
+          variant="h2"
+          fontWeight="bold"
+          sx={{ fontSize: { xs: "24px" } }}
+        >
           {categories[current].title}
         </Typography>
         <Typography mt={1}>{categories[current].description}</Typography>

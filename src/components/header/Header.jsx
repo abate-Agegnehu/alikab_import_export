@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import logo from "../../assets/logoUpdated.png";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
 const Header = ({ scrolled }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
@@ -17,7 +18,7 @@ const Header = ({ scrolled }) => {
       name: "Our Imports",
       subItems: [
         { name: "Vehicles", href: "/vichles" },
-        { name: "Agriculture Chemicals", href: "#agro-chemicals" },
+        { name: "Agriculture Chemicals", href: "/agro-chemicals" },
         { name: "Machinery", href: "/machinery" },
       ],
     },
@@ -99,6 +100,7 @@ const Header = ({ scrolled }) => {
           className="h-10 sm:h-14 lg:h-16 object-contain"
         />
       </motion.div>
+
       {/* Desktop Navigation */}
       <div className="hidden md:flex items-center space-x-8">
         {NAV_ITEMS.map((item) => (
@@ -147,22 +149,22 @@ const Header = ({ scrolled }) => {
                       className="top-full left-0 absolute bg-white shadow-lg mt-2 rounded-md w-48 overflow-hidden text-gray-800"
                     >
                       {item.subItems.map((subItem) => (
-                        <a
+                        <Link
                           key={subItem.name}
-                          href={subItem.href}
+                          to={subItem.href}
                           className="block hover:bg-blue-50 px-4 py-2"
                         >
                           {subItem.name}
-                        </a>
+                        </Link>
                       ))}
                     </motion.div>
                   )}
                 </AnimatePresence>
               </>
             ) : (
-              <a href={item.href} className="hover:text-gray-300">
+              <Link to={item.href} className="hover:text-gray-300">
                 {item.name}
-              </a>
+              </Link>
             )}
           </div>
         ))}
@@ -171,13 +173,12 @@ const Header = ({ scrolled }) => {
           className="bg-blue-700 hover:bg-blue-800 px-6 py-2 rounded-md font-medium text-sm transition-colors"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          onClick={() => {
-            navigate("/contact");
-          }}
+          onClick={() => navigate("/contact")}
         >
           Contact Us
         </motion.button>
       </div>
+
       {/* Mobile Menu Button */}
       <motion.div
         className="md:hidden flex items-center"
@@ -214,6 +215,7 @@ const Header = ({ scrolled }) => {
           </motion.svg>
         </button>
       </motion.div>
+
       {/* Mobile Menu */}
       <AnimatePresence>
         {isMenuOpen && (
@@ -253,27 +255,27 @@ const Header = ({ scrolled }) => {
                             className="pl-4 overflow-hidden"
                           >
                             {item.subItems.map((subItem) => (
-                              <a
+                              <Link
                                 key={subItem.name}
-                                href={subItem.href}
+                                to={subItem.href}
                                 className="block py-2 hover:text-gray-300"
                                 onClick={() => setIsMenuOpen(false)}
                               >
                                 {subItem.name}
-                              </a>
+                              </Link>
                             ))}
                           </motion.div>
                         )}
                       </AnimatePresence>
                     </>
                   ) : (
-                    <a
-                      href={item.href}
+                    <Link
+                      to={item.href}
                       className="block py-2"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       {item.name}
-                    </a>
+                    </Link>
                   )}
                 </div>
               ))}
@@ -281,6 +283,10 @@ const Header = ({ scrolled }) => {
               <motion.button
                 className="bg-blue-600 mt-2 py-3 rounded-md w-full font-medium"
                 whileTap={{ scale: 0.95 }}
+                onClick={() => {
+                  navigate("/contact");
+                  setIsMenuOpen(false);
+                }}
               >
                 Contact Us
               </motion.button>

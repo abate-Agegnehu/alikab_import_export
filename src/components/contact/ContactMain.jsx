@@ -49,8 +49,10 @@ const ContactMain = () => {
             >
               Location
             </Typography>
-            <Typography sx={{ mt: 1 }}>Addis Ababa</Typography>
-            <Typography sx={{ mt: 1 }}>Bahir Dar</Typography>
+            <Typography sx={{ mt: 1, color: "#212A5E" }}>
+              Addis Ababa
+            </Typography>
+            <Typography sx={{ mt: 1, color: "#212A5E" }}>Bahir Dar</Typography>
           </Grid>
 
           {/* Call Us */}
@@ -75,8 +77,12 @@ const ContactMain = () => {
             >
               Call Us
             </Typography>
-            <Typography>Addis Ababa: +251 911 60 44 44 </Typography>
-            <Typography>Bahir Dar: +251 911 23 54 68 </Typography>
+            <Typography sx={{ color: "#212A5E" }}>
+              Addis Ababa: +251 911 60 44 44{" "}
+            </Typography>
+            <Typography sx={{ color: "#212A5E" }}>
+              Bahir Dar: +251 911 23 54 68{" "}
+            </Typography>
           </Grid>
 
           {/* Email */}
@@ -101,7 +107,7 @@ const ContactMain = () => {
             >
               Send Email
             </Typography>
-            <Typography>alikab@gmail.com</Typography>
+            <Typography sx={{ color: "#212A5E" }}>alikab@gmail.com</Typography>
           </Grid>
 
           {/* Working Hours */}
@@ -126,8 +132,12 @@ const ContactMain = () => {
             >
               Working Hours
             </Typography>
-            <Typography>Monday – Friday: 8:00am to 5pm</Typography>
-            <Typography>Saturday: 8:00am to 12:00pm</Typography>
+            <Typography sx={{ color: "#212A5E" }}>
+              Monday – Friday: 8:00am to 5pm
+            </Typography>
+            <Typography sx={{ color: "#212A5E" }}>
+              Saturday: 8:00am to 12:00pm
+            </Typography>
           </Grid>
         </Grid>
       </Box>

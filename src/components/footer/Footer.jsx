@@ -10,24 +10,6 @@ import YouTubeIcon from "@mui/icons-material/YouTube";
 import logo4 from "../../assets/images/logo4.png";
 
 const Footer = () => {
-  // const [zIndex, setZIndex] = useState(1);
-  // const [display, setDisplay] = useState("block");
-
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     const scrollPosition = window.innerHeight + window.scrollY;
-  //     const pageHeight = document.body.scrollHeight;
-  //     const distanceFromBottom = pageHeight - scrollPosition;
-
-  //     setDisplay(distanceFromBottom <= 400 ? "block" : "none");
-  //     setZIndex(distanceFromBottom >= -14 ? -1 : 1);
-  //   };
-
-  //   window.addEventListener("scroll", handleScroll);
-  //   handleScroll();
-  //   return () => window.removeEventListener("scroll", handleScroll);
-  // }, []);
-
   return (
     <Box
       sx={{
@@ -35,13 +17,9 @@ const Footer = () => {
         color: "lightgray",
         py: 6,
         px: { xs: 4, md: 10 },
-        // position: { md: "fixed" },
         bottom: 0,
         left: 0,
         width: "100%",
-        // display: { md: display },
-        // zIndex: { md: zIndex },
-        border: 1,
       }}
     >
       <Grid

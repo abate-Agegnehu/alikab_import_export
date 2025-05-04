@@ -82,7 +82,7 @@ const Testimonials = () => {
   };
 
   return (
-    <div className="relative w-full min-h-screen overflow-hidden">
+    <div className="relative w-full min-h-screen overflow-hidden bg-[#212a5e]">
       {/* Dynamic Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center transition-opacity duration-1000"

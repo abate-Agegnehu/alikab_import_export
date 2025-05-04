@@ -16,14 +16,8 @@ const HeroSection = ({ onExplore, onContact }) => {
 
       <div className="relative flex items-center h-full">
         <div className="mx-auto px-4 text-center container">
-          <div className="inline-block bg-blue-600 bg-opacity-90 mb-6 px-4 py-2 rounded-full">
-            <span className="font-medium text-blue-100 text-sm">
-              Global Machinery Solutions
-            </span>
-          </div>
           <h1 className="mb-6 font-bold text-white text-5xl md:text-7xl leading-tight">
-            Industrial <span className="text-blue-900">Machinery</span> &
-            Equipment
+            Industrial <span>Machinery</span> & Equipment
           </h1>
           <p className="mx-auto mb-10 max-w-3xl text-blue-100 text-xl md:text-2xl">
             Premium heavy equipment for construction, agriculture, and mining
