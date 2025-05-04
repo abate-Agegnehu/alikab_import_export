@@ -71,6 +71,7 @@ const HeroSection = () => {
           color: "white",
           textAlign: "center",
           maxWidth: "90vw",
+          marginTop: { xs: "100px" },
         }}
       >
         <Typography

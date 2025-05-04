@@ -13,7 +13,7 @@ const MainLayout = ({ children }) => {
   }, []);
 
   return (
-    <div className="relative flex flex-col bg-white w-full min-h-screen overflow-x-hidden">
+    <div className="relative flex flex-col bg-white w-full overflow-x-hidden">
       <Header scrolled={scrolled} />
       <main>{children}</main>
     </div>
