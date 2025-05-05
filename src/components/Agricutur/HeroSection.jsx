@@ -1,5 +1,5 @@
 import React from "react";
-import bgImage from "../../assets/machine/agriChemical.png";
+import bgImage from "../../assets/images/agriChemical.jpg";
 
 const HeroSection = ({ onExploreProducts, onContactTeam }) => {
   return (
@@ -10,9 +10,7 @@ const HeroSection = ({ onExploreProducts, onContactTeam }) => {
           backgroundImage: `url(${bgImage})`,
           backgroundAttachment: "fixed",
         }}
-      >
-        <div className="absolute inset-0 bg-black bg-opacity-40"></div>
-      </div>
+      ></div>
 
       <div className="relative flex items-center h-full">
         <div className="mx-auto px-4 text-center container">
