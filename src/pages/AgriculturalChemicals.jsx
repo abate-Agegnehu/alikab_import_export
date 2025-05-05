@@ -5,7 +5,7 @@ import StatsSection from "../components/Agricutur/StatsSection";
 import CTASection from "../components/Agricutur/CTASection";
 import ProductModal from "../components/Agricutur/ProductModal";
 import Breadcrumb from "../components/Agricutur/Breadcrumb";
-import AgriHero from "../components/Agricutur/HeroSection";
+import LandingAgroChemical from "../components/Agricutur/LandingAgroChemical";
 import {
   chemicalCategories,
   featuredProducts,
@@ -69,7 +69,7 @@ const AgriculturalChemicals = () => {
         onRequestSpecifications={handleRequestSpecifications}
       />
 
-      <AgriHero
+      <LandingAgroChemical
         onExploreProducts={() =>
           handleExploreProduct({
             name: "Our Product Portfolio",
