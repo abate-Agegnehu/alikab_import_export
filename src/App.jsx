@@ -24,7 +24,7 @@ const App = () => {
         <Route path="/export" element={<Export />} />
         <Route path="/transportation" element={<Transportation />} />
         <Route path="/machinery" element={<Machine />} />
-        <Route path="agro-chemicals" element={<AgriChemical />} />
+        <Route path="/agro-chemicals" element={<AgriChemical />} />
       </Routes>
       <Footer />
     </Router>
