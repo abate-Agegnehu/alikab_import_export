@@ -4,14 +4,14 @@ import { motion } from "framer-motion";
 const MarketingQuote = () => {
   return (
     <motion.div
-      className="bg-[#212A5E] shadow-2xl mx-auto my-12 p-6 md:p-12 rounded-2xl max-w-4xl text-center"
+      className="bg-[#212A5E] shadow-2xl mx-auto my-12 p-6 sm:p-16 md:p-16 rounded-2xl max-w-4xl text-center"
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1 }}
     >
       <div className="mx-auto max-w-3xl">
         <motion.h2
-          className="mb-6 font-bold text-white text-xl sm:text-2xl md:text-4xl leading-snug"
+          className="mb-6 pt-6 font-bold text-white text-xl sm:text-2xl md:text-4xl leading-snug"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3, duration: 1 }}
