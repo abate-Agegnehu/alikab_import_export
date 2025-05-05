@@ -24,7 +24,7 @@ const CTASection = ({ onCustomQuote, onScheduleCall }) => {
   };
 
   return (
-    <div className="relative bg-green-700 py-32 overflow-hidden">
+    <div className="relative bg-green-700 mb-12 py-32 overflow-hidden">
       <div className="absolute inset-0 opacity-10">
         <motion.div
           className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"

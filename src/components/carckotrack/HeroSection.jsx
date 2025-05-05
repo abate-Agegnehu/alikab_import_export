@@ -1,6 +1,6 @@
-// src/components/HeroSection.jsx
 import React, { useEffect, useState } from "react";
 import { Box, Typography, IconButton } from "@mui/material";
+import { motion } from "framer-motion";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
@@ -14,6 +14,29 @@ import track1 from "../../assets/images/track1.jpg";
 import track2 from "../../assets/images/track2.jpg";
 
 const backgroundImages = [cargo, suv, suv2, track, track1, track2];
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.3,
+      delayChildren: 0.2,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { y: 30, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.8,
+      ease: "easeOut",
+    },
+  },
+};
 
 const HeroSection = () => {
   const [current, setCurrent] = useState(0);
@@ -35,6 +58,10 @@ const HeroSection = () => {
 
   return (
     <Box
+      component={motion.div}
+      initial={{ scale: 1.1 }}
+      animate={{ scale: 1 }}
+      transition={{ duration: 1.2, ease: "easeOut" }}
       sx={{
         position: "relative",
         width: "100%",
@@ -47,7 +74,6 @@ const HeroSection = () => {
         alignItems: "center",
         justifyContent: "center",
         px: 2,
-        transition: "background-image 1s ease-in-out",
       }}
     >
       {/* Overlay */}
@@ -58,54 +84,57 @@ const HeroSection = () => {
           left: 0,
           width: "100%",
           height: "100%",
-          backgroundColor: "rgba(0,0,0,0.5)",
+          backgroundColor: "rgba(0,0,0,0.4)",
           zIndex: 0,
         }}
       />
 
-      {/* Text */}
-      <Box
-        sx={{
+      {/* Animated Content */}
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        style={{
           position: "relative",
           zIndex: 1,
           color: "white",
           textAlign: "center",
           maxWidth: "90vw",
-          marginTop: { xs: "100px" },
+          marginTop: "100px",
         }}
       >
-        <Typography
-          variant="h2"
-          sx={{
+        <motion.h1
+          variants={itemVariants}
+          style={{
             fontWeight: "bold",
-            fontSize: { xs: "2rem", sm: "2.5rem", md: "3rem", lg: "3.5rem" },
+            fontSize: "clamp(2rem, 5vw, 3.5rem)",
           }}
         >
           Alikab Automotive Assembly
-        </Typography>
-        <Typography
-          sx={{
-            fontSize: { xs: "0.95rem", sm: "1.05rem", md: "1.2rem" },
-            mt: 1,
+        </motion.h1>
+
+        <motion.p
+          variants={itemVariants}
+          style={{
+            fontSize: "clamp(0.95rem, 2vw, 1.2rem)",
+            marginTop: "1rem",
             maxWidth: "700px",
-            mx: "auto",
+            marginInline: "auto",
           }}
         >
           From electric and hybrid cars to powerful Carco trucks, fuel carriers,
           and versatile SUVs — drive your needs with innovation and strength.
-        </Typography>
-        <KeyboardArrowDownIcon
-          fontSize="large"
-          sx={{
-            mt: 3,
-            animation: "bounce 2s infinite",
-            "@keyframes bounce": {
-              "0%, 100%": { transform: "translateY(0)" },
-              "50%": { transform: "translateY(-10px)" },
-            },
-          }}
-        />
-      </Box>
+        </motion.p>
+
+        <motion.div
+          variants={itemVariants}
+          animate={{ y: [0, -10, 0] }}
+          transition={{ repeat: Infinity, duration: 2 }}
+          style={{ marginTop: "2rem" }}
+        >
+          <KeyboardArrowDownIcon fontSize="large" />
+        </motion.div>
+      </motion.div>
 
       {/* Arrows */}
       <IconButton
