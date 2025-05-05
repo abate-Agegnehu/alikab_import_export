@@ -14,6 +14,7 @@ import cargo3 from "../../assets/images/vehicles/cargo3.jpg";
 import cargo4 from "../../assets/images/vehicles/cargo4.jpg";
 import cargo5 from "../../assets/images/vehicles/cargo5.jpg";
 
+// update vehicles categoriess
 const vehicles = [
   { src: suv1, category: "SUV" },
   { src: suv2, category: "SUV" },
