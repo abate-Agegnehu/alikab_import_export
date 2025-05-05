@@ -9,9 +9,12 @@ import Home from "./pages/Home";
 import Machine from "./pages/Machine";
 import Transportation from "./pages/Transportation";
 import Footer from "./components/footer/Footer";
+import ScrollToTop from "./components/ScrollTop";
+import AgriculturalChemicals from "./pages/AgriculturalChemicals";
 const App = () => {
   return (
     <Router>
+      <ScrollToTop />
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -21,7 +24,7 @@ const App = () => {
         <Route path="/export" element={<Export />} />
         <Route path="/transportation" element={<Transportation />} />
         <Route path="/machinery" element={<Machine />} />
-        {/* <Route path="/agro-chemical" element={<AgriChemical />} /> */}
+        <Route path="/agro-chemicals" element={<AgriculturalChemicals />} />
       </Routes>
       <Footer />
     </Router>

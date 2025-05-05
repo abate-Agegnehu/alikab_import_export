@@ -12,7 +12,7 @@ export const machineryCategories = [
     description:
       "The Horsch Terrano 4FX is a versatile grower that revolutionized the preparation of agricultural soils. Manufactured by the German brand Horsch, this tooth-trimming tool is an effective solution for optimizing soil preparation work.",
     stats: "Working width: 4m, Weight: 2400 kg",
-    images: [img1, img2, img3, img4, img5, img6],
+    images: [img1, img1, img1, img1, img1, img1],
     features: [
       "Deep mixing capability",
       "Adjustable working depth",
@@ -32,7 +32,7 @@ export const machineryCategories = [
     description:
       "When driving a tractor on roads over 40 km/h, specific rules must be followed. Tractors can be approved for speeds of up to 50–60 km/h, but the legal limit is often 40 km/h when towing. A heavy vehicle license is required for higher speeds.",
     stats: "Max road speed: 40–60 km/h",
-    images: [img1, img2, img3, img4, img5, img6],
+    images: [img2, img2, img2, img2, img2, img2],
     features: [
       "Speed-limited when towing",
       "Requires Category C license above 40 km/h",
@@ -51,7 +51,7 @@ export const machineryCategories = [
     description:
       "The Horsch Terrano 4FX stands out for its robustness and versatility. Farmers appreciate its 4-meter width, 2400 kg build, and deep soil mixing efficiency. Proper power is needed for best results.",
     stats: "Powerful and efficient",
-    images: [img1, img2, img3, img4, img5, img6],
+    images: [img3, img3, img3, img3, img3, img3],
     features: [
       "TerraGrip tines with high strength",
       "Depth control for optimal soil blending",
@@ -70,7 +70,7 @@ export const machineryCategories = [
     description:
       "Bulldozers are essential earthmoving machines in construction and mining. They excel in pushing soil, grading, and rough terrain leveling. Known for their brute power and track stability.",
     stats: "Tracked dozers with blade force",
-    images: [img1, img2, img3, img4, img5, img6],
+    images: [img4, img4, img4, img4, img4, img4],
     features: [
       "Powerful front blade",
       "Excellent traction",
