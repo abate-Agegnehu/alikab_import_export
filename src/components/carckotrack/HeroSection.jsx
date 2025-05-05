@@ -6,14 +6,14 @@ import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 // Background images
-import cargo from "../../assets/images/cargo.jpg";
-import suv from "../../assets/images/suv.jpg";
-import suv2 from "../../assets/images/suv2.jpg";
+import cargo from "../../assets/images/vehicles/cargo.jpg";
+import suv1 from "../../assets/images/vehicles/suv1.jpg";
+import suv2 from "../../assets/images/vehicles/suv2.jpg";
 import track from "../../assets/images/track.jpg";
 import track1 from "../../assets/images/track1.jpg";
 import track2 from "../../assets/images/track2.jpg";
 
-const backgroundImages = [cargo, suv, suv2, track, track1, track2];
+const backgroundImages = [cargo, suv1, suv2, track, track1, track2];
 
 const HeroSection = () => {
   const [current, setCurrent] = useState(0);

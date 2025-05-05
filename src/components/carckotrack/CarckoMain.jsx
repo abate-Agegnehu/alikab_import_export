@@ -1,26 +1,42 @@
-import React from "react";
-import { Box, Typography } from "@mui/material";
-import HeroSection from "./HeroSection"; // Import the extracted Hero section
+import React, { useState } from "react";
+import { Box, Button, ButtonGroup, Typography } from "@mui/material";
 
-import cargo from "../../assets/images/cargo.jpg";
-import suv from "../../assets/images/suv.jpg";
-import suv2 from "../../assets/images/suv2.jpg";
-import track from "../../assets/images/track.jpg";
-import track1 from "../../assets/images/track1.jpg";
-import track2 from "../../assets/images/track2.jpg";
-import vehicle from "../../assets/images/vehicle.jpg";
-import suvinterior from "../../assets/images/suvinterior.jpg";
+import suv1 from "../../assets/images/vehicles/suv1.jpg";
+import suv2 from "../../assets/images/vehicles/suv2.jpg";
+import suv3 from "../../assets/images/vehicles/suv3.jpg";
+import suv4 from "../../assets/images/vehicles/suv4.jpg";
+import suv5 from "../../assets/images/vehicles/suv5.jpg";
+import suv6 from "../../assets/images/vehicles/suv6.jpg";
+import cargo from "../../assets/images/vehicles/cargo.jpg";
+import cargo1 from "../../assets/images/vehicles/cargo1.jpg";
+import cargo2 from "../../assets/images/vehicles/cargo2.jpg";
+import cargo3 from "../../assets/images/vehicles/cargo3.jpg";
+import cargo4 from "../../assets/images/vehicles/cargo4.jpg";
+import cargo5 from "../../assets/images/vehicles/cargo5.jpg";
 
-const teams = [
-  { src: suv },
-  { src: suv2 },
-  { src: track2 },
-  { src: vehicle },
-  { src: track },
-  { src: track1 },
+const vehicles = [
+  { src: suv1, category: "SUV" },
+  { src: suv2, category: "SUV" },
+  { src: suv3, category: "SUV" },
+  { src: suv4, category: "SUV" },
+  { src: suv5, category: "SUV" },
+  { src: suv6, category: "SUV" },
+  { src: cargo, category: "Cargo" },
+  { src: cargo1, category: "Cargo" },
+  { src: cargo2, category: "Cargo" },
+  { src: cargo3, category: "Cargo" }, // Fixed typo here (was "Cargo")
+  { src: cargo4, category: "Cargo" },
+  { src: cargo5, category: "Cargo" },
 ];
 
 const CarckoMain = () => {
+  const [selectedCategory, setSelectedCategory] = useState("Allcars");
+
+  const filteredVehicles =
+    selectedCategory === "Allcars"
+      ? vehicles
+      : vehicles.filter((item) => item.category === selectedCategory);
+
   return (
     <Box>
       <Box
@@ -71,6 +87,50 @@ const CarckoMain = () => {
         />
       </Box>
 
+      <Box sx={{ textAlign: "center", backgroundColor: "#f9f9f9" }}>
+        <ButtonGroup
+          variant="contained"
+          sx={{
+            boxShadow: 1,
+            border: "none",
+            "& .MuiButton-root": {
+              border: "none",
+              outline: "none",
+              boxShadow: "none",
+              "&:focus": {
+                outline: "none",
+              },
+              "&:hover": {
+                boxShadow: "none",
+              },
+            },
+          }}
+        >
+          {["Allcars", "SUV", "Cargo"].map((cat) => (
+            <Button
+              key={cat}
+              onClick={() => setSelectedCategory(cat)}
+              variant="contained"
+              sx={{
+                py: 1,
+                width: "150px",
+                border: "none",
+                backgroundColor:
+                  selectedCategory === cat ? "#1a237e" : "#ffffff",
+                color: selectedCategory === cat ? "#ffffff" : "#4E4E4EB3",
+                "&:hover": {
+                  backgroundColor:
+                    selectedCategory === cat ? "#1a237e" : "#f0f0f0",
+                  color: selectedCategory === cat ? "#ffffff" : "#4E4E4EB3",
+                },
+              }}
+            >
+              {cat}
+            </Button>
+          ))}
+        </ButtonGroup>
+      </Box>
+
       {/* Section 3 - Team Vehicles */}
       <Box
         sx={{
@@ -91,7 +151,7 @@ const CarckoMain = () => {
             justifyContent: "center",
           }}
         >
-          {teams.map((item, index) => (
+          {filteredVehicles.map((item, index) => (
             <Box
               key={index}
               sx={{
@@ -153,7 +213,7 @@ const CarckoMain = () => {
         </Box>
         <Box
           component="img"
-          src={suvinterior}
+          src={suv1}
           alt="Car Interior"
           sx={{
             width: { xs: "90%", md: "350px" },
