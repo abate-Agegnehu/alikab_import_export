@@ -5,8 +5,10 @@ import { Link, useNavigate } from "react-router-dom";
 const Header = ({ scrolled }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
+  const [closingDropdown, setClosingDropdown] = useState(null);
   const menuRef = useRef(null);
   const buttonRef = useRef(null);
+  const dropdownTimerRef = useRef(null);
 
   const navigate = useNavigate();
 
@@ -39,6 +41,25 @@ const Header = ({ scrolled }) => {
     setOpenDropdown(openDropdown === itemName ? null : itemName);
   };
 
+  const handleMouseEnter = (itemName) => {
+    if (dropdownTimerRef.current) {
+      clearTimeout(dropdownTimerRef.current);
+      dropdownTimerRef.current = null;
+    }
+    setOpenDropdown(itemName);
+    setClosingDropdown(null);
+  };
+
+  const handleMouseLeave = (itemName) => {
+    if (openDropdown === itemName) {
+      setClosingDropdown(itemName);
+      dropdownTimerRef.current = setTimeout(() => {
+        setOpenDropdown(null);
+        setClosingDropdown(null);
+      }, 300); // 300ms delay before closing
+    }
+  };
+
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (
@@ -55,6 +76,9 @@ const Header = ({ scrolled }) => {
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
+      if (dropdownTimerRef.current) {
+        clearTimeout(dropdownTimerRef.current);
+      }
     };
   }, []);
 
@@ -81,8 +105,8 @@ const Header = ({ scrolled }) => {
           <div
             key={item.name}
             className="relative"
-            onMouseEnter={() => item.subItems && setOpenDropdown(item.name)}
-            onMouseLeave={() => item.subItems && setOpenDropdown(null)}
+            onMouseEnter={() => item.subItems && handleMouseEnter(item.name)}
+            onMouseLeave={() => item.subItems && handleMouseLeave(item.name)}
           >
             {item.subItems ? (
               <>
@@ -97,16 +121,22 @@ const Header = ({ scrolled }) => {
                 </button>
 
                 {openDropdown === item.name && (
-                  <div className="top-full left-0 absolute bg-white shadow-lg mt-2 rounded-md w-48 overflow-hidden text-gray-800">
-                    {item.subItems.map((subItem) => (
-                      <Link
-                        key={subItem.name}
-                        to={subItem.href}
-                        className="block hover:bg-blue-50 px-4 py-2"
-                      >
-                        {subItem.name}
-                      </Link>
-                    ))}
+                  <div
+                    className="top-full left-0 absolute pt-2"
+                    onMouseEnter={() => handleMouseEnter(item.name)}
+                    onMouseLeave={() => handleMouseLeave(item.name)}
+                  >
+                    <div className="bg-white shadow-lg rounded-md w-48 overflow-hidden text-gray-800">
+                      {item.subItems.map((subItem) => (
+                        <Link
+                          key={subItem.name}
+                          to={subItem.href}
+                          className="block hover:bg-blue-50 px-4 py-2"
+                        >
+                          {subItem.name}
+                        </Link>
+                      ))}
+                    </div>
                   </div>
                 )}
               </>
