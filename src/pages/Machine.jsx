@@ -28,10 +28,6 @@ const Machine = () => {
         onScheduleDemo={handleScheduleDemo}
       />
       <FeaturesSection />
-      <CTASection
-        onRequestQuote={handleRequestQuote}
-        onScheduleDemo={() => handleScheduleDemo()}
-      />
     </div>
   );
 };

@@ -4,6 +4,7 @@ import LandingPageHome from "../components/home/LandingPageHome";
 import CompanyHistory from "../components/home/CompanyHistory";
 import Testimonials from "../components/home/Testimonials";
 import AboutHero from "../components/home/AboutHero";
+import MarketingQuote from "../components/home/MarketingQuote";
 
 const Home = () => {
   return (
@@ -12,6 +13,7 @@ const Home = () => {
       <AboutHero />
       <CompanyHistory />
       <Testimonials />
+      <MarketingQuote />
     </div>
   );
 };
