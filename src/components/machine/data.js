@@ -1,128 +1,87 @@
+import img1 from "../../assets/machine/img1.jpg";
+import img2 from "../../assets/machine/img2.webp";
+import img3 from "../../assets/machine/img3.jpg";
+import img4 from "../../assets/machine/img4.jpg";
+import img5 from "../../assets/machine/img5.jpg";
+import img6 from "../../assets/machine/img6.jpg";
+
 export const machineryCategories = [
   {
     id: 1,
-    name: "Construction Equipment",
+    name: "Horsch Terrano 4FX Cultivator",
     description:
-      "High-performance machinery for all your construction needs with advanced hydraulics and durable components.",
-    stats: "50+ models available",
-    image:
-      "https://cdn.pixabay.com/photo/2022/06/17/21/23/farming-machine-7268767_1280.jpg",
+      "The Horsch Terrano 4FX is a versatile grower that revolutionized the preparation of agricultural soils. Manufactured by the German brand Horsch, this tooth-trimming tool is an effective solution for optimizing soil preparation work.",
+    stats: "Working width: 4m, Weight: 2400 kg",
+    images: [img1, img1, img1, img1, img1, img1],
     features: [
-      "Excavators from 1-50 tons",
-      "Bulldozers with GPS grading",
-      "Concrete pumps up to 200m³/h",
-      "Tower cranes 8-100 tons",
+      "Deep mixing capability",
+      "Adjustable working depth",
+      "Robust TerraGrip tines",
+      "Ideal for stubble and seedbed preparation",
     ],
     applications: [
-      "Building construction",
-      "Road works",
-      "Demolition",
-      "Heavy lifting",
+      "Soil preparation",
+      "Scalping",
+      "Seedbed preparation",
+      "Stubble cultivation",
     ],
   },
   {
     id: 2,
-    name: "Agricultural Machinery",
+    name: "Agricultural Tractor on Roads",
     description:
-      "Efficient tools for modern farming, from plowing to harvesting, designed to boost productivity.",
-    stats: "40+ machines in stock",
-    image:
-      "https://cdn.pixabay.com/photo/2017/08/10/03/37/tractor-2614107_1280.jpg",
+      "When driving a tractor on roads over 40 km/h, specific rules must be followed. Tractors can be approved for speeds of up to 50–60 km/h, but the legal limit is often 40 km/h when towing. A heavy vehicle license is required for higher speeds.",
+    stats: "Max road speed: 40–60 km/h",
+    images: [img2, img2, img2, img2, img2, img2],
     features: [
-      "Tractors with smart steering",
-      "Automatic harvesters",
-      "Seed planters",
-      "Sprayers with GPS mapping",
+      "Speed-limited when towing",
+      "Requires Category C license above 40 km/h",
+      "Convoi and width rules apply",
+      "Ensures road safety and legal compliance",
     ],
     applications: [
-      "Crop cultivation",
-      "Harvesting",
-      "Soil preparation",
-      "Precision farming",
+      "Farm-to-field transport",
+      "Towing agricultural implements",
+      "Road travel with trailers",
     ],
   },
   {
     id: 3,
-    name: "Mining Equipment",
+    name: "Horsch Terrano 4FX (Performance Focus)",
     description:
-      "Robust machines built to handle tough mining environments and large material loads.",
-    stats: "30+ heavy-duty models",
-    image:
-      "https://cdn.pixabay.com/photo/2020/01/03/18/24/mining-4730455_1280.jpg",
+      "The Horsch Terrano 4FX stands out for its robustness and versatility. Farmers appreciate its 4-meter width, 2400 kg build, and deep soil mixing efficiency. Proper power is needed for best results.",
+    stats: "Powerful and efficient",
+    images: [img3, img3, img3, img3, img3, img3],
     features: [
-      "Drilling rigs",
-      "Loaders with high capacity",
-      "Haul trucks up to 400 tons",
-      "Rock crushers",
+      "TerraGrip tines with high strength",
+      "Depth control for optimal soil blending",
+      "Multiple use: scalping, tilling, preparation",
+      "Requires strong tractor pairing",
     ],
     applications: [
-      "Open-pit mining",
-      "Underground mining",
-      "Material transportation",
-      "Ore processing",
+      "Versatile tillage operations",
+      "Seedbed optimization",
+      "Heavy soil cultivation",
     ],
   },
   {
     id: 4,
-    name: "Material Handling",
+    name: "Bulldozer",
     description:
-      "Versatile equipment for lifting, moving, and storing materials in industrial settings.",
-    stats: "60+ lifting solutions",
-    image:
-      "https://cdn.pixabay.com/photo/2016/11/22/23/55/forklift-1850864_1280.jpg",
+      "Bulldozers are essential earthmoving machines in construction and mining. They excel in pushing soil, grading, and rough terrain leveling. Known for their brute power and track stability.",
+    stats: "Tracked dozers with blade force",
+    images: [img4, img4, img4, img4, img4, img4],
     features: [
-      "Forklifts (electric and diesel)",
-      "Pallet jacks",
-      "Automated guided vehicles",
-      "Scissor lifts",
+      "Powerful front blade",
+      "Excellent traction",
+      "GPS leveling (modern models)",
+      "Used in mining and road works",
     ],
     applications: [
-      "Warehousing",
-      "Logistics",
-      "Manufacturing plants",
-      "Retail distribution",
-    ],
-  },
-  {
-    id: 5,
-    name: "Road Construction",
-    description:
-      "Advanced road machinery to ensure smooth, durable, and fast road construction projects.",
-    stats: "35 specialized units",
-    image:
-      "https://cdn.pixabay.com/photo/2020/10/04/13/25/road-5626276_1280.jpg",
-    features: [
-      "Asphalt pavers",
-      "Cold milling machines",
-      "Road rollers with compaction sensors",
-      "Bitumen sprayers",
-    ],
-    applications: [
-      "Highway construction",
-      "Urban road upgrades",
-      "Runway paving",
-      "Asphalt resurfacing",
-    ],
-  },
-  {
-    id: 6,
-    name: "Forestry Equipment",
-    description:
-      "Powerful and safe machines designed for efficient tree cutting, logging, and forest maintenance.",
-    stats: "20+ rugged machines",
-    image:
-      "https://cdn.pixabay.com/photo/2020/02/07/09/32/forest-4828445_1280.jpg",
-    features: [
-      "Harvesters and feller bunchers",
-      "Log skidders",
-      "Wood chippers",
-      "Stump grinders",
-    ],
-    applications: [
-      "Logging operations",
-      "Forest clearing",
-      "Timber transport",
-      "Reforestation support",
+      "Earthmoving",
+      "Land clearing",
+      "Road base grading",
+      "Mining site prep",
     ],
   },
 ];

@@ -255,9 +255,9 @@ const Footer = () => {
           Copyright © 2025{" "}
           <span style={{ color: "#FA812F", fontWeight: "bold" }}>ALIKAB</span>{" "}
           International Trading PLC. All rights reserved | Developed by:
-          <span style={{ color: "#FA812F", fontWeight: "bold" }}> Abate </span>
+          {/* <span style={{ color: "#FA812F", fontWeight: "bold" }}> Abate </span>
           and{"  "}
-          <span style={{ color: "#FA812F", fontWeight: "bold" }}>Dirsan.</span>
+          <span style={{ color: "#FA812F", fontWeight: "bold" }}>Dirsan.</span> */}
         </Typography>
       </Box>
     </Box>

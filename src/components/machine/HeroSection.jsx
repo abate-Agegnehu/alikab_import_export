@@ -1,5 +1,4 @@
 import React from "react";
-
 import machinePhoto from "../../assets/images/machinePhoto.png";
 const HeroSection = ({ onExplore, onContact }) => {
   return (
