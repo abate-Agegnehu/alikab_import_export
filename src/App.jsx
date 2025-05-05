@@ -10,7 +10,7 @@ import Machine from "./pages/Machine";
 import Transportation from "./pages/Transportation";
 import Footer from "./components/footer/Footer";
 import ScrollToTop from "./components/ScrollTop";
-import AgriculturalChemicals from "./pages/AgriculturalChemicals";
+import AgriChemical from "./pages/AgriChemical";
 const App = () => {
   return (
     <Router>
@@ -24,7 +24,7 @@ const App = () => {
         <Route path="/export" element={<Export />} />
         <Route path="/transportation" element={<Transportation />} />
         <Route path="/machinery" element={<Machine />} />
-        <Route path="/agro-chemicals" element={<AgriculturalChemicals />} />
+        <Route path="agro-chemicals" element={<AgriChemical />} />
       </Routes>
       <Footer />
     </Router>

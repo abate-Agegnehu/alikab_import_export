@@ -7,6 +7,7 @@ const Header = ({ scrolled }) => {
   const [openDropdown, setOpenDropdown] = useState(null);
   const menuRef = useRef(null);
   const buttonRef = useRef(null);
+  const dropdownTimeoutRef = useRef(null);
 
   const navigate = useNavigate();
 
@@ -31,9 +32,7 @@ const Header = ({ scrolled }) => {
     },
   ];
 
-  const toggleMenu = () => {
-    setIsMenuOpen((prev) => !prev);
-  };
+  const toggleMenu = () => setIsMenuOpen((prev) => !prev);
 
   const toggleDropdown = (itemName) => {
     setOpenDropdown(openDropdown === itemName ? null : itemName);
@@ -55,6 +54,7 @@ const Header = ({ scrolled }) => {
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
+      clearTimeout(dropdownTimeoutRef.current);
     };
   }, []);
 
@@ -81,8 +81,19 @@ const Header = ({ scrolled }) => {
           <div
             key={item.name}
             className="relative"
-            onMouseEnter={() => item.subItems && setOpenDropdown(item.name)}
-            onMouseLeave={() => item.subItems && setOpenDropdown(null)}
+            onMouseEnter={() => {
+              if (item.subItems) {
+                clearTimeout(dropdownTimeoutRef.current);
+                setOpenDropdown(item.name);
+              }
+            }}
+            onMouseLeave={() => {
+              if (item.subItems) {
+                dropdownTimeoutRef.current = setTimeout(() => {
+                  setOpenDropdown(null);
+                }, 200);
+              }
+            }}
           >
             {item.subItems ? (
               <>
@@ -97,7 +108,7 @@ const Header = ({ scrolled }) => {
                 </button>
 
                 {openDropdown === item.name && (
-                  <div className="top-full left-0 absolute bg-white shadow-lg mt-2 rounded-md w-48 overflow-hidden text-gray-800">
+                  <div className="top-full left-0 z-40 absolute bg-white shadow-lg mt-2 rounded-md w-48 overflow-hidden text-gray-800">
                     {item.subItems.map((subItem) => (
                       <Link
                         key={subItem.name}
