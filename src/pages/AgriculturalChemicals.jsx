@@ -4,7 +4,6 @@ import FeaturedProducts from "../components/Agricutur/FeaturedProducts";
 import StatsSection from "../components/Agricutur/StatsSection";
 import CTASection from "../components/Agricutur/CTASection";
 import ProductModal from "../components/Agricutur/ProductModal";
-import Breadcrumb from "../components/Agricutur/Breadcrumb";
 import LandingAgroChemical from "../components/Agricutur/LandingAgroChemical";
 import {
   chemicalCategories,
@@ -85,8 +84,6 @@ const AgriculturalChemicals = () => {
         }
         onContactTeam={handleContactTeam}
       />
-
-      <Breadcrumb />
 
       <ChemicalPortfolio
         categories={chemicalCategories}
