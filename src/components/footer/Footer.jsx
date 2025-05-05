@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Box, Grid, Typography, Stack, Link, IconButton } from "@mui/material";
+import React from "react";
+import { Box, Grid, Typography, Stack, IconButton } from "@mui/material";
 import RoomIcon from "@mui/icons-material/Room";
 import PhoneIphoneIcon from "@mui/icons-material/PhoneIphone";
 import EmailIcon from "@mui/icons-material/Email";
@@ -7,6 +7,7 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import TelegramIcon from "@mui/icons-material/Telegram";
 import YouTubeIcon from "@mui/icons-material/YouTube";
+import { Link } from "react-router-dom";
 import logo4 from "../../assets/images/logo4.png";
 
 const Footer = () => {
@@ -73,62 +74,72 @@ const Footer = () => {
             Explore
           </Typography>
           <Stack spacing={1}>
-            <Link
-              href="#"
-              color="inherit"
-              underline="none"
-              sx={{ "&:hover": { color: "#FA812F" } }}
+            <Box
+              component={Link}
+              to="/"
+              sx={{
+                color: "inherit",
+                textDecoration: "none",
+                "&:hover": { color: "#FA812F" },
+              }}
             >
               Home
-            </Link>
-            <Link
-              href="#"
-              color="inherit"
-              underline="none"
-              sx={{ "&:hover": { color: "#FA812F" } }}
+            </Box>
+            <Box
+              component={Link}
+              to="/about"
+              sx={{
+                color: "inherit",
+                textDecoration: "none",
+                "&:hover": { color: "#FA812F" },
+              }}
             >
               About Us
-            </Link>
-            <Link
-              href="#"
-              color="inherit"
-              underline="none"
-              sx={{ "&:hover": { color: "#FA812F" } }}
+            </Box>
+            <Box
+              component={Link}
+              to="/vehicles"
+              sx={{
+                color: "inherit",
+                textDecoration: "none",
+                "&:hover": { color: "#FA812F" },
+              }}
             >
               Vehicles
-            </Link>
-            <Link
-              href="#"
-              color="inherit"
-              underline="none"
-              sx={{ "&:hover": { color: "#FA812F" } }}
+            </Box>
+            <Box
+              component={Link}
+              to="/machinery"
+              sx={{
+                color: "inherit",
+                textDecoration: "none",
+                "&:hover": { color: "#FA812F" },
+              }}
             >
-              Carco truck
-            </Link>
-            <Link
-              href="#"
-              color="inherit"
-              underline="none"
-              sx={{ "&:hover": { color: "#FA812F" } }}
+              Machinery
+            </Box>
+            <Box
+              component={Link}
+              to="/export"
+              sx={{
+                color: "inherit",
+                textDecoration: "none",
+                "&:hover": { color: "#FA812F" },
+              }}
             >
-              Fuel truck
-            </Link>
-            <Link
-              href="#"
-              color="inherit"
-              underline="none"
-              sx={{ "&:hover": { color: "#FA812F" } }}
+              Export
+            </Box>
+            <Box
+              component={Link}
+              to="/consultancy"
+              sx={{
+                color: "inherit",
+                textDecoration: "none",
+                "&:hover": { color: "#FA812F" },
+              }}
             >
-              Suv
-            </Link>
-            <Link
-              href="#"
-              color="inherit"
-              underline="none"
-              sx={{ "&:hover": { color: "#FA812F" } }}
-            >
-              Any electric and Hybrid vehicle
-            </Link>
+              Consultancy
+            </Box>
           </Stack>
         </Grid>
 
@@ -148,38 +159,50 @@ const Footer = () => {
             Quick Links
           </Typography>
           <Stack spacing={1}>
-            <Link
-              href="#"
-              color="inherit"
-              underline="none"
-              sx={{ "&:hover": { color: "#FA812F" } }}
+            <Box
+              component={Link}
+              to="/contact"
+              sx={{
+                color: "inherit",
+                textDecoration: "none",
+                "&:hover": { color: "#FA812F" },
+              }}
             >
               Contact Us
-            </Link>
-            <Link
-              href="#"
-              color="inherit"
-              underline="none"
-              sx={{ "&:hover": { color: "#FA812F" } }}
+            </Box>
+            <Box
+              component={Link}
+              to="/agro-chemicals"
+              sx={{
+                color: "inherit",
+                textDecoration: "none",
+                "&:hover": { color: "#FA812F" },
+              }}
             >
-              Merchandise
-            </Link>
-            <Link
-              href="#"
-              color="inherit"
-              underline="none"
-              sx={{ "&:hover": { color: "#FA812F" } }}
+              Agricultural Chemicals
+            </Box>
+            <Box
+              component={Link}
+              to="/transportation"
+              sx={{
+                color: "inherit",
+                textDecoration: "none",
+                "&:hover": { color: "#FA812F" },
+              }}
             >
-              Agricultural products
-            </Link>
-            <Link
-              href="#"
-              color="inherit"
-              underline="none"
-              sx={{ "&:hover": { color: "#FA812F" } }}
+              Transportation
+            </Box>
+            <Box
+              component={Link}
+              to="/privacy-policy"
+              sx={{
+                color: "inherit",
+                textDecoration: "none",
+                "&:hover": { color: "#FA812F" },
+              }}
             >
               Privacy Policy
-            </Link>
+            </Box>
           </Stack>
         </Grid>
 
@@ -255,9 +278,6 @@ const Footer = () => {
           Copyright © 2025{" "}
           <span style={{ color: "#FA812F", fontWeight: "bold" }}>ALIKAB</span>{" "}
           International Trading PLC. All rights reserved | Developed by:
-          {/* <span style={{ color: "#FA812F", fontWeight: "bold" }}> Abate </span>
-          and{"  "}
-          <span style={{ color: "#FA812F", fontWeight: "bold" }}>Dirsan.</span> */}
         </Typography>
       </Box>
     </Box>
