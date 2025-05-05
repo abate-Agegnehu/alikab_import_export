@@ -18,7 +18,7 @@ const Header = ({ scrolled }) => {
     {
       name: "Our Imports",
       subItems: [
-        { name: "Vehicles", href: "/vichles" },
+        { name: "Vehicles", href: "/vehicles" },
         { name: "Agriculture Chemicals", href: "/agro-chemicals" },
         { name: "Machinery", href: "/machinery" },
       ],
