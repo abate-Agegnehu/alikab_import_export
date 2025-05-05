@@ -7,14 +7,17 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import TelegramIcon from "@mui/icons-material/Telegram";
 import YouTubeIcon from "@mui/icons-material/YouTube";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import logo4 from "../../assets/images/logo4.png";
 
 const Footer = () => {
+  const location = useLocation(); // ✅ Get current path
+  const isAgroChemicalsRoute = location.pathname === "/agro-chemicals"; // ✅ Check route
+
   return (
     <Box
       sx={{
-        backgroundColor: "#1c2551",
+        backgroundColor: isAgroChemicalsRoute ? "#15803D" : "#1c2551", // ✅ Conditional color
         color: "lightgray",
         py: 6,
         px: { xs: 4, md: 10 },
