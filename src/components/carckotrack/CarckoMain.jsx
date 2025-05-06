@@ -114,7 +114,7 @@ const CarckoMain = () => {
               variant="contained"
               sx={{
                 py: 1,
-                width: "150px",
+                width: { md: "150px" },
                 border: "none",
                 backgroundColor:
                   selectedCategory === cat ? "#1a237e" : "#ffffff",
