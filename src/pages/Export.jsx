@@ -11,8 +11,8 @@ import pulses from "../assets/images/pulses.jpg";
 import soybean from "../assets/images/soybean.jpg";
 import beans from "../assets/images/beans.jpg";
 import bean from "../assets/images/bean.jpg";
-import ProductCategoryGrid from "../components/export/ProductCategoryGrid";
-import LandingExport from "../components/export/LandingExport";
+import ServiceCards from "../components/export/ServiceCards";
+
 const categories = [
   {
     title: "Coffee",
@@ -57,6 +57,7 @@ const ExportPage = () => {
     <>
       <LandingExport categories={categories} />
       <ProductCategoryGrid categories={categories} />
+      <ServiceCards />
     </>
   );
 };
