@@ -1,11 +1,10 @@
 import React from "react";
 import MainLayout from "../main/MainLayout";
-import AboutMain from "./AboutMain";
-
+import AboutHero from "./AboutHero";
 const LandingAbout = () => {
   return (
     <MainLayout>
-      <AboutMain />
+      <AboutHero />
     </MainLayout>
   );
 };
