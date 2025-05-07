@@ -3,7 +3,10 @@ import { motion } from "framer-motion";
 
 const MarketingQuote = () => {
   return (
-    <div className="relative bg-gradient-to-br from-[#f8f9fa] to-[#e9ecef] py-24 overflow-hidden">
+    <div
+      className="relative bg-gradient-to-br from-[#f8f9fa] to-[#e9ecef] py-24 overflow-hidden"
+      id="quote"
+    >
       {/* Decorative elements */}
       <div className="absolute inset-0 opacity-20 overflow-hidden">
         <div className="top-1/4 left-10 absolute bg-[#212A5E] blur-[100px] rounded-full w-80 h-80 filter"></div>

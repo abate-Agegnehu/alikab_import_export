@@ -1,5 +1,5 @@
 // constants.js
-import cofee from "../assets/Coffee.png";
+import coffee from "../assets/Coffee.png";
 import JacCar from "../assets/JAC.png";
 import byd1 from "../assets/byd1.png";
 import carco from "../assets/carco.png";
@@ -13,9 +13,11 @@ export const NAV_LINKS = [
 
 export const HERO_SLIDES = [
   {
-    title: "New Electrical Cars",
-    description: ["Automotives is one of the major sectors "],
-    backgroundImage: cofee,
+    title: "Fresh Brewed Coffee",
+    description: [
+      "Coffee is one of the most beloved beverages around the world.",
+    ],
+    backgroundImage: coffee,
   },
   {
     title: "Commercial Vehicle Solutions",

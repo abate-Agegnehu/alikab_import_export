@@ -1,10 +1,12 @@
 import React from "react";
 import { motion, useMotionValue, useTransform } from "framer-motion";
 import { KeyboardArrowDown } from "@mui/icons-material";
+import { useNavigate } from "react-router-dom";
 
 const AboutHero = () => {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
+  const navigate = useNavigate();
 
   const backgroundX = useTransform(mouseX, [0, window.innerWidth], [-30, 30]);
   const backgroundY = useTransform(mouseY, [0, window.innerHeight], [-30, 30]);
@@ -148,6 +150,7 @@ const AboutHero = () => {
             className="bg-gradient-to-r from-[#FA812F] to-[#212A5E] shadow-lg hover:shadow-xl mb-8 px-8 py-3 rounded-lg font-semibold text-white transition-all duration-300"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            onClick={() => navigate("/", { state: { scrollTo: "middle" } })}
           >
             Discover Our Story
           </motion.button>

@@ -1,8 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
 import machinePhoto from "../../assets/images/machinePhoto.png";
+import { useNavigate } from "react-router-dom";
 
 const HeroSection = ({ onExplore, onContact }) => {
+  const navigate = useNavigate();
   // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -109,7 +111,14 @@ const HeroSection = ({ onExplore, onContact }) => {
             variants={containerVariants}
           >
             <motion.button
-              onClick={onExplore}
+              onClick={() => {
+                const productsSection = document.getElementById("equipment");
+                if (productsSection) {
+                  productsSection.scrollIntoView({ behavior: "smooth" });
+                }
+                // Optional: Call the original prop if needed
+                if (onExploreProducts) onExploreProducts();
+              }}
               className="bg-blue-600 hover:bg-blue-700 shadow-lg hover:shadow-xl px-10 py-4 rounded-lg font-medium text-white text-lg"
               variants={buttonVariants}
               whileHover="hover"
@@ -118,7 +127,7 @@ const HeroSection = ({ onExplore, onContact }) => {
               Explore Equipment
             </motion.button>
             <motion.button
-              onClick={onContact}
+              onClick={() => navigate("/contact")}
               className="hover:bg-white px-10 py-4 border-2 border-white rounded-lg font-medium text-white hover:text-blue-800 text-lg"
               variants={buttonVariants}
               whileHover="hover"

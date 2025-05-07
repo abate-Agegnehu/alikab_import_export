@@ -12,10 +12,11 @@ import {
   FiClock,
   FiHeadphones,
 } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
 
 const ServicesSection = () => {
   const [activeFeature, setActiveFeature] = useState(0);
-
+  const navigate = useNavigate();
   const services = [
     {
       id: 1,
@@ -244,7 +245,10 @@ const ServicesSection = () => {
                     <p className="mb-4 text-blue-100 text-sm">
                       Speak with our experts for a customized solution
                     </p>
-                    <button className="flex items-center gap-2 group-hover:gap-3 bg-white hover:bg-blue-50 px-5 py-2.5 rounded-lg font-medium text-blue-800 text-sm transition-all duration-300">
+                    <button
+                      className="flex items-center gap-2 group-hover:gap-3 bg-white hover:bg-blue-50 px-5 py-2.5 rounded-lg font-medium text-blue-800 text-sm transition-all duration-300"
+                      onClick={() => navigate("/contact")}
+                    >
                       Contact Our Team
                       <FiArrowRight className="transition-transform group-hover:translate-x-1 duration-300" />
                     </button>

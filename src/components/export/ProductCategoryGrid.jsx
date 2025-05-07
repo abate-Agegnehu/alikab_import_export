@@ -27,7 +27,10 @@ const ProductCategoryGrid = ({ categories }) => {
         viewport={{ once: true }}
         className="relative mb-16 px-4 text-center"
       >
-        <h2 className="mb-4 font-bold text-[#212A5E] text-4xl md:text-5xl">
+        <h2
+          className="mb-4 font-bold text-[#212A5E] text-4xl md:text-5xl"
+          id="exportproducts"
+        >
           Our <span className="text-[#FA812F]">Premium</span> Exports
         </h2>
         <div className="bg-[#FA812F] mx-auto mb-6 rounded-full w-24 h-1.5"></div>

@@ -5,11 +5,13 @@ import imgHero from "../../assets/Coffee.png";
 import coffeeSeed from "../../assets/images/coffee-seed.jpg";
 import sesameSeed from "../../assets/images/sesame-seed.jpg";
 import beansSeed from "../../assets/images/bean-seed.jpg";
+import { useNavigate } from "react-router-dom";
 
 const HeroExport = () => {
   const [activeTab, setActiveTab] = useState("coffee");
   const [hovered, setHovered] = useState(false);
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
+  const navigate = useNavigate();
 
   const handleMouseMove = (e) => {
     setCursorPosition({ x: e.clientX, y: e.clientY });
@@ -134,11 +136,25 @@ const HeroExport = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8 }}
           >
-            <button className="group flex items-center bg-gradient-to-r from-green-600 hover:from-green-500 to-green-500 hover:to-green-400 shadow-lg hover:shadow-xl px-8 py-4 rounded-lg font-semibold transition-all duration-300">
+            <button
+              className="group flex items-center bg-gradient-to-r from-green-600 hover:from-green-500 to-green-500 hover:to-green-400 shadow-lg hover:shadow-xl px-8 py-4 rounded-lg font-semibold transition-all duration-300"
+              onClick={() => {
+                const productsSection =
+                  document.getElementById("exportproducts");
+                if (productsSection) {
+                  productsSection.scrollIntoView({ behavior: "smooth" });
+                }
+                // Optional: Call the original prop if needed
+                if (onExploreProducts) onExploreProducts();
+              }}
+            >
               <Globe className="mr-2 w-5 h-5 group-hover:animate-pulse" />
               Explore Our Products
             </button>
-            <button className="hover:bg-green-900/30 hover:shadow-lg px-8 py-4 border border-green-400 rounded-lg font-semibold transition-all duration-300">
+            <button
+              className="hover:bg-green-900/30 hover:shadow-lg px-8 py-4 border border-green-400 rounded-lg font-semibold transition-all duration-300"
+              onClick={() => navigate("/contact")}
+            >
               Request Export Catalog
             </button>
           </motion.div>

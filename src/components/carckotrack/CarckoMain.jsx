@@ -1,5 +1,9 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import suv1 from "../../assets/images/vehicles/suv1.jpg";
+import suv2 from "../../assets/images/vehicles/suv2.jpg";
+import cargo from "../../assets/images/vehicles/cargo.jpg";
+import { useNavigate } from "react-router-dom";
 
 // Vehicle images
 const vehicles = [
@@ -27,26 +31,34 @@ const vehicles = [
       { value: "7", label: "Seats" },
     ],
   },
-  // Add similar objects for all vehicles...
+  {
+    src: cargo,
+    category: "Cargo",
+    title: "Heavy Duty Cargo",
+    description: "Reliable cargo transport for commercial needs",
+    stats: [
+      { value: "5T", label: "Capacity" },
+      { value: "Diesel", label: "Engine" },
+      { value: "2022", label: "Model" },
+    ],
+  },
+  // Add more vehicles as needed
 ];
 
 const CarckoMain = () => {
-  const [selectedCategory, setSelectedCategory] = useState("Allcars");
+  const [activeTab, setActiveTab] = useState("Allcars");
+  const [selectedCard, setSelectedCard] = useState(null);
   const [hoveredCard, setHoveredCard] = useState(null);
+  const navigate = useNavigate();
 
+  // Filter vehicles based on active tab
   const filteredVehicles =
-    selectedCategory === "Allcars"
+    activeTab === "Allcars"
       ? vehicles
-      : vehicles.filter((item) => item.category === selectedCategory);
+      : vehicles.filter((vehicle) => vehicle.category === activeTab);
 
   return (
     <div className="relative bg-gradient-to-b from-gray-50 to-white overflow-hidden">
-      {/* Decorative elements */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="top-20 left-10 absolute bg-[#FA812F] blur-3xl rounded-full w-40 h-40 filter"></div>
-        <div className="right-20 bottom-10 absolute bg-[#212A5E] blur-3xl rounded-full w-60 h-60 filter"></div>
-      </div>
-
       {/* Hero Section */}
       <section className="relative flex md:flex-row flex-col items-center gap-12 mx-auto px-4 sm:px-6 lg:px-8 py-20 max-w-7xl">
         <motion.div
@@ -96,118 +108,90 @@ const CarckoMain = () => {
       {/* Vehicle Categories */}
       <section className="bg-white py-12">
         <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="flex justify-center space-x-4 mb-12"
-          >
-            {["Allcars", "SUV", "Cargo"].map((cat) => (
+          <div className="flex flex-wrap justify-center gap-4 mb-12">
+            {[
+              { id: "Allcars", label: "All Vehicles" },
+              { id: "SUV", label: "SUV" },
+              { id: "Cargo", label: "Cargo" },
+            ].map((tab) => (
               <motion.button
-                key={cat}
-                onClick={() => setSelectedCategory(cat)}
-                whileHover={{ y: -2 }}
+                key={tab.id}
+                whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className={`px-6 py-2 rounded-full font-medium transition-colors ${
-                  selectedCategory === cat
-                    ? "bg-[#212A5E] text-white shadow-md"
-                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                onClick={() => setActiveTab(tab.id)}
+                className={`px-6 py-3 font-medium rounded-full transition-all ${
+                  activeTab === tab.id
+                    ? "bg-[#212A5E] text-white shadow-lg"
+                    : "text-gray-700 hover:bg-gray-100 border border-gray-200"
                 }`}
               >
-                {cat}
+                {tab.label}
               </motion.button>
             ))}
-          </motion.div>
+          </div>
 
-          {/* Vehicle Grid */}
-          <motion.div
-            layout
-            className="gap-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
-          >
-            <AnimatePresence>
+          <div className="min-h-[500px]">
+            {/* Vehicle Grid */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              className="gap-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+            >
               {filteredVehicles.map((vehicle, index) => (
                 <motion.div
-                  key={`${vehicle.category}-${index}`}
-                  layout
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.4 }}
-                  whileHover={{ y: -10 }}
-                  onMouseEnter={() => setHoveredCard(index)}
-                  onMouseLeave={() => setHoveredCard(null)}
-                  className="group relative"
+                  key={index}
+                  whileHover={{ y: -5 }}
+                  onHoverStart={() => setHoveredCard(index)}
+                  onHoverEnd={() => setHoveredCard(null)}
+                  className="bg-white shadow-lg hover:shadow-xl border border-gray-200 rounded-xl overflow-hidden transition-all duration-300"
                 >
-                  {/* Image Container */}
-                  <div className="relative shadow-lg rounded-xl h-64 overflow-hidden">
+                  <div className="relative h-64 overflow-hidden">
                     <img
                       src={vehicle.src}
                       alt={vehicle.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="w-full h-full object-cover"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
                   </div>
-
-                  {/* Info Panel */}
-                  <div className="z-10 relative bg-white shadow-md mx-4 -mt-8 p-6 border border-gray-100 rounded-lg">
-                    <h3 className="mb-2 font-bold text-[#212A5E] text-xl">
-                      {vehicle.title}
-                    </h3>
+                  <div className="p-6">
+                    <div className="flex justify-between items-start mb-2">
+                      <h4 className="font-bold text-[#212A5E] text-xl">
+                        {vehicle.title}
+                      </h4>
+                      <span className="bg-[#FA812F]/10 text-[#FA812F] text-xs px-2 py-1 rounded">
+                        {vehicle.category}
+                      </span>
+                    </div>
                     <p className="mb-4 text-gray-600">{vehicle.description}</p>
-
-                    {/* Stats */}
-                    <div className="flex flex-wrap gap-2 mb-4">
+                    <div className="flex justify-between">
                       {vehicle.stats.map((stat, i) => (
-                        <div
-                          key={i}
-                          className="bg-[#212A5E]/5 px-3 py-1 rounded-full"
-                        >
-                          <span className="font-bold text-[#212A5E]">
+                        <div key={i} className="text-center">
+                          <p className="font-bold text-[#212A5E]">
                             {stat.value}
-                          </span>
-                          <span className="ml-1 text-gray-500 text-xs">
-                            {stat.label}
-                          </span>
+                          </p>
+                          <p className="text-xs text-gray-500">{stat.label}</p>
                         </div>
                       ))}
                     </div>
-
-                    {/* Animated Button */}
-                    <motion.div
-                      animate={{
-                        opacity: hoveredCard === index ? 1 : 0,
-                        y: hoveredCard === index ? 0 : 10,
-                      }}
-                    >
-                      <button className="flex items-center font-medium text-[#FA812F]">
-                        <span>View Details</span>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1 duration-300"
-                          viewBox="0 0 20 20"
-                          fill="currentColor"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
-                      </button>
-                    </motion.div>
                   </div>
-
-                  {/* Decorative Accent */}
-                  <div className="-right-4 -bottom-4 z-0 absolute bg-[#FA812F]/10 rounded-full w-24 h-24"></div>
                 </motion.div>
               ))}
-            </AnimatePresence>
-          </motion.div>
+            </motion.div>
+
+            {filteredVehicles.length === 0 && (
+              <div className="text-center py-12">
+                <h3 className="text-xl font-semibold text-gray-700">
+                  No vehicles found in this category
+                </h3>
+                <p className="text-gray-500 mt-2">
+                  Please check back later or browse other categories
+                </p>
+              </div>
+            )}
+          </div>
         </div>
       </section>
 
-      {/* Proven Track Record */}
       <section className="relative bg-gradient-to-r from-[#212A5E] to-[#1a103d] py-20 text-white">
         <div className="flex md:flex-row flex-col items-center gap-12 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <motion.div
