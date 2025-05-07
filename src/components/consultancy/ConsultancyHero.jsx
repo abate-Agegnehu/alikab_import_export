@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Truck, MapPin, Clock } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const ConsultationHero = () => {
   const [activeTab, setActiveTab] = useState("road");
   const [hovered, setHovered] = useState(false);
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
-
+  const navigate = useNavigate();
   const handleMouseMove = (e) => {
     setCursorPosition({ x: e.clientX, y: e.clientY });
   };
@@ -176,11 +177,19 @@ const ConsultationHero = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8 }}
           >
-            <button className="group flex items-center bg-gradient-to-r from-blue-600 hover:from-blue-500 to-blue-500 hover:to-blue-400 shadow-lg hover:shadow-xl px-8 py-4 rounded-lg font-semibold transition-all duration-300">
+            <button
+              className="group flex items-center bg-gradient-to-r from-blue-600 hover:from-blue-500 to-blue-500 hover:to-blue-400 shadow-lg hover:shadow-xl px-8 py-4 rounded-lg font-semibold transition-all duration-300"
+              onClick={() => navigate("/", { state: { scrollTo: "quote" } })}
+            >
               <Clock className="mr-2 w-5 h-5 group-hover:animate-pulse" />
               Get Instant Quote
             </button>
-            <button className="hover:bg-blue-900/30 hover:shadow-lg px-8 py-4 border border-blue-400 rounded-lg font-semibold transition-all duration-300">
+            <button
+              className="hover:bg-blue-900/30 hover:shadow-lg px-8 py-4 border border-blue-400 rounded-lg font-semibold transition-all duration-300"
+              onClick={() =>
+                navigate("/about", { state: { scrollTo: "team" } })
+              }
+            >
               Speak to Our Expert
             </button>
           </motion.div>

@@ -12,8 +12,10 @@ import {
   Loader,
   Check,
 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const TransportMainPage = () => {
+  const navigate = useNavigate();
   const [activeService, setActiveService] = useState("road");
   const [formData, setFormData] = useState({
     name: "",
@@ -151,7 +153,10 @@ const TransportMainPage = () => {
                   Ethiopia-Djibouti corridor, we deliver seamless, reliable
                   logistics
                 </p>
-                <button className="bg-blue-600 hover:bg-blue-500 shadow px-6 py-3 rounded-lg font-semibold text-white transition-all duration-300">
+                <button
+                  className="bg-blue-600 hover:bg-blue-500 shadow px-6 py-3 rounded-lg font-semibold text-white transition-all duration-300"
+                  onClick={() => navigate("/about")}
+                >
                   Learn More About Us
                 </button>
               </div>
@@ -298,10 +303,16 @@ const TransportMainPage = () => {
               cross-border transportation.
             </p>
             <div className="flex sm:flex-row flex-col justify-center gap-4">
-              <button className="bg-gradient-to-r from-blue-600 hover:from-blue-500 to-blue-500 hover:to-blue-400 shadow-lg hover:shadow-xl px-8 py-4 rounded-lg font-semibold text-white transition-all duration-300">
+              <button
+                className="bg-gradient-to-r from-blue-600 hover:from-blue-500 to-blue-500 hover:to-blue-400 shadow-lg hover:shadow-xl px-8 py-4 rounded-lg font-semibold text-white transition-all duration-300"
+                onClick={() => navigate("/", { state: { scrollTo: "quote" } })}
+              >
                 Get Instant Quote
               </button>
-              <button className="flex justify-center items-center hover:bg-blue-900/30 hover:shadow-lg px-8 py-4 border border-blue-400 rounded-lg font-semibold text-blue-600 transition-all duration-300">
+              <button
+                className="flex justify-center items-center hover:bg-blue-900/30 hover:shadow-lg px-8 py-4 border border-blue-400 rounded-lg font-semibold text-blue-600 transition-all duration-300"
+                onClick={() => navigate("/contact")}
+              >
                 <Phone className="mr-2 w-5 h-5" />
                 Call Us Now
               </button>

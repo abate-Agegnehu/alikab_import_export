@@ -43,7 +43,7 @@ const FeaturedProducts = ({ products, onRequestSpecifications }) => {
   };
 
   return (
-    <div className="bg-gray-100 py-24">
+    <div className="bg-gray-100 py-24" id="products">
       <div className="mx-auto px-4 container">
         {/* Section Header */}
         <motion.div

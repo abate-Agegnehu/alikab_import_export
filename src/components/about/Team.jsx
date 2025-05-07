@@ -16,6 +16,7 @@ const Team = () => {
       <Paper elevation={0} sx={{ p: 4, maxWidth: 1200, mx: "auto" }}>
         <Box sx={{ mb: 3 }}>
           <Typography
+            id="team"
             variant="h4"
             component="h1"
             gutterBottom

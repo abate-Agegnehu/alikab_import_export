@@ -1,7 +1,10 @@
 import { motion } from "framer-motion";
 import imgHero from "../../assets/images/agriChemical.jpg";
+import { useNavigate } from "react-router-dom";
 
 const HeroSection = ({ onExploreProducts, onContactTeam }) => {
+  const navigate = useNavigate();
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -69,7 +72,14 @@ const HeroSection = ({ onExploreProducts, onContactTeam }) => {
             className="flex sm:flex-row flex-col justify-center gap-4"
           >
             <motion.button
-              onClick={onExploreProducts}
+              onClick={() => {
+                const productsSection = document.getElementById("products");
+                if (productsSection) {
+                  productsSection.scrollIntoView({ behavior: "smooth" });
+                }
+                // Optional: Call the original prop if needed
+                if (onExploreProducts) onExploreProducts();
+              }}
               className="bg-green-600 hover:bg-green-700 shadow-lg px-10 py-4 rounded-lg font-medium text-white text-lg"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
@@ -79,11 +89,11 @@ const HeroSection = ({ onExploreProducts, onContactTeam }) => {
             </motion.button>
 
             <motion.button
-              onClick={onContactTeam}
               className="hover:bg-white px-10 py-4 border-2 border-white rounded-lg font-medium text-white hover:text-green-800 text-lg"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
+              onClick={() => navigate("/contact")}
             >
               Contact Import Team
             </motion.button>

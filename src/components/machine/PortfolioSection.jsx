@@ -53,7 +53,10 @@ const PortfolioSection = ({ onExplore, onScheduleDemo }) => {
           <span className="inline-block bg-blue-100/80 backdrop-blur-sm mb-4 px-4 py-2 rounded-full font-semibold text-blue-800 text-sm">
             Industrial Solutions
           </span>
-          <h2 className="mb-4 font-bold text-gray-900 text-3xl sm:text-4xl lg:text-5xl">
+          <h2
+            className="mb-4 font-bold text-gray-900 text-3xl sm:text-4xl lg:text-5xl"
+            id="equipment"
+          >
             Premium <span className="text-blue-600">Equipment</span> Portfolio
           </h2>
           <div className="bg-gradient-to-r from-blue-400 to-blue-600 mx-auto mb-6 rounded-full w-24 h-1.5"></div>
@@ -207,7 +210,7 @@ const PortfolioSection = ({ onExplore, onScheduleDemo }) => {
             </p>
             <div className="flex sm:flex-row flex-col justify-center gap-4">
               <button
-                onClick={() => navigate("/vichles")}
+                onClick={() => navigate("/vehicles")}
                 className="flex justify-center items-center bg-white hover:bg-gray-100 shadow-md px-8 py-3 rounded-lg font-semibold text-blue-600 transition-colors"
               >
                 Explore More Imports

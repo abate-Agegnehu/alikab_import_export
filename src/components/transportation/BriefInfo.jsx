@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "./tabs";
 import myImage from "../../assets/carco.png";
 import { motion, AnimatePresence } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 const BriefInfo = () => {
   const [hovered, setHovered] = useState(false);
+  const navigate = useNavigate();
 
   const transportData = {
     road: {
@@ -84,11 +86,17 @@ const BriefInfo = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6 }}
           >
-            <button className="group relative bg-gradient-to-r from-blue-600 hover:from-blue-500 to-blue-500 hover:to-blue-400 shadow-lg hover:shadow-xl px-8 py-3 rounded-lg font-semibold text-white transition-all duration-300">
+            <button
+              className="group relative bg-gradient-to-r from-blue-600 hover:from-blue-500 to-blue-500 hover:to-blue-400 shadow-lg hover:shadow-xl px-8 py-3 rounded-lg font-semibold text-white transition-all duration-300"
+              onClick={() => navigate("/vehicles")}
+            >
               Book a Cargo Vehicle
             </button>
 
-            <button className="group relative hover:bg-blue-900/30 px-8 py-3 border border-blue-400 rounded-lg font-semibold text-blue-100 hover:text-white transition-all duration-300">
+            <button
+              className="group relative hover:bg-blue-900/30 px-8 py-3 border border-blue-400 rounded-lg font-semibold text-blue-100 hover:text-white transition-all duration-300"
+              onClick={() => navigate("/about")}
+            >
               Learn More
             </button>
           </motion.div>
