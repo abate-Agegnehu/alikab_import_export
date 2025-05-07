@@ -1,12 +1,13 @@
 import React from "react";
 import MainLayout from "../main/MainLayout";
-import HeroExport from "./HeroExport";
-const LandingMachine = () => {
+import HeroCarousel from "./HeroExport";
+
+const LandingExport = ({ categories }) => {
   return (
     <MainLayout>
-      <HeroExport />
+      <HeroCarousel categories={categories} />
     </MainLayout>
   );
 };
 
-export default LandingMachine;
+export default LandingExport;

@@ -19,13 +19,13 @@ const services = [
     title: "Post-Harvest Processing & Packaging",
     description:
       "We clean, grade, and package agricultural products to meet export quality standards and extend shelf life.",
-    image: postharvesting,
+    image: logistic,
   },
   {
     title: "Export Logistics & Cold Chain",
     description:
       "We manage transportation and cold storage to preserve freshness during long-distance export shipping.",
-    image: logistic,
+    image: postharvesting,
   },
   {
     title: "Compliance & Certification",

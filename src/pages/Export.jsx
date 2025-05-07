@@ -1,14 +1,20 @@
 import React from "react";
-import HeroCarousel from "../components/export/HeroExport";
-import ProductCategoryGrid from "../components/export/ProductCategoryGrid";
+// import coffee from "../../assets/images/coffee.jpg";
+// import oilseeds from "../../assets/images/oilseeds.jpg";
+// import pulses from "../../assets/images/pulses.jpg";
+// import soybean from "../../assets/images/soybean.jpg";
+// import beans from "../../assets/images/beans.jpg";
+// import bean from "../../assets/images/bean.jpg";
 import coffee from "../assets/images/coffee.jpg";
 import oilseeds from "../assets/images/oilseeds.jpg";
 import pulses from "../assets/images/pulses.jpg";
 import soybean from "../assets/images/soybean.jpg";
 import beans from "../assets/images/beans.jpg";
 import bean from "../assets/images/bean.jpg";
+import ProductCategoryGrid from "../components/export/ProductCategoryGrid";
+import LandingConsultancy from "../components/consultancy/LandingConsultancy";
+import LandingExport from "../components/export/LandingExport";
 import ServiceCards from "../components/export/ServiceCards";
-
 const categories = [
   {
     title: "Coffee",
@@ -51,7 +57,7 @@ const categories = [
 const ExportPage = () => {
   return (
     <>
-      <HeroCarousel categories={categories} />
+      <LandingExport categories={categories} />
       <ProductCategoryGrid categories={categories} />
       <ServiceCards />
     </>
