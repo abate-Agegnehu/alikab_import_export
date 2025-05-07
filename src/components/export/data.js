@@ -1,5 +1,5 @@
 import React from "react";
-import HeroCarousel from "./HeroCarousel";
+import HeroCarousel from "./HeroExport";
 import ProductCategoryGrid from "./ProductCategoryGrid";
 import coffee from "../../assets/images/coffee.jpg";
 import oilseeds from "../../assets/images/oilseeds.jpg";
