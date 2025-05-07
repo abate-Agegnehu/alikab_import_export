@@ -208,7 +208,7 @@ const AboutHero = () => {
                   transition={{ duration: 0.5 }}
                   className="space-y-8"
                 >
-                  <h3 className="mb-10 font-bold text-[#212A5E]  text-2xl md:text-3xl text-center">
+                  <h3 className="mb-10 font-bold text-[#212A5E] text-2xl md:text-3xl text-center">
                     Our Key Import Items
                   </h3>
                   <div className="gap-8 grid grid-cols-1 md:grid-cols-3">
@@ -420,7 +420,7 @@ const AboutHero = () => {
 
         {/* Card Detail Modal */}
         {selectedCard && (
-          <div className="z-50 fixed inset-0 flex justify-center items-center  bg-opacity-75 p-4">
+          <div className="z-50 fixed inset-0 flex justify-center items-center bg-opacity-75 p-4">
             <div className="bg-[#F9F9F9] rounded-xl w-full max-w-4xl max-h-[90vh] overflow-y-auto">
               <div className="relative">
                 <img
@@ -441,13 +441,13 @@ const AboutHero = () => {
                   {selectedCard.title}
                 </h2>
 
-                <div className="max-w-none  prose prose-lg text-[#4E4E4EB3]">
+                <div className="max-w-none text-[#4E4E4EB3] prose prose-lg">
                   <p className="mb-6">{selectedCard.expandedDescription}</p>
 
                   <h3 className="mb-4 font-semibold text-[#212A5E] text-xl">
                     Key Features
                   </h3>
-                  <ul className="space-y-2 mb-6 pl-5 list-disc text-[#4E4E4EB3]">
+                  <ul className="space-y-2 mb-6 pl-5 text-[#4E4E4EB3] list-disc">
                     {selectedCard.features.map((feature, index) => (
                       <li key={index}>{feature}</li>
                     ))}

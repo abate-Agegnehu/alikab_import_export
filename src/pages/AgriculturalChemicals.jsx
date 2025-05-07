@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import ChemicalPortfolio from "../components/Agricutur/ChemicalPortfolio";
 import FeaturedProducts from "../components/Agricutur/FeaturedProducts";
 import StatsSection from "../components/Agricutur/StatsSection";
-import CTASection from "../components/Agricutur/CTASection";
 import ProductModal from "../components/Agricutur/ProductModal";
 import LandingAgroChemical from "../components/Agricutur/LandingAgroChemical";
 import {
@@ -96,37 +95,6 @@ const AgriculturalChemicals = () => {
       />
 
       <StatsSection />
-
-      <CTASection
-        onCustomQuote={() => {
-          setSelectedProduct({
-            name: "Request Custom Quote",
-            description:
-              "Provide us with your requirements and we'll prepare a competitive quote",
-            specifications: [
-              "Volume discounts available",
-              "Flexible payment terms",
-              "Door-to-door delivery options",
-              "Custom formulations available",
-            ],
-          });
-          setShowModal(true);
-        }}
-        onScheduleCall={() => {
-          setSelectedProduct({
-            name: "Schedule a Consultation",
-            description:
-              "Book a call with our import specialists to discuss your needs",
-            specifications: [
-              "Available Monday-Friday 8am-6pm",
-              "Video or phone call options",
-              "Technical experts available",
-              "No obligation consultation",
-            ],
-          });
-          setShowModal(true);
-        }}
-      />
     </div>
   );
 };
