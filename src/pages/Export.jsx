@@ -7,6 +7,7 @@ import pulses from "../assets/images/pulses.jpg";
 import soybean from "../assets/images/soybean.jpg";
 import beans from "../assets/images/beans.jpg";
 import bean from "../assets/images/bean.jpg";
+import ServiceCards from "../components/export/ServiceCards";
 
 const categories = [
   {
@@ -52,6 +53,7 @@ const ExportPage = () => {
     <>
       <HeroCarousel categories={categories} />
       <ProductCategoryGrid categories={categories} />
+      <ServiceCards />
     </>
   );
 };

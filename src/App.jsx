@@ -11,6 +11,7 @@ import Transportation from "./pages/Transportation";
 import Footer from "./components/footer/Footer";
 import ScrollToTop from "./components/ScrollTop";
 import AgriculturalChemicals from "./pages/AgriculturalChemicals";
+import ConsultancyPage from "./pages/ConsultancyPage";
 const App = () => {
   return (
     <Router>
@@ -19,12 +20,13 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/vichles" element={<Carcko />} />
+        <Route path="/vehicles" element={<Carcko />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/export" element={<Export />} />
         <Route path="/transportation" element={<Transportation />} />
         <Route path="/machinery" element={<Machine />} />
         <Route path="/agro-chemicals" element={<AgriculturalChemicals />} />
+        <Route path="/consultancy" element={<ConsultancyPage />} />
       </Routes>
       <Footer />
     </Router>

@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import logo from "../../assets/logoUpdated.png";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Header = ({ scrolled }) => {
+  const location = useLocation();
+  const currentPath = location.pathname;
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
   const [closingDropdown, setClosingDropdown] = useState(null);
@@ -18,7 +20,7 @@ const Header = ({ scrolled }) => {
     {
       name: "Our Imports",
       subItems: [
-        { name: "Vehicles", href: "/vichles" },
+        { name: "Vehicles", href: "/vehicles" },
         { name: "Agriculture Chemicals", href: "/agro-chemicals" },
         { name: "Machinery", href: "/machinery" },
       ],
@@ -86,7 +88,9 @@ const Header = ({ scrolled }) => {
     <nav
       className={`fixed top-0 left-0 z-50 flex justify-between items-center p-4 sm:p-6 w-full transition-all duration-300 ${
         scrolled
-          ? "bg-[#212A5E] text-white shadow-md"
+          ? currentPath === "/agro-chemicals"
+            ? "bg-[#15803D] text-white shadow-md" // green background when scrolled on this route
+            : "bg-[#212A5E] text-white shadow-md" // default scrolled background
           : "bg-transparent text-white"
       }`}
     >

@@ -16,66 +16,13 @@ import {
   Business,
   School,
 } from "@mui/icons-material";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import about1 from "../../assets/images/about1.jpg";
+
+// Import the separated Hero component
+import AboutHero from "./AboutHero";
 
 const AboutMain = () => {
   return (
     <Box sx={{ width: "100%", overflowX: "hidden" }}>
-      {/* Hero Section */}
-      <Box
-        sx={{
-          width: "100vw",
-          position: "relative",
-          height: 500,
-          backgroundImage: `url(${about1})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <Box
-          sx={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-            backgroundColor: "rgba(0,0,0,0.4)",
-            zIndex: 0,
-          }}
-        />
-        <Box
-          sx={{
-            position: "relative",
-            zIndex: 10,
-            color: "white",
-            textAlign: "center",
-          }}
-        >
-          <Typography
-            variant="h2"
-            sx={{ fontWeight: "bold", fontSize: { xs: "2rem", md: "3rem" } }}
-          >
-            About Us
-          </Typography>
-          <KeyboardArrowDownIcon
-            fontSize="large"
-            sx={{
-              mt: 2,
-              animation: "bounce 2s infinite",
-              "@keyframes bounce": {
-                "0%, 100%": { transform: "translateY(0)" },
-                "50%": { transform: "translateY(-10px)" },
-              },
-            }}
-          />
-        </Box>
-      </Box>
-
-      {/* Our Company Section */}
       <Container sx={{ py: 8 }}>
         <Grid container spacing={4}>
           <Grid
@@ -106,7 +53,7 @@ const AboutMain = () => {
                   backgroundColor: "#FA812F",
                   mt: "6px",
                   width: "80%",
-                  mx: "auto", // This centers the underline
+                  mx: "auto",
                 }}
               />
             </Box>

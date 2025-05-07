@@ -1,50 +1,95 @@
-import React from "react";
+import { motion } from "framer-motion";
+import imgHero from "../../assets/images/agriChemical.jpg";
 
 const HeroSection = ({ onExploreProducts, onContactTeam }) => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.3,
+        delayChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut",
+      },
+    },
+  };
+
   return (
     <div className="relative h-screen max-h-[800px] overflow-hidden">
-      <div
+      <motion.div
         className="absolute inset-0 bg-cover bg-center bg-fixed"
         style={{
-          backgroundImage:
-            "url(https://camachem.com/pub/media/wysiwyg/Top_10_Chemicals_for_Agriculture_Industry.jpg)",
+          backgroundImage: `url(${imgHero})`,
           backgroundAttachment: "fixed",
+          filter: "brightness(0.7)",
         }}
+        initial={{ scale: 1.2 }}
+        animate={{ scale: 1 }}
+        transition={{ duration: 1.5, ease: "easeOut" }}
       >
         <div className="absolute inset-0 bg-opacity-40"></div>
-      </div>
+      </motion.div>
 
-      <div className="relative flex items-center h-full">
+      <motion.div
+        className="relative flex items-center h-full"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
         <div className="mx-auto px-4 text-center container">
-          <div className="inline-block bg-green-800 bg-opacity-90 mb-6 px-4 py-2 rounded-full">
-            <span className="font-medium text-green-100 text-sm">
-              Global Import Solutions
-            </span>
-          </div>
-          <h1 className="mb-6 font-bold text-white text-5xl md:text-7xl leading-tight">
+          <motion.h1
+            variants={itemVariants}
+            className="mb-6 font-bold text-white text-5xl md:text-7xl leading-tight"
+          >
             Premium <span className="text-green-300">Agricultural</span>{" "}
             Chemicals
-          </h1>
-          <p className="mx-auto mb-10 max-w-3xl text-green-100 text-xl md:text-2xl">
+          </motion.h1>
+
+          <motion.p
+            variants={itemVariants}
+            className="mx-auto mb-10 max-w-3xl text-green-100 text-xl md:text-2xl"
+          >
             Sourcing the world's finest crop protection and nutrition products
             for your farming success
-          </p>
-          <div className="flex sm:flex-row flex-col justify-center gap-4">
-            <button
+          </motion.p>
+
+          <motion.div
+            variants={itemVariants}
+            className="flex sm:flex-row flex-col justify-center gap-4"
+          >
+            <motion.button
               onClick={onExploreProducts}
-              className="bg-green-600 hover:bg-green-700 shadow-lg px-10 py-4 rounded-lg font-medium text-white text-lg hover:scale-105 transition-all duration-300 transform"
+              className="bg-green-600 hover:bg-green-700 shadow-lg px-10 py-4 rounded-lg font-medium text-white text-lg"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.98 }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
               Explore Products
-            </button>
-            <button
+            </motion.button>
+
+            <motion.button
               onClick={onContactTeam}
-              className="hover:bg-white px-10 py-4 border-2 border-white rounded-lg font-medium text-white hover:text-green-800 text-lg hover:scale-105 transition-all duration-300 transform"
+              className="hover:bg-white px-10 py-4 border-2 border-white rounded-lg font-medium text-white hover:text-green-800 text-lg"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.98 }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
               Contact Import Team
-            </button>
-          </div>
+            </motion.button>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

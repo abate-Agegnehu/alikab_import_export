@@ -31,7 +31,7 @@ const ProductCategoryGrid = ({ categories }) => {
         mb={4}
         sx={{ color: "#212A5E", fontSize: { xs: "28px" } }}
       >
-        Our Product Categories
+        Our Export Categories
       </Typography>
       <Box
         sx={{
