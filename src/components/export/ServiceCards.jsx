@@ -1,160 +1,153 @@
 import React from "react";
-import {
-  Box,
-  Card,
-  CardContent,
-  CardMedia,
-  Typography,
-  Button,
-  Grid,
-  useTheme,
-  useMediaQuery,
-} from "@mui/material";
+import { motion } from "framer-motion";
 import compeliance from "../../assets/images/compeliance.jpg";
 import logistic from "../../assets/images/logistic.jpg";
 import postharvesting from "../../assets/images/postharvesting.jpg";
 
 const services = [
   {
-    title: "Post-Harvest Processing & Packaging",
+    title: "Post-Harvest Excellence",
     description:
-      "We clean, grade, and package agricultural products to meet export quality standards and extend shelf life.",
+      "Premium cleaning, grading & packaging solutions that enhance product value and extend shelf life for international markets.",
     image: logistic,
+    stats: [
+      { value: "99.7%", label: "Quality Retention" },
+      { value: "ISO", label: "Certified" },
+      { value: "48h", label: "Processing" },
+    ],
   },
   {
-    title: "Export Logistics & Cold Chain",
+    title: "Global Logistics Network",
     description:
-      "We manage transportation and cold storage to preserve freshness during long-distance export shipping.",
+      "Temperature-controlled supply chain with real-time tracking from farm to destination port worldwide.",
     image: postharvesting,
+    stats: [
+      { value: "25+", label: "Countries" },
+      { value: "-18°C", label: "Cold Chain" },
+      { value: "24/7", label: "Monitoring" },
+    ],
   },
   {
-    title: "Compliance & Certification",
+    title: "Compliance Mastery",
     description:
-      "We help you obtain export certifications and meet international regulations like GLOBALG.A.P. and organic standards.",
+      "End-to-end certification management for GLOBALG.A.P., organic, and destination market requirements.",
     image: compeliance,
+    stats: [
+      { value: "100%", label: "Compliance" },
+      { value: "50+", label: "Standards" },
+      { value: "1wk", label: "Turnaround" },
+    ],
   },
 ];
 
 const ServiceCards = () => {
-  const theme = useTheme();
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
-
   return (
-    <Box
-      sx={{
-        backgroundColor: "#fff",
-        py: 6,
-        minHeight: "100vh",
-        px: 2, // Add horizontal padding to prevent edge sticking
-      }}
-    >
-      <Box
-        sx={{
-          display: "flex",
-          justifyItems: "center",
-          justifyContent: "center",
-          mb: 3,
-        }}
+    <div className="relative bg-gradient-to-b from-gray-50 to-white py-20 overflow-hidden">
+      {/* Decorative elements */}
+      <div className="top-0 left-0 absolute opacity-10 w-full h-full">
+        <div className="top-20 left-10 absolute bg-[#FA812F] blur-3xl rounded-full w-40 h-40 filter"></div>
+        <div className="right-20 bottom-10 absolute bg-[#212A5E] blur-3xl rounded-full w-60 h-60 filter"></div>
+      </div>
+
+      {/* Header */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+        className="relative mb-16 px-4 text-center"
       >
-        <Typography
-          sx={{
-            color: "#212A5E",
-            fontSize: { xs: "20px", md: "30px" },
-            fontWeight: "bold",
-          }}
-        >
-          Our Export Service
-        </Typography>
-      </Box>
-      <Box
-        sx={{
-          height: "5px",
-          backgroundColor: "#FA812F",
-          marginTop: "-20px",
-          mb: 3,
-          width: { xs: "60%", md: "20%" },
-          mx: "auto",
-        }}
-      />
-      <Grid
-        container
-        spacing={4}
-        justifyContent="center"
-        alignItems="center"
-        sx={{
-          maxWidth: 1200,
-          mx: "auto",
-          px: isSmallScreen ? 1 : 2, // Adjust padding based on screen size
-        }}
-      >
-        {services.map((service, index) => (
-          <Grid
-            item
-            key={index}
-            xs={12}
-            sm={6}
-            md={4}
-            sx={{
-              transform: { xs: "none", sm: "translateY(30px)" }, // Remove transform on small screens
-              zIndex: index === 1 ? 2 : 1,
-              display: "flex",
-              justifyContent: "center",
-            }}
-          >
-            <Card
-              sx={{
-                width: "100%", // Make card take full width of Grid item
-                maxWidth: { xs: "100%", sm: 345 }, // Full width on small screens
-                borderRadius: 4,
-                backgroundColor: "#212A5E",
-                color: "#fff",
-                boxShadow: 4,
-                border: "1px solid #fff3",
-              }}
+        <h2 className="mb-4 font-bold text-[#212A5E] text-4xl md:text-5xl">
+          Export <span className="text-[#FA812F]">Acceleration</span> Services
+        </h2>
+        <div className="bg-[#FA812F] mx-auto mb-6 rounded-full w-24 h-1.5"></div>
+        <p className="mx-auto max-w-2xl text-gray-600 text-lg">
+          Specialized solutions that transform Ethiopian agricultural products
+          into globally competitive exports
+        </p>
+      </motion.div>
+
+      {/* Innovative Service Display */}
+      <div className="relative mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+        <div className="gap-12 grid grid-cols-1 lg:grid-cols-3">
+          {services.map((service, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.15 }}
+              viewport={{ once: true }}
+              whileHover={{ y: -10 }}
+              className="group relative"
             >
-              <CardMedia
-                component="img"
-                height="180"
-                image={service.image}
-                alt={service.title}
-                sx={{
-                  objectFit: "cover",
-                }}
-              />
-              <CardContent>
-                <Typography
-                  gutterBottom
-                  variant="h6"
-                  component="div"
-                  color="lightgray"
-                  sx={{ fontSize: { xs: "1rem", sm: "1.1rem" } }} // Responsive font size
-                >
+              {/* Floating image container */}
+              <div className="z-10 relative shadow-xl rounded-2xl h-64 overflow-hidden">
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+              </div>
+
+              {/* Floating content panel */}
+              <div className="z-20 relative bg-white shadow-lg mx-4 -mt-8 p-6 border border-gray-100 rounded-xl">
+                <h3 className="mb-3 font-bold text-[#212A5E] text-xl">
                   {service.title}
-                </Typography>
-                <Typography variant="body2" color="lightgray">
-                  {service.description}
-                </Typography>
-                <Button
-                  variant="outlined"
-                  size="small"
-                  sx={{
-                    mt: 2,
-                    color: "lightgray",
-                    borderColor: "lightgray",
-                    "&:hover": {
-                      backgroundColor: "#1C2555",
-                      borderColor: "lightgray",
-                    },
-                  }}
-                >
-                  View services
-                </Button>
-              </CardContent>
-            </Card>
-          </Grid>
-        ))}
-      </Grid>
-    </Box>
+                </h3>
+                <p className="mb-4 text-gray-600">{service.description}</p>
+
+                {/* Stats badges */}
+                <div className="flex flex-wrap gap-2 mb-5">
+                  {service.stats.map((stat, i) => (
+                    <div
+                      key={i}
+                      className="bg-[#212A5E]/5 px-3 py-1 rounded-full"
+                    >
+                      <span className="font-bold text-[#212A5E]">
+                        {stat.value}
+                      </span>
+                      <span className="ml-1 text-gray-500 text-xs">
+                        {stat.label}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Animated button */}
+                <button className="group flex items-center font-medium text-[#FA812F]">
+                  <span>Explore service</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1 duration-300"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </button>
+              </div>
+
+              {/* Decorative accent */}
+              <div className="-right-4 -bottom-4 z-0 absolute bg-[#FA812F]/10 rounded-full w-24 h-24"></div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Alternative View CTA */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.6 }}
+          viewport={{ once: true }}
+          className="mt-20 text-center"
+        ></motion.div>
+      </div>
+    </div>
   );
 };
 
