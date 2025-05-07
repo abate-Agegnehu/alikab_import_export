@@ -172,9 +172,11 @@ const AboutHero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 0.8 }}
         >
-          We're redefining what's possible through innovation, passion, and a
-          commitment to excellence. Our story is one of relentless curiosity and
-          boundary-pushing creativity.
+          Alikab is reshaping the future of import-export and transportation.
+          Driven by innovation, passion, and excellence, we specialize in car
+          imports, East African transport solutions, agricultural chemical
+          imports, and export of premium Ethiopian coffee and sesame. Our
+          commitment to pushing boundaries fuels our journey to global markets
         </motion.p>
 
         <motion.div

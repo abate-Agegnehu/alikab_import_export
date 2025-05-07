@@ -8,7 +8,7 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import TelegramIcon from "@mui/icons-material/Telegram";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import { Link, useLocation } from "react-router-dom";
-import logo4 from "../../assets/images/logo4.png";
+import logo4 from "../../assets/logoUpdated.png";
 
 const Footer = () => {
   const location = useLocation(); // ✅ Get current path
