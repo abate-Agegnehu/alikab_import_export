@@ -69,7 +69,7 @@ const AboutHero = () => {
       </div>
 
       {/* Hero Section - Now directly follows cards without gap */}
-      <div className="relative bg-gradient-to-b from-gray-50 to-white overflow-hidden">
+          <div className="relative bg-gradient-to-b from-gray-50 to-white overflow-hidden">
         <div className="relative flex justify-center items-center bg-gray-900 h-96 overflow-hidden">
           <motion.div
             initial={{ opacity: 0 }}
