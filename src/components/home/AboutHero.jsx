@@ -480,5 +480,4 @@ const AboutHero = () => {
     </div>
   );
 };
-
 export default AboutHero;
