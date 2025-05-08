@@ -15,14 +15,14 @@ const business = [
     icon: <FaTractor />,
     title: "Automotives & Machinery",
     description:
-      "We import electric, hybrid, agricultural, and construction vehicles to support Ethiopia’s development and sustainable future.",
+      "We import electric, hybrid, agricultural, and construction vehicles to support Ethiopia's development and sustainable future.",
   },
   {
     id: 2,
     icon: <FaSeedling />,
     title: "Agricultural Exports",
     description:
-      "We export Ethiopia’s finest agricultural products, including coffee, oilseeds, sesame, and pulses, to markets around the globe.",
+      "We export Ethiopia's finest agricultural products, including coffee, oilseeds, sesame, and pulses, to markets around the globe.",
   },
   {
     id: 3,
@@ -39,47 +39,45 @@ const AboutHero = () => {
   const navigate = useNavigate();
 
   return (
-    <div>
-      <div className="z-1 relative flex justify-center bg-white mx-auto sm:mb-0 md:py-8 w-full min-h-screen sm:min-h-[20rem]">
-        <div className="absolute gap-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 bg-[#212A5E] shadow-lg md:mx-auto md:-mt-30 py-21 sm:py-0 md:rounded-xl w-full md:max-w-5xl sm:h-[20rem] text-white">
-          {business.map((sector) => (
-            <div
-              key={sector.id}
-              tabIndex={0}
-              className="group relative p-6 rounded-xl outline-none overflow-hidden text-center transition-all duration-500 ease-in-out"
-            >
-              {/* Background slide-up effect */}
-              <div className="absolute inset-0 bg-white scale-y-0 group-focus-within:scale-y-100 group-hover:scale-y-100 origin-bottom transition-transform duration-500 ease-in-out transform"></div>
-
-              {/* Content (will change color on hover or focus) */}
-              <div className="z-10 relative flex flex-col h-full transition-all duration-500 ease-in-out">
-                <div className="flex justify-center items-center mb-4 h-16 text-yellow-400 group-focus-within:text-[#212A5E] group-hover:text-[#212A5E] text-4xl transition-colors duration-500 ease-in-out">
-                  {sector.icon}
+    <div className="bg-white">
+      {/* Business Cards Section - Now properly integrated in document flow */}
+      <div className="relative z-10  bg-[#F9F9F9] w-full py-12 md:py-16 ">
+        <div className="relative container mx-auto  bg-[#212A5E] rounded-xl">
+          <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+            {business.map((sector) => (
+              <div
+                key={sector.id}
+                tabIndex={0}
+                className="group relative p-8 rounded-xl outline-none overflow-hidden text-center transition-all duration-500 ease-in-out"
+              >
+                <div className="absolute inset-0 bg-white scale-y-0 group-focus-within:scale-y-100 group-hover:scale-y-100 origin-bottom transition-transform duration-500 ease-in-out transform"></div>
+                <div className="z-10 relative flex flex-col h-full transition-all duration-500 ease-in-out">
+                  <div className="flex justify-center items-center mb-4 h-16 text-yellow-400 group-focus-within:text-[#212A5E] group-hover:text-[#212A5E] text-4xl transition-colors duration-500 ease-in-out">
+                    {sector.icon}
+                  </div>
+                  <h3 className="mb-3 font-bold group-focus-within:text-[#212A5E] group-hover:text-[#212A5E] text-xl transition-colors duration-500 ease-in-out">
+                    {sector.title}
+                  </h3>
+                  <p className="text-gray-300 group-focus-within:text-[#212A5E] group-hover:text-[#212A5E] transition-colors duration-500 ease-in-out">
+                    {sector.description}
+                  </p>
                 </div>
-                <h3 className="mb-3 font-bold group-focus-within:text-[#212A5E] group-hover:text-[#212A5E] text-xl transition-colors duration-500 ease-in-out">
-                  {sector.title}
-                </h3>
-                <p className="text-gray-300 group-focus-within:text-[#212A5E] group-hover:text-[#212A5E] transition-colors duration-500 ease-in-out">
-                  {sector.description}
-                </p>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
 
+   {/* Hero Section - Now directly follows cards without gap */}
       <div className="relative bg-gradient-to-b from-gray-50 to-white overflow-hidden">
-        {/* Animated Header */}
-        <div className="relative flex justify-center items-center bg-gray-900 h-96 overflow-hidden mt-45 sm:mt-0">
+        <div className="relative flex justify-center items-center bg-gray-900 h-96 overflow-hidden">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 0.7 }}
             transition={{ duration: 1 }}
             className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1283&q=80')] bg-cover bg-center"
           ></motion.div>
-
           <div className="absolute inset-0 bg-[#212A5E] opacity-30"></div>
-
           <div className="z-10 relative px-4 text-center">
             <motion.h1
               initial={{ y: 50, opacity: 0 }}
@@ -363,7 +361,7 @@ const AboutHero = () => {
 
                     <div className="gap-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
                       {businessSectors.map((sector) => {
-                        const IconComponent = sector.icon; // Convert to JSX-friendly variable
+                        const IconComponent = sector.icon;
                         return (
                           <div
                             key={sector.id}
@@ -482,5 +480,4 @@ const AboutHero = () => {
     </div>
   );
 };
-
 export default AboutHero;
