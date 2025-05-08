@@ -70,7 +70,7 @@ const AboutHero = () => {
 
       <div className="relative bg-gradient-to-b from-gray-50 to-white overflow-hidden">
         {/* Animated Header */}
-        <div className="hidden sm:flex relative justify-center items-center bg-gray-900 h-96 overflow-hidden sm:mt-0">
+        <div className="relative flex justify-center items-center bg-gray-900 h-96 overflow-hidden">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 0.7 }}
