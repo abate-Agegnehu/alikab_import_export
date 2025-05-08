@@ -6,32 +6,33 @@ import businessSectors from "../../assets/data/businessSectors.js";
 import importItems from "../../assets/data/importItems.js";
 import exportItems from "../../assets/data/exportItems.js";
 
-import { FaTractor, FaSeedling, FaTools } from "react-icons/fa";
+import { FaTractor, FaSeedling, FaUserTie } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
 const business = [
   {
     id: 1,
     icon: <FaTractor />,
-    title: "Automotives & Machineries",
+    title: "Automotives & Machinery",
     description:
-      "We have been importing Machineries, Trucks, Vehicles fueling the Ethiopian Renaissance.",
+      "We import electric, hybrid, agricultural, and construction vehicles to support Ethiopia’s development and sustainable future.",
   },
   {
     id: 2,
     icon: <FaSeedling />,
-    title: "Agri Exports",
+    title: "Agricultural Exports",
     description:
-      "Throughout the years we have been operational, we have been introducing Ethiopia's most sought after Agri Products.",
+      "We export Ethiopia’s finest agricultural products, including coffee, oilseeds, sesame, and pulses, to markets around the globe.",
   },
   {
     id: 3,
-    icon: <FaTools />,
-    title: "General Merchandise",
+    icon: <FaUserTie />,
+    title: "Transport & Consultancy",
     description:
-      "Ethiopia is going through major growth and Tamrin has been aligning its movements importing and distributing Bitumen Timber and Rebar.",
+      "We provide transport services across Ethiopia and Djibouti, and offer expert consultancy on logistics and vehicle acquisition.",
   },
 ];
+
 const AboutHero = () => {
   const [activeTab, setActiveTab] = useState("transportation");
   const [selectedCard, setSelectedCard] = useState(null);
