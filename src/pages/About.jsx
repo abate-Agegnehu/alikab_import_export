@@ -7,7 +7,7 @@ import Award from "../components/about/Award";
 import Footer from "../components/footer/Footer";
 import LandingAbout from "../components/about/LandingAbout";
 import { useLocation } from "react-router-dom";
-
+// add comment to check merge confilit
 const About = () => {
   const location = useLocation();
 
