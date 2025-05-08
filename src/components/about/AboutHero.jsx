@@ -32,8 +32,6 @@ import {
   Star,
 } from "@mui/icons-material";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-// import about1 from "../../assets/autho.png";
-// import aboutPattern from "../../assets/autho.png";
 
 import about1 from "../../assets/byd1.png";
 import aboutPattern from "../../assets/byd1.png";
