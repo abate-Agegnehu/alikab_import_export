@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-
+// hover fixed
 const FeaturedProducts = ({ products, onRequestSpecifications }) => {
   // Animation variants
   const container = {
