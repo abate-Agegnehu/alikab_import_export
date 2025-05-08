@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { motion, AnimatePresence } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 const Hero = ({ slides, onCtaClick }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [direction, setDirection] = useState(1);
-
-  console.log("slides:", slides);
-  console.log("currentSlide:", currentSlide);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -32,9 +31,16 @@ const Hero = ({ slides, onCtaClick }) => {
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
   };
 
+  const handleCtaClick = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (onCtaClick) onCtaClick();
+    navigate("/about");
+  };
+
   return (
     <section className="relative w-full h-screen overflow-hidden">
-      {/* Slides */}
+      {/* Background Slide */}
       <AnimatePresence initial={false} custom={direction}>
         <motion.div
           key={currentSlide}
@@ -43,7 +49,7 @@ const Hero = ({ slides, onCtaClick }) => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.8, ease: "easeInOut" }}
-          className="absolute inset-0 w-full h-full"
+          className="z-0 absolute inset-0 w-full h-full"
         >
           <div className="relative w-full h-full">
             <img
@@ -56,8 +62,8 @@ const Hero = ({ slides, onCtaClick }) => {
         </motion.div>
       </AnimatePresence>
 
-      {/* Content */}
-      <div className="z-10 absolute inset-0 flex flex-col justify-center items-center px-4 sm:px-6 text-center">
+      {/* Foreground Content */}
+      <div className="z-10 absolute inset-0 flex flex-col justify-center items-center px-4 sm:px-6 text-center pointer-events-none">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentSlide}
@@ -65,7 +71,7 @@ const Hero = ({ slides, onCtaClick }) => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.8, ease: "easeInOut" }}
-            className="max-w-4xl text-white"
+            className="max-w-4xl text-white pointer-events-auto"
           >
             <motion.h1
               className="mb-4 font-bold text-3xl sm:text-5xl lg:text-6xl leading-tight"
@@ -88,8 +94,8 @@ const Hero = ({ slides, onCtaClick }) => {
               transition={{ delay: 0.5 }}
             >
               <button
-                onClick={onCtaClick}
-                className="bg-[#212A5E] hover:bg-blue-700 shadow-lg mt-6 px-8 py-3 rounded-full font-semibold text-lg hover:scale-105 transition-transform"
+                onClick={handleCtaClick}
+                className="z-50 bg-[#212A5E] hover:bg-blue-700 shadow-lg mt-6 px-8 py-3 rounded-full font-semibold text-lg hover:scale-105 transition-transform"
               >
                 Learn More
               </button>
@@ -98,7 +104,7 @@ const Hero = ({ slides, onCtaClick }) => {
         </AnimatePresence>
 
         {/* Slide Indicators */}
-        <div className="bottom-6 flex justify-center space-x-3 mt-6 sm:mt-8">
+        <div className="bottom-6 flex justify-center space-x-3 mt-6 sm:mt-8 pointer-events-auto">
           {slides.map((_, index) => (
             <button
               key={index}
@@ -115,14 +121,14 @@ const Hero = ({ slides, onCtaClick }) => {
       </div>
 
       {/* Navigation Arrows */}
-      <div className="sm:top-1/2 bottom-4 left-1/2 z-30 absolute flex sm:justify-between space-x-6 sm:space-x-0 sm:px-6 sm:w-full -translate-x-1/2 sm:-translate-y-1/2 transform">
+      <div className="sm:top-1/2 bottom-4 left-1/2 z-30 absolute flex sm:justify-between space-x-6 sm:space-x-0 sm:px-6 sm:w-full -translate-x-1/2 sm:-translate-y-1/2 pointer-events-none transform">
         <button
           onClick={prevSlide}
-          className="bg-transparent p-2 sm:p-3 rounded-full hover:scale-110 transition-transform"
+          className="bg-transparent p-2 sm:p-3 rounded-full hover:scale-110 transition-transform pointer-events-auto"
           aria-label="Previous slide"
         >
           <svg
-            className="w-6 sm:w-8 h-6 sm:h-8 text-gray-500"
+            className="w-6 sm:w-8 h-6 sm:h-8 text-white"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -138,11 +144,11 @@ const Hero = ({ slides, onCtaClick }) => {
 
         <button
           onClick={nextSlide}
-          className="bg-transparent p-2 sm:p-3 rounded-full hover:scale-110 transition-transform"
+          className="bg-transparent p-2 sm:p-3 rounded-full hover:scale-110 transition-transform pointer-events-auto"
           aria-label="Next slide"
         >
           <svg
-            className="w-6 sm:w-8 h-6 sm:h-8 text-gray-500"
+            className="w-6 sm:w-8 h-6 sm:h-8 text-white"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -168,7 +174,11 @@ Hero.propTypes = {
       backgroundImage: PropTypes.string.isRequired,
     })
   ).isRequired,
-  onCtaClick: PropTypes.func.isRequired,
+  onCtaClick: PropTypes.func,
+};
+
+Hero.defaultProps = {
+  onCtaClick: () => {},
 };
 
 export default Hero;

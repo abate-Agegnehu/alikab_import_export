@@ -187,7 +187,7 @@ const ConsultationHero = () => {
             <button
               className="hover:bg-blue-900/30 hover:shadow-lg px-8 py-4 border border-blue-400 rounded-lg font-semibold transition-all duration-300"
               onClick={() =>
-                navigate("/about", { state: { scrollTo: "team" } })
+                navigate("/contact", { state: { scrollTo: "contact-form" } })
               }
             >
               Speak to Our Expert

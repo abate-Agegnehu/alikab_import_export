@@ -12,9 +12,13 @@ const HomePage = () => {
 
   return (
     <>
-      {/* Hero Section */}
-      <div className="relative">
-        <Hero slides={HERO_SLIDES} onCtaClick={handleCtaClick} />
+      {/* Hero Section with responsive container */}
+      <div className="relative overflow-hidden">
+        <Hero
+          slides={HERO_SLIDES}
+          onCtaClick={handleCtaClick}
+          className="hero-section"
+        />
       </div>
 
       {/* Content Area */}
@@ -23,6 +27,24 @@ const HomePage = () => {
           {/* Your content sections go here */}
         </div>
       </div>
+
+      {/* Add this to your global CSS or a CSS module */}
+      <style jsx>{`
+        .hero-section :global(.hero-bg-image) {
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+          width: 100%;
+          height: 100%;
+        }
+
+        @media (max-width: 768px) {
+          .hero-section :global(.hero-bg-image) {
+            background-size: contain;
+            background-position: top center;
+          }
+        }
+      `}</style>
     </>
   );
 };

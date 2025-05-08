@@ -1,12 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
-const ProductModal = ({
-  showModal,
-  selectedProduct,
-  requestType,
-  onClose,
-  onRequestSpecifications,
-}) => {
+const ProductModal = ({ showModal, selectedProduct, requestType, onClose }) => {
   const modalVariants = {
     hidden: { opacity: 0, y: -50, scale: 0.95 },
     visible: {
@@ -21,7 +16,7 @@ const ProductModal = ({
     },
     exit: { opacity: 0, y: 50, scale: 0.95 },
   };
-
+  const navigate = useNavigate();
   const overlayVariants = {
     hidden: { opacity: 0 },
     visible: { opacity: 1 },
@@ -50,7 +45,7 @@ const ProductModal = ({
           exit="exit"
         >
           <motion.div
-            className="bg-white rounded-xl w-full max-w-4xl max-h-[90vh] overflow-y-auto"
+            className="bg-white mt-24 rounded-xl w-full max-w-4xl max-h-[75vh] overflow-y-auto"
             variants={modalVariants}
           >
             <div className="p-6">
@@ -127,7 +122,7 @@ const ProductModal = ({
                         </ul>
                         <motion.button
                           onClick={() => {
-                            onRequestSpecifications(product);
+                            navigate("/contact");
                           }}
                           className="flex items-center mt-4 font-medium text-green-600 hover:text-green-800"
                           whileHover={{ x: 5 }}
@@ -157,116 +152,6 @@ const ProductModal = ({
                   <p className="mb-6 text-gray-600">
                     {selectedProduct.description}
                   </p>
-
-                  <div className="mb-6">
-                    <h4 className="mb-3 font-semibold text-gray-800 text-lg">
-                      Specifications:
-                    </h4>
-                    <ul className="space-y-2">
-                      {selectedProduct.specifications.map((spec, index) => (
-                        <motion.li
-                          key={index}
-                          className="flex items-start"
-                          initial={{ x: -20, opacity: 0 }}
-                          animate={{ x: 0, opacity: 1 }}
-                          transition={{ delay: index * 0.05 }}
-                        >
-                          <svg
-                            className="flex-shrink-0 mt-1 mr-2 w-4 h-4 text-green-500"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth="2"
-                              d="M5 13l4 4L19 7"
-                            />
-                          </svg>
-                          <span className="text-gray-700">{spec}</span>
-                        </motion.li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <motion.div
-                    className="bg-gray-50 p-4 rounded-lg"
-                    initial={{ scale: 0.95 }}
-                    animate={{ scale: 1 }}
-                  >
-                    <h4 className="mb-3 font-semibold text-gray-800 text-lg">
-                      Request More Information
-                    </h4>
-                    <form className="space-y-4">
-                      <div className="gap-4 grid grid-cols-1 md:grid-cols-2">
-                        <div>
-                          <label className="block mb-1 font-medium text-gray-700 text-sm">
-                            Name
-                          </label>
-                          <input
-                            type="text"
-                            className="px-3 py-2 border border-gray-300 rounded-md w-full"
-                            required
-                          />
-                        </div>
-                        <div>
-                          <label className="block mb-1 font-medium text-gray-700 text-sm">
-                            Email
-                          </label>
-                          <input
-                            type="email"
-                            className="px-3 py-2 border border-gray-300 rounded-md w-full"
-                            required
-                          />
-                        </div>
-                      </div>
-                      <div>
-                        <label className="block mb-1 font-medium text-gray-700 text-sm">
-                          Company
-                        </label>
-                        <input
-                          type="text"
-                          className="px-3 py-2 border border-gray-300 rounded-md w-full"
-                        />
-                      </div>
-                      <div>
-                        <label className="block mb-1 font-medium text-gray-700 text-sm">
-                          Message
-                        </label>
-                        <textarea
-                          className="px-3 py-2 border border-gray-300 rounded-md w-full"
-                          rows="3"
-                          defaultValue={`I'm interested in ${
-                            selectedProduct.name
-                          } and would like to request ${
-                            requestType === "specs"
-                              ? "the full specifications"
-                              : "more information about the product range"
-                          }.`}
-                        ></textarea>
-                      </div>
-                      <div className="flex justify-end space-x-3">
-                        <motion.button
-                          type="button"
-                          onClick={onClose}
-                          className="hover:bg-gray-100 px-4 py-2 border border-gray-300 rounded-md text-gray-700"
-                          whileHover={{ scale: 1.03 }}
-                          whileTap={{ scale: 0.97 }}
-                        >
-                          Cancel
-                        </motion.button>
-                        <motion.button
-                          type="submit"
-                          className="bg-green-600 hover:bg-green-700 px-4 py-2 rounded-md text-white"
-                          whileHover={{ scale: 1.03 }}
-                          whileTap={{ scale: 0.97 }}
-                        >
-                          Submit Request
-                        </motion.button>
-                      </div>
-                    </form>
-                  </motion.div>
                 </motion.div>
               )}
             </div>

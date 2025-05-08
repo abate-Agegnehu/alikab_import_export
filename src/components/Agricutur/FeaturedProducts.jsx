@@ -154,29 +154,6 @@ const FeaturedProducts = ({ products, onRequestSpecifications }) => {
                       </motion.li>
                     ))}
                   </motion.ul>
-
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    onClick={() => onRequestSpecifications(product)}
-                    className="flex items-center bg-green-600 hover:bg-green-700 px-6 py-2 rounded-full font-medium text-white"
-                  >
-                    Request Specifications
-                    <svg
-                      className="ml-2 w-4 h-4"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M17 8l4 4m0 0l-4 4m4-4H3"
-                      ></path>
-                    </svg>
-                  </motion.button>
                 </motion.div>
               </motion.div>
             </motion.div>
