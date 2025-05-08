@@ -41,8 +41,8 @@ const AboutHero = () => {
   return (
     <div className="bg-white">
       {/* Business Cards Section - Now properly integrated in document flow */}
-      <div className="relative z-10  bg-[#F9F9F9] w-full py-12 md:py-16 ">
-        <div className="relative container mx-auto  bg-[#212A5E] rounded-xl">
+      <div className="relative z-10  bg-[#F9F9F9] w-full py-0 md:py-16 ">
+        <div className="relative container mx-auto  bg-[#212A5E]  rounded-b-none md:rounded-xl">
           <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
             {business.map((sector) => (
               <div
@@ -69,7 +69,7 @@ const AboutHero = () => {
       </div>
 
       {/* Hero Section - Now directly follows cards without gap */}
-          <div className="relative bg-gradient-to-b from-gray-50 to-white overflow-hidden">
+      <div className="relative bg-gradient-to-b from-gray-50 to-white overflow-hidden">
         <div className="relative flex justify-center items-center bg-gray-900 h-96 overflow-hidden">
           <motion.div
             initial={{ opacity: 0 }}
