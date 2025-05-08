@@ -41,14 +41,14 @@ const AboutHero = () => {
   return (
     <div className="bg-white">
       {/* Business Cards Section - Now properly integrated in document flow */}
-      <div className="relative z-10 bg-[#212A5E] w-full py-12 md:py-16">
-        <div className="container mx-auto px-4">
-          <div className="gap-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+      <div className="relative z-10  bg-[#F9F9F9] w-full py-12 md:py-16 ">
+        <div className="relative container mx-auto  bg-[#212A5E] rounded-xl">
+          <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
             {business.map((sector) => (
               <div
                 key={sector.id}
                 tabIndex={0}
-                className="group relative p-6 rounded-xl outline-none overflow-hidden text-center transition-all duration-500 ease-in-out"
+                className="group relative p-8 rounded-xl outline-none overflow-hidden text-center transition-all duration-500 ease-in-out"
               >
                 <div className="absolute inset-0 bg-white scale-y-0 group-focus-within:scale-y-100 group-hover:scale-y-100 origin-bottom transition-transform duration-500 ease-in-out transform"></div>
                 <div className="z-10 relative flex flex-col h-full transition-all duration-500 ease-in-out">
