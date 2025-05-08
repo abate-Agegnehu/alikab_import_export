@@ -37,7 +37,6 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
 import about1 from "../../assets/byd1.png";
 import aboutPattern from "../../assets/byd1.png";
-import { useNavigate } from "react-router-dom";
 
 // Animation variants
 const containerVariants = {
@@ -61,24 +60,6 @@ const itemVariants = {
       stiffness: 100,
       damping: 10,
     },
-  },
-};
-
-const cardVariants = {
-  hidden: { scale: 0.95, opacity: 0 },
-  visible: {
-    scale: 1,
-    opacity: 1,
-    transition: {
-      type: "spring",
-      stiffness: 100,
-    },
-  },
-  hover: {
-    scale: 1.05,
-    y: -10,
-    boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1)",
-    transition: { duration: 0.3 },
   },
 };
 
@@ -123,7 +104,6 @@ const slideInFromRight = {
 const AboutHero = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-  const navigate = useNavigate();
 
   return (
     <Box
@@ -196,7 +176,6 @@ const AboutHero = () => {
                 fontWeight: "bold",
                 boxShadow: "0 4px 20px rgba(250, 129, 47, 0.4)",
               }}
-              onClick={() => navigate("/consultancy")}
             >
               Explore Our Services
             </Button>
@@ -389,9 +368,6 @@ const AboutHero = () => {
                           borderWidth: 2,
                         },
                       }}
-                      onClick={() =>
-                        navigate("/", { state: { scrollTo: "history" } })
-                      }
                     >
                       Our History
                     </Button>
@@ -403,18 +379,8 @@ const AboutHero = () => {
         </motion.div>
       </Container>
 
-      {/* Features Cards Section - unchanged */}
-      <Grid
-        container
-        spacing={2}
-        justifyContent="center"
-        wrap="wrap"
-        component={motion.div}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={containerVariants}
-      >
+      {/* Features Cards Section - modified to remove animation */}
+      <Grid container spacing={2} justifyContent="center" wrap="wrap">
         {[
           {
             icon: <ImportExport fontSize="large" />,
@@ -461,45 +427,43 @@ const AboutHero = () => {
             lg={3}
             sx={{ display: "flex", justifyContent: "center" }}
           >
-            <motion.div variants={cardVariants} whileHover="hover">
-              <Card
-                sx={{
-                  textAlign: "center",
-                  py: 3,
-                  px: 2,
-                  boxShadow: "none",
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "space-between",
-                  width: "100%",
-                  maxWidth: 280,
-                  transition: "0.3s",
-                  backgroundColor: "#F9F9F9",
-                  "&:hover": {
-                    backgroundColor: "#212A5E",
-                    opacity: 1,
-                    cursor: "pointer",
-                    "& *": {
-                      color: "white",
-                    },
+            <Card
+              sx={{
+                textAlign: "center",
+                py: 3,
+                px: 2,
+                boxShadow: "none",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between",
+                width: "100%",
+                maxWidth: 280,
+                transition: "0.3s",
+                backgroundColor: "#F9F9F9",
+                "&:hover": {
+                  backgroundColor: "#212A5E",
+                  opacity: 1,
+                  cursor: "pointer",
+                  "& *": {
+                    color: "white",
                   },
-                }}
-              >
-                <CardContent sx={{ flexGrow: 1 }}>
-                  <Box sx={{ color: "#212A5E", mb: 2 }}>{feature.icon}</Box>
-                  <Typography
-                    variant="h6"
-                    fontWeight="bold"
-                    sx={{ color: "#212A5E" }}
-                  >
-                    {feature.title}
-                  </Typography>
-                  <Typography variant="body1" sx={{ color: "#4E4E4EB3" }}>
-                    {feature.desc}
-                  </Typography>
-                </CardContent>
-              </Card>
-            </motion.div>
+                },
+              }}
+            >
+              <CardContent sx={{ flexGrow: 1 }}>
+                <Box sx={{ color: "#212A5E", mb: 2 }}>{feature.icon}</Box>
+                <Typography
+                  variant="h6"
+                  fontWeight="bold"
+                  sx={{ color: "#212A5E" }}
+                >
+                  {feature.title}
+                </Typography>
+                <Typography variant="body1" sx={{ color: "#4E4E4EB3" }}>
+                  {feature.desc}
+                </Typography>
+              </CardContent>
+            </Card>
           </Grid>
         ))}
       </Grid>
