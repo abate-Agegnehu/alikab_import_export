@@ -29,6 +29,7 @@ const App = () => {
         <Route path="/consultancy" element={<ConsultancyPage />} />
       </Routes>
       <Footer />
+      {/* <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis blanditiis cupiditate, voluptatum quos totam qui itaque molestias asperiores consequatur? Facilis illum vero totam culpa adipisci aut modi eveniet inventore beatae.</div> */}
     </Router>
   );
 };
