@@ -37,6 +37,9 @@ const Header = ({ scrolled }) => {
 
   const toggleMenu = () => {
     setIsMenuOpen((prev) => !prev);
+    if (!isMenuOpen) {
+      setOpenDropdown(null);
+    }
   };
 
   const toggleDropdown = (itemName) => {
@@ -58,7 +61,7 @@ const Header = ({ scrolled }) => {
       dropdownTimerRef.current = setTimeout(() => {
         setOpenDropdown(null);
         setClosingDropdown(null);
-      }, 300); // 300ms delay before closing
+      }, 300);
     }
   };
 
@@ -89,8 +92,8 @@ const Header = ({ scrolled }) => {
       className={`fixed top-0 left-0 z-50 flex justify-between items-center p-4 sm:p-6 w-full transition-all duration-300 ${
         scrolled
           ? currentPath === "/agro-chemicals"
-            ? "bg-[#15803D] text-white shadow-md" // green background when scrolled on this route
-            : "bg-[#212A5E] text-white shadow-md" // default scrolled background
+            ? "bg-[#15803D] text-white shadow-md"
+            : "bg-[#212A5E] text-white shadow-md"
           : "bg-transparent text-white"
       }`}
     >
@@ -160,35 +163,51 @@ const Header = ({ scrolled }) => {
         </button>
       </div>
 
-      {/* Mobile Menu Button */}
+      {/* Mobile Menu Button - Fixed overlapping icons */}
       <div className="md:hidden flex items-center" ref={buttonRef}>
         <button
           onClick={toggleMenu}
-          className="focus:outline-none text-white"
+          className="focus:outline-none text-white relative w-6 h-6"
           aria-label="Toggle menu"
         >
-          <svg
-            className="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
+          <div
+            className={`absolute inset-0 transition-opacity duration-200 ${
+              isMenuOpen ? "opacity-0" : "opacity-100"
+            }`}
           >
-            {isMenuOpen ? (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
-              />
-            ) : (
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth={2}
                 d="M4 6h16M4 12h16M4 18h16"
               />
-            )}
-          </svg>
+            </svg>
+          </div>
+          <div
+            className={`absolute inset-0 transition-opacity duration-200 ${
+              isMenuOpen ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </div>
         </button>
       </div>
 
@@ -196,7 +215,7 @@ const Header = ({ scrolled }) => {
       {isMenuOpen && (
         <div
           ref={menuRef}
-          className="md:hidden top-20 right-4 left-4 z-40 fixed bg-gray-800 bg-opacity-95 shadow-lg px-6 py-4 rounded-lg"
+          className="md:hidden fixed top-20 right-4 left-4 z-40 bg-gray-800 bg-opacity-95 shadow-lg px-6 py-4 rounded-lg"
         >
           <div className="flex flex-col space-y-4">
             {NAV_ITEMS.map((item) => (
@@ -207,13 +226,17 @@ const Header = ({ scrolled }) => {
                       onClick={() => toggleDropdown(item.name)}
                       className="relative flex justify-between items-center py-2 w-full text-left"
                     >
-                      {item.name}
-                      {item.name === "Our Imports" && (
-                        <span className="-top-2 -right-4 absolute bg-red-600 px-2 py-[2px] rounded-full text-[10px] text-white">
-                          NEW
-                        </span>
-                      )}
-                      <span>{openDropdown === item.name ? "▲" : "▼"}</span>
+                      <span className="flex items-center">
+                        {item.name}
+                        {item.name === "Our Imports" && (
+                          <span className="ml-2 bg-red-600 px-2 py-[2px] rounded-full text-[10px] text-white">
+                            NEW
+                          </span>
+                        )}
+                      </span>
+                      <span className="text-lg font-bold">
+                        {openDropdown === item.name ? "−" : "+"}
+                      </span>
                     </button>
 
                     {openDropdown === item.name && (
