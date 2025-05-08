@@ -81,7 +81,7 @@ const BriefInfo = () => {
           </motion.p>
 
           <motion.div
-            className="flex gap-4 mt-8"
+            className="flex flex-col sm:flex-row gap-4 mt-8" // Column on mobile, row on sm+
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6 }}

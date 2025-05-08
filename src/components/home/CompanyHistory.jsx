@@ -146,7 +146,7 @@ const CompanyHistory = () => {
                   whileHover="hover"
                   whileTap="tap"
                   variants={buttonVariants}
-                  className="bg-yellow-600 hover:bg-yellow-800 px-6 py-3 rounded-lg w-100 font-medium text-white transition duration-300"
+                  className="bg-yellow-600 hover:bg-yellow-800 px-6 py-3 rounded-lg w-75 font-medium text-white transition duration-300"
                   onClick={() => navigate("/export")}
                 >
                   Learn More About Our Products
