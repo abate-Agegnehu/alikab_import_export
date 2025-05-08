@@ -286,24 +286,6 @@ const PortfolioSection = ({ onExplore, onScheduleDemo }) => {
                 </motion.li>
               ))}
             </ul>
-
-            {/* Contact Now Button */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
-              className="mt-4 text-center"
-            >
-              <button
-                onClick={() => {
-                  onScheduleDemo(selectedMachine.name);
-                  closeModal();
-                }}
-                className="inline-flex items-center bg-gradient-to-r from-blue-500 hover:from-blue-600 to-blue-600 hover:to-blue-700 shadow-md hover:shadow-lg px-5 py-3 rounded-lg font-semibold text-white text-sm sm:text-base transition-all"
-              >
-                📞 Contact Now
-              </button>
-            </motion.div>
           </motion.div>
         </motion.div>
       )}

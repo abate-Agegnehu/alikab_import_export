@@ -20,6 +20,10 @@ const Home = () => {
       const middle = document.body.scrollHeight / 1.3;
       window.scrollTo({ top: middle, behavior: "smooth" });
     }
+    if (location.state?.scrollTo === "history") {
+      const middle = document.body.scrollHeight / 2 - 340;
+      window.scrollTo({ top: middle, behavior: "smooth" });
+    }
   }, [location]);
   return (
     <div>
