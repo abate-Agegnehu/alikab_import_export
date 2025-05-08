@@ -184,99 +184,187 @@ const TransportMainPage = () => {
           </motion.div>
         </div>
       </section>
-
-      <section className="bg-[#0a162a] py-20">
-        <div className="mx-auto px-6 container">
+      <section className="bg-[#0a162a] py-12 md:py-20">
+        <div className="mx-auto px-4 sm:px-6 container">
           <motion.div
-            className="mb-16 text-center"
+            className="mb-12 md:mb-16 text-center"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="mb-4 font-bold text-3xl md:text-4xl">
+            <h2 className="mb-3 font-bold text-white text-2xl sm:text-3xl md:text-4xl">
               How It Works
             </h2>
-            <p className="mx-auto max-w-2xl text-blue-200">
+            <p className="mx-auto max-w-2xl text-blue-200 text-sm sm:text-base">
               Simple, transparent process for your cargo transportation needs
             </p>
           </motion.div>
 
           <div className="relative">
-            <div className="hidden md:block top-0 left-1/2 absolute bg-blue-800/50 w-0.5 h-full -translate-x-1/2 transform"></div>
+            {/* Vertical line - hidden on mobile */}
+            <div className="hidden md:block top-0 left-1/2 absolute bg-gradient-to-b from-blue-600 via-blue-400 to-blue-600 w-0.5 h-full -translate-x-1/2"></div>
 
-            <div className="space-y-12 md:space-y-0">
+            {/* Mobile timeline */}
+            <div className="md:hidden">
+              <div className="relative pl-6">
+                {/* Vertical line for mobile */}
+                <div className="top-0 left-0 absolute bg-blue-600/50 ml-3 w-0.5 h-full"></div>
+
+                <div className="space-y-8">
+                  {[
+                    {
+                      step: "1",
+                      title: "Request a Quote",
+                      description:
+                        "Fill out our simple form or contact our team to get a customized quote",
+                      icon: <Mail className="w-5 h-5" />,
+                      color: "from-blue-500 to-blue-600",
+                    },
+                    {
+                      step: "2",
+                      title: "Document Preparation",
+                      description:
+                        "We handle all customs documentation and regulatory requirements",
+                      icon: <ShieldCheck className="w-5 h-5" />,
+                      color: "from-purple-500 to-purple-600",
+                    },
+                    {
+                      step: "3",
+                      title: "Cargo Pickup",
+                      description:
+                        "Our team collects your cargo at the specified location",
+                      icon: <Truck className="w-5 h-5" />,
+                      color: "from-emerald-500 to-emerald-600",
+                    },
+                    {
+                      step: "4",
+                      title: "Tracking & Delivery",
+                      description:
+                        "Monitor your shipment in real-time until safe delivery",
+                      icon: <MapPin className="w-5 h-5" />,
+                      color: "from-amber-500 to-amber-600",
+                    },
+                  ].map((item, index) => (
+                    <motion.div
+                      key={index}
+                      className="relative pl-8"
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: index * 0.1 }}
+                      viewport={{ once: true }}
+                    >
+                      {/* Step number bubble */}
+                      <div
+                        className={`absolute -left-1 top-0 flex items-center justify-center rounded-full w-8 h-8 bg-gradient-to-br ${item.color} shadow-lg`}
+                      >
+                        <span className="font-bold text-white text-sm">
+                          {item.step}
+                        </span>
+                      </div>
+
+                      {/* Content */}
+                      <div className="space-y-2 pt-1">
+                        <h3 className="font-semibold text-white text-lg">
+                          {item.title}
+                        </h3>
+                        <p className="text-blue-200 text-sm leading-relaxed">
+                          {item.description}
+                        </p>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Desktop layout */}
+            <div className="hidden md:block space-y-0">
               {[
                 {
                   step: "1",
                   title: "Request a Quote",
                   description:
                     "Fill out our simple form or contact our team to get a customized quote",
-                  icon: <Mail className="w-6 h-6" />,
+                  icon: <Mail className="w-5 h-5" />,
+                  color: "from-blue-500 to-blue-600",
                 },
                 {
                   step: "2",
                   title: "Document Preparation",
                   description:
                     "We handle all customs documentation and regulatory requirements",
-                  icon: <ShieldCheck className="w-6 h-6" />,
+                  icon: <ShieldCheck className="w-5 h-5" />,
+                  color: "from-purple-500 to-purple-600",
                 },
                 {
                   step: "3",
                   title: "Cargo Pickup",
                   description:
                     "Our team collects your cargo at the specified location",
-                  icon: <Truck className="w-6 h-6" />,
+                  icon: <Truck className="w-5 h-5" />,
+                  color: "from-emerald-500 to-emerald-600",
                 },
                 {
                   step: "4",
                   title: "Tracking & Delivery",
                   description:
                     "Monitor your shipment in real-time until safe delivery",
-                  icon: <MapPin className="w-6 h-6" />,
+                  icon: <MapPin className="w-5 h-5" />,
+                  color: "from-amber-500 to-amber-600",
                 },
               ].map((item, index) => (
                 <motion.div
                   key={index}
-                  className="flex md:flex-row flex-col items-center"
+                  className="relative flex flex-row items-center"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
                 >
                   <div
-                    className={`md:w-1/2 ${
-                      index % 2 === 0
-                        ? "md:pr-12 md:text-right"
-                        : "md:pl-12 md:text-left"
-                    } mb-6 md:mb-0`}
+                    className={`w-1/2 ${
+                      index % 2 === 0 ? "pr-12 text-right" : "pl-12 text-left"
+                    }`}
                   >
                     {index % 2 === 0 && (
-                      <>
-                        <h3 className="mb-2 font-bold text-xl">{item.title}</h3>
+                      <div className="ml-auto max-w-md">
+                        <div className="inline-flex items-center gap-2 mb-2">
+                          {item.icon}
+                          <h3 className="font-semibold text-white text-xl">
+                            {item.title}
+                          </h3>
+                        </div>
                         <p className="text-blue-200">{item.description}</p>
-                      </>
+                      </div>
                     )}
                   </div>
 
-                  <div className="z-10 relative flex justify-center items-center bg-blue-600 mx-auto border-4 border-blue-900/50 rounded-full w-16 h-16">
-                    <div className="font-bold text-white text-xl">
-                      {item.step}
+                  <div className="z-10 relative flex justify-center items-center mx-auto">
+                    <div
+                      className={`rounded-full w-16 h-16 flex items-center justify-center bg-gradient-to-br ${item.color} shadow-lg border-4 border-blue-900/30`}
+                    >
+                      <span className="font-bold text-white text-xl">
+                        {item.step}
+                      </span>
                     </div>
                   </div>
 
                   <div
-                    className={`md:w-1/2 ${
-                      index % 2 === 0
-                        ? "md:pl-12 md:text-left"
-                        : "md:pr-12 md:text-right"
-                    } mt-6 md:mt-0`}
+                    className={`w-1/2 ${
+                      index % 2 === 0 ? "pl-12 text-left" : "pr-12 text-right"
+                    }`}
                   >
                     {index % 2 !== 0 && (
-                      <>
-                        <h3 className="mb-2 font-bold text-xl">{item.title}</h3>
+                      <div className="mr-auto max-w-md">
+                        <div className="inline-flex items-center gap-2 mb-2">
+                          {item.icon}
+                          <h3 className="font-semibold text-white text-xl">
+                            {item.title}
+                          </h3>
+                        </div>
                         <p className="text-blue-200">{item.description}</p>
-                      </>
+                      </div>
                     )}
                   </div>
                 </motion.div>
