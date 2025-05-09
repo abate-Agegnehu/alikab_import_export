@@ -7,17 +7,18 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import TelegramIcon from "@mui/icons-material/Telegram";
 import YouTubeIcon from "@mui/icons-material/YouTube";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import logo4 from "../../assets/logoUpdated.png";
 
 const Footer = () => {
-  const location = useLocation(); // ✅ Get current path
-  const isAgroChemicalsRoute = location.pathname === "/agro-chemicals"; // ✅ Check route
+  const location = useLocation();
+  const navigate = useNavigate();
+  const isAgroChemicalsRoute = location.pathname === "/agro-chemicals";
 
   return (
     <Box
       sx={{
-        backgroundColor: isAgroChemicalsRoute ? "#15803D" : "#1c2551", // ✅ Conditional color
+        backgroundColor: isAgroChemicalsRoute ? "#15803D" : "#1c2551",
         color: "lightgray",
         py: 6,
         px: { xs: 4, md: 10 },
@@ -35,7 +36,7 @@ const Footer = () => {
         }}
       >
         {/* Contact Section */}
-        <Grid item xs={12} md={4}>
+        <Grid item xs={12} sm={6} md={4}>
           <Box mb={2} sx={{ width: 250, marginTop: "-20px" }}>
             <img src={logo4} alt="Tamrin Logo" style={{ width: "100%" }} />
           </Box>
@@ -62,7 +63,7 @@ const Footer = () => {
         </Grid>
 
         {/* Explore Section */}
-        <Grid item xs={12} md={4}>
+        <Grid item xs={12} sm={6} md={4}>
           <Typography
             variant="h6"
             sx={{
@@ -147,7 +148,7 @@ const Footer = () => {
         </Grid>
 
         {/* Quick Links */}
-        <Grid item xs={12} md={4}>
+        <Grid item xs={12} sm={6} md={4}>
           <Typography
             variant="h6"
             sx={{
@@ -197,14 +198,17 @@ const Footer = () => {
             </Box>
             <Box
               component={Link}
-              to="/privacy-policy"
+              to="/admin"
               sx={{
                 color: "inherit",
                 textDecoration: "none",
                 "&:hover": { color: "#FA812F" },
               }}
+              onClick={() => {
+                navigate("/admin");
+              }}
             >
-              Privacy Policy
+              Login
             </Box>
           </Stack>
         </Grid>
