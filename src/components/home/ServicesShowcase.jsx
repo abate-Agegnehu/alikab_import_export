@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import img1 from "../../assets/images/homeImage/auto.png";
 import img2 from "../../assets/images/homeImage/transport.png";
 import img3 from "../../assets/images/oilseeds.jpg";
+import { useNavigate } from "react-router-dom";
 
 const services = [
   {
@@ -45,6 +46,7 @@ const services = [
 ];
 
 const ServiceCards = () => {
+  const navigate = useNavigate();
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   return (
@@ -164,6 +166,7 @@ const ServiceCards = () => {
 
                   {/* Animated CTA button */}
                   <motion.button
+                    onClick={() => navigate("/about")}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     className={`w-full mt-4 py-2 rounded-lg font-semibold text-white bg-gradient-to-r ${service.color} shadow-md`}
