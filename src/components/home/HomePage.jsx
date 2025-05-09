@@ -29,8 +29,8 @@ const HomePage = () => {
       </div>
 
       {/* Add this to your global CSS or a CSS module */}
-      <style jsx>{`
-        .hero-section :global(.hero-bg-image) {
+      <style>{`
+        .hero-section .hero-bg-image {
           background-size: cover;
           background-position: center;
           background-repeat: no-repeat;
@@ -39,7 +39,7 @@ const HomePage = () => {
         }
 
         @media (max-width: 768px) {
-          .hero-section :global(.hero-bg-image) {
+          .hero-section .hero-bg-image {
             background-size: contain;
             background-position: top center;
           }

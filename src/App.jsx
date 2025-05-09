@@ -1,5 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
 import About from "./pages/About";
 import Header from "./components/header/Header";
 import Carcko from "./pages/Carcko";
@@ -12,11 +17,17 @@ import Footer from "./components/footer/Footer";
 import ScrollToTop from "./components/ScrollTop";
 import AgriculturalChemicals from "./pages/AgriculturalChemicals";
 import ConsultancyPage from "./pages/ConsultancyPage";
-const App = () => {
+import AdminDashboard from "./components/adminPage/AdminDashboard";
+
+// Create a separate component that uses routing hooks
+const AppContent = () => {
+  const location = useLocation();
+  const isAdminPage = location.pathname === "/admin";
+
   return (
-    <Router>
+    <div>
       <ScrollToTop />
-      <Header />
+      {!isAdminPage && <Header />}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
@@ -27,9 +38,18 @@ const App = () => {
         <Route path="/machinery" element={<Machine />} />
         <Route path="/agro-chemicals" element={<AgriculturalChemicals />} />
         <Route path="/consultancy" element={<ConsultancyPage />} />
+        <Route path="/admin" element={<AdminDashboard />} />
       </Routes>
-      <Footer />
-      {/* <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis blanditiis cupiditate, voluptatum quos totam qui itaque molestias asperiores consequatur? Facilis illum vero totam culpa adipisci aut modi eveniet inventore beatae.</div> */}
+      {!isAdminPage && <Footer />}
+    </div>
+  );
+};
+
+// Main App component that wraps everything with Router
+const App = () => {
+  return (
+    <Router>
+      <AppContent />
     </Router>
   );
 };
