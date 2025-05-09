@@ -6,6 +6,7 @@ import Testimonials from "../components/home/Testimonials";
 import AboutHero from "../components/home/AboutHero";
 import MarketingQuote from "../components/home/MarketingQuote";
 import { useLocation } from "react-router-dom";
+import ServicesShowcase from "../components/home/ServicesShowcase";
 
 const Home = () => {
   const location = useLocation();
@@ -28,6 +29,7 @@ const Home = () => {
   return (
     <div>
       <LandingPageHome />
+      <ServicesShowcase />
       <AboutHero />
       <CompanyHistory />
       <Testimonials />
